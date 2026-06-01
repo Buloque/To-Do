@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+fae6913ac9435ccb63b0f5d186eab498 CMakeFiles/To-Do_autogen
+641ea5fa1d16805e0c7de2cbc5fe514e To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp
+616db38c30a9ff5fe611cdb09362705e To-Do_autogen/timestamp

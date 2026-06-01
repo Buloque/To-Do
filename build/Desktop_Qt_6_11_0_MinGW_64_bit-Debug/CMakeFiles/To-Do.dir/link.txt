@@ -1,0 +1,3 @@
+D:\Programas\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\To-Do.dir/objects.a
+D:\Programas\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\To-Do.dir/objects.a @CMakeFiles\To-Do.dir\objects1.rsp
+D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe -g -mwindows -Wl,--whole-archive CMakeFiles\To-Do.dir/objects.a -Wl,--no-whole-archive -o To-Do.exe -Wl,--out-implib,libTo-Do.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\To-Do.dir\linkLibs.rsp
