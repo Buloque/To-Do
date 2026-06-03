@@ -965,6 +965,8 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/moc_predefs.h \
+	D:/Projetos/QT/To-Do/criar.cpp \
+	D:/Projetos/QT/To-Do/criar.h \
 	D:/Projetos/QT/To-Do/editar.cpp \
 	D:/Projetos/QT/To-Do/editar.h \
 	D:/Projetos/QT/To-Do/login.cpp \
@@ -974,6 +976,7 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/pagina_inicial.h \
 	D:/Projetos/QT/To-Do/registrar.cpp \
 	D:/Projetos/QT/To-Do/registrar.h \
+	D:/Projetos/QT/To-Do/criar.ui \
 	D:/Projetos/QT/To-Do/editar.ui \
 	D:/Projetos/QT/To-Do/login.ui \
 	D:/Projetos/QT/To-Do/pagina_inicial.ui \

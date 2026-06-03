@@ -9,6 +9,7 @@
 #include <QMessageBox>
 
 #include "editar.h"
+#include "criar.h"
 
 int idGuardada;
 
@@ -68,8 +69,15 @@ void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_btnCriar_clicked()
 {
 
+    criar abrirCr;
+
+    abrirCr.setModal(true);
+
+    abrirCr.exec();
+
 }
 
+////////////////////voltar para o login
 void Pagina_Inicial::limpaDados(){
 
     idGuardada = 0;
@@ -83,4 +91,4 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
     telaLogin.show();
 
 }
-
+////////////////////voltar para o login

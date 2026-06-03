@@ -247,6 +247,30 @@ To-Do_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.s
 .PHONY : To-Do_autogen/mocs_compilation.cpp.s
 
+criar.obj: criar.cpp.obj
+.PHONY : criar.obj
+
+# target to build an object file
+criar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/criar.cpp.obj
+.PHONY : criar.cpp.obj
+
+criar.i: criar.cpp.i
+.PHONY : criar.i
+
+# target to preprocess a source file
+criar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/criar.cpp.i
+.PHONY : criar.cpp.i
+
+criar.s: criar.cpp.s
+.PHONY : criar.s
+
+# target to generate assembly for a file
+criar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/criar.cpp.s
+.PHONY : criar.cpp.s
+
 editar.obj: editar.cpp.obj
 .PHONY : editar.obj
 
@@ -388,6 +412,9 @@ help:
 	@echo ... To-Do_autogen/mocs_compilation.obj
 	@echo ... To-Do_autogen/mocs_compilation.i
 	@echo ... To-Do_autogen/mocs_compilation.s
+	@echo ... criar.obj
+	@echo ... criar.i
+	@echo ... criar.s
 	@echo ... editar.obj
 	@echo ... editar.i
 	@echo ... editar.s

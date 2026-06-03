@@ -755,4 +755,4 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- D:\Projetos\QT\To-Do\editar.h
+ D:\Projetos\QT\To-Do\editar.h D:\Projetos\QT\To-Do\criar.h

@@ -47,7 +47,7 @@ public:
         Pagina_Inicial->setWindowIcon(icon);
         lblTeste = new QLabel(Pagina_Inicial);
         lblTeste->setObjectName("lblTeste");
-        lblTeste->setGeometry(QRect(20, 10, 141, 41));
+        lblTeste->setGeometry(QRect(10, 580, 201, 21));
         layoutWidget = new QWidget(Pagina_Inicial);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(10, 80, 381, 501));
@@ -99,7 +99,7 @@ public:
     void retranslateUi(QDialog *Pagina_Inicial)
     {
         Pagina_Inicial->setWindowTitle(QCoreApplication::translate("Pagina_Inicial", "Tela Principal", nullptr));
-        lblTeste->setText(QCoreApplication::translate("Pagina_Inicial", "TextLabel", nullptr));
+        lblTeste->setText(QCoreApplication::translate("Pagina_Inicial", "Total de Registros:", nullptr));
         btnCriar->setText(QCoreApplication::translate("Pagina_Inicial", "Criar", nullptr));
         btnEditar->setText(QCoreApplication::translate("Pagina_Inicial", "Editar", nullptr));
         btnApagar->setText(QCoreApplication::translate("Pagina_Inicial", "Apagar", nullptr));

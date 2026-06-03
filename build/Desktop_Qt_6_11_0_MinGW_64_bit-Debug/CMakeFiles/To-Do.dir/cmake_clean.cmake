@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj.d"
   "CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/To-Do.dir/criar.cpp.obj"
+  "CMakeFiles/To-Do.dir/criar.cpp.obj.d"
   "CMakeFiles/To-Do.dir/editar.cpp.obj"
   "CMakeFiles/To-Do.dir/editar.cpp.obj.d"
   "CMakeFiles/To-Do.dir/login.cpp.obj"
