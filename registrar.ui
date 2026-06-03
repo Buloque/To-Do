@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>registrar</class>
+ <widget class="QDialog" name="registrar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>514</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="statusTip">
+   <string/>
+  </property>
+  <property name="accessibleName">
+   <string/>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>120</y>
+     <width>311</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="lbllogconf">
+        <property name="text">
+         <string>🚫 - Nenhum nome escrito</string>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Usuário:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="txtLogin">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Senha:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="txtSenha">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>50</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::PasswordEchoOnEdit</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Repita a Senha:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="txtSenha_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>50</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::PasswordEchoOnEdit</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="VerificaSenha">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style=&quot;color: red;&quot;&gt;Não pode deixar o campo em branco.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>0</y>
+     <width>311</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Registro&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

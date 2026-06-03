@@ -731,4 +731,6 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_pagina_inicial.cpp \
  D:/Projetos/QT/To-Do/pagina_inicial.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_registrar.cpp \
+ D:/Projetos/QT/To-Do/registrar.h

@@ -343,6 +343,30 @@ pagina_inicial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/pagina_inicial.cpp.s
 .PHONY : pagina_inicial.cpp.s
 
+registrar.obj: registrar.cpp.obj
+.PHONY : registrar.obj
+
+# target to build an object file
+registrar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/registrar.cpp.obj
+.PHONY : registrar.cpp.obj
+
+registrar.i: registrar.cpp.i
+.PHONY : registrar.i
+
+# target to preprocess a source file
+registrar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/registrar.cpp.i
+.PHONY : registrar.cpp.i
+
+registrar.s: registrar.cpp.s
+.PHONY : registrar.s
+
+# target to generate assembly for a file
+registrar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/registrar.cpp.s
+.PHONY : registrar.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -376,6 +400,9 @@ help:
 	@echo ... pagina_inicial.obj
 	@echo ... pagina_inicial.i
 	@echo ... pagina_inicial.s
+	@echo ... registrar.obj
+	@echo ... registrar.i
+	@echo ... registrar.s
 .PHONY : help
 
 

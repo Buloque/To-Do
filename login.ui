@@ -55,7 +55,7 @@
       <x>20</x>
       <y>180</y>
       <width>311</width>
-      <height>187</height>
+      <height>262</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -129,7 +129,40 @@
          </property>
         </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Registre-se</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

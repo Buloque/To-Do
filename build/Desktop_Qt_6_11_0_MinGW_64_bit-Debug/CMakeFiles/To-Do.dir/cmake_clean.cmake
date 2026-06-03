@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/To-Do.dir/main.cpp.obj.d"
   "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj"
   "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj.d"
+  "CMakeFiles/To-Do.dir/registrar.cpp.obj"
+  "CMakeFiles/To-Do.dir/registrar.cpp.obj.d"
   "CMakeFiles/To-Do_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/To-Do_autogen.dir/ParseCache.txt"
   "To-Do_autogen"

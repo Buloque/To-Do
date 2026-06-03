@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_editar.cpp"
 #include "EWIEGA46WW/moc_login.cpp"
 #include "EWIEGA46WW/moc_pagina_inicial.cpp"
+#include "EWIEGA46WW/moc_registrar.cpp"

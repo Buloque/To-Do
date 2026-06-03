@@ -5,6 +5,7 @@
 #include <QMessageBox>
 
 #include "pagina_inicial.h"
+#include "registrar.h"
 
 static QSqlDatabase bancoDados;
 
@@ -100,4 +101,16 @@ void Login::on_btnEntrar_clicked()
 }
 
 
+
+
+void Login::on_pushButton_clicked()//registrar
+{
+
+    registrar *abrirReg = new registrar(); // mesma coisa que Pagina_Inicial abrirTI;
+
+    abrirReg->setModal(true);
+
+    abrirReg->exec();
+
+}
 

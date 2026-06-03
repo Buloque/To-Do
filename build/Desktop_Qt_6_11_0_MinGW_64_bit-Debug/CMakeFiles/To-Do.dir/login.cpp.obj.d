@@ -761,4 +761,5 @@ CMakeFiles/To-Do.dir/login.cpp.obj: D:\Projetos\QT\To-Do\login.cpp \
  D:\Projetos\QT\To-Do\pagina_inicial.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ D:\Projetos\QT\To-Do\registrar.h

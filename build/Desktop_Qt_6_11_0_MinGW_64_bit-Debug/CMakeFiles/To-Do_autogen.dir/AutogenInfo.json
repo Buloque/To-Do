@@ -399,6 +399,12 @@
 			"MU",
 			"EWIEGA46WW/moc_pagina_inicial.cpp",
 			null
+		],
+		[
+			"D:/Projetos/QT/To-Do/registrar.h",
+			"MU",
+			"EWIEGA46WW/moc_registrar.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -478,7 +484,8 @@
 		[ "D:/Projetos/QT/To-Do/editar.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/login.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/main.cpp", "MU", null ],
-		[ "D:/Projetos/QT/To-Do/pagina_inicial.cpp", "MU", null ]
+		[ "D:/Projetos/QT/To-Do/pagina_inicial.cpp", "MU", null ],
+		[ "D:/Projetos/QT/To-Do/registrar.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

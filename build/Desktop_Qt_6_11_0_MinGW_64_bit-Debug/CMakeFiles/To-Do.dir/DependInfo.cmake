@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Projetos/QT/To-Do/login.cpp" "CMakeFiles/To-Do.dir/login.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/login.cpp.obj.d"
   "D:/Projetos/QT/To-Do/main.cpp" "CMakeFiles/To-Do.dir/main.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/main.cpp.obj.d"
   "D:/Projetos/QT/To-Do/pagina_inicial.cpp" "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj.d"
+  "D:/Projetos/QT/To-Do/registrar.cpp" "CMakeFiles/To-Do.dir/registrar.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/registrar.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

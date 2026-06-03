@@ -39,6 +39,9 @@ public:
     QLineEdit *txtSenha;
     QSpacerItem *horizontalSpacer;
     QPushButton *btnEntrar;
+    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -61,7 +64,7 @@ public:
         label_4->setScaledContents(true);
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(20, 180, 311, 187));
+        layoutWidget->setGeometry(QRect(20, 180, 311, 262));
         verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -107,8 +110,21 @@ public:
 
         verticalLayout_2->addWidget(btnEntrar);
 
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        verticalLayout_2->addItem(horizontalSpacer_2);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        verticalLayout_2->addItem(horizontalSpacer_3);
+
 
         verticalLayout_3->addLayout(verticalLayout_2);
+
+        pushButton = new QPushButton(layoutWidget);
+        pushButton->setObjectName("pushButton");
+
+        verticalLayout_3->addWidget(pushButton);
 
         Login->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Login);
@@ -133,6 +149,7 @@ public:
         label_2->setText(QCoreApplication::translate("Login", "Senha:", nullptr));
         txtSenha->setText(QCoreApplication::translate("Login", "Teste", nullptr));
         btnEntrar->setText(QCoreApplication::translate("Login", "Entrar", nullptr));
+        pushButton->setText(QCoreApplication::translate("Login", "Registre-se", nullptr));
     } // retranslateUi
 
 };

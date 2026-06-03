@@ -972,7 +972,10 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/main.cpp \
 	D:/Projetos/QT/To-Do/pagina_inicial.cpp \
 	D:/Projetos/QT/To-Do/pagina_inicial.h \
+	D:/Projetos/QT/To-Do/registrar.cpp \
+	D:/Projetos/QT/To-Do/registrar.h \
 	D:/Projetos/QT/To-Do/editar.ui \
 	D:/Projetos/QT/To-Do/login.ui \
 	D:/Projetos/QT/To-Do/pagina_inicial.ui \
+	D:/Projetos/QT/To-Do/registrar.ui \
 	D:/Programas/Qt/Tools/CMake_64/bin/cmake.exe

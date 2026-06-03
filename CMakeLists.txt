@@ -26,6 +26,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Imagens.qrc
         pagina_inicial.h pagina_inicial.cpp pagina_inicial.ui
         editar.h editar.cpp editar.ui
+        registrar.h registrar.cpp registrar.ui
 
     )
 # Define target properties for Android with Qt 6 as:
