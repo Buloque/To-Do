@@ -386,6 +386,7 @@ CMakeFiles/To-Do.dir/editar.cpp.obj: D:\Projetos\QT\To-Do\editar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qbitmap.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_editar.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \

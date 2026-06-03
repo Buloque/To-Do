@@ -12,8 +12,11 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -25,6 +28,9 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
+    QLabel *label_4;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_2;
     QLabel *lbllogconf;
     QLabel *label;
     QLineEdit *txtLogin;
@@ -34,21 +40,39 @@ public:
     QLabel *label_3;
     QLineEdit *txtSenha_2;
     QLabel *VerificaSenha;
-    QLabel *label_4;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *dbCriar;
+    QPushButton *pushButton_2;
 
     void setupUi(QDialog *registrar)
     {
         if (registrar->objectName().isEmpty())
             registrar->setObjectName("registrar");
-        registrar->resize(400, 514);
+        registrar->resize(350, 549);
+        registrar->setMinimumSize(QSize(350, 549));
+        registrar->setMaximumSize(QSize(350, 549));
         layoutWidget = new QWidget(registrar);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(40, 120, 311, 261));
+        layoutWidget->setGeometry(QRect(20, 30, 311, 373));
         verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
+        label_4 = new QLabel(layoutWidget);
+        label_4->setObjectName("label_4");
+
+        verticalLayout->addWidget(label_4);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer_2);
+
         lbllogconf = new QLabel(layoutWidget);
         lbllogconf->setObjectName("lbllogconf");
         lbllogconf->setTextInteractionFlags(Qt::TextInteractionFlag::NoTextInteraction);
@@ -107,9 +131,25 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
-        label_4 = new QLabel(registrar);
-        label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(40, 0, 311, 91));
+        widget = new QWidget(registrar);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(160, 470, 168, 26));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        dbCriar = new QPushButton(widget);
+        dbCriar->setObjectName("dbCriar");
+        dbCriar->setCheckable(false);
+        dbCriar->setChecked(false);
+        dbCriar->setFlat(false);
+
+        horizontalLayout->addWidget(dbCriar);
+
+        pushButton_2 = new QPushButton(widget);
+        pushButton_2->setObjectName("pushButton_2");
+
+        horizontalLayout->addWidget(pushButton_2);
+
 
         retranslateUi(registrar);
 
@@ -118,7 +158,7 @@ public:
 
     void retranslateUi(QDialog *registrar)
     {
-        registrar->setWindowTitle(QCoreApplication::translate("registrar", "Dialog", nullptr));
+        registrar->setWindowTitle(QCoreApplication::translate("registrar", "Registro", nullptr));
 #if QT_CONFIG(tooltip)
         registrar->setToolTip(QString());
 #endif // QT_CONFIG(tooltip)
@@ -128,6 +168,7 @@ public:
 #if QT_CONFIG(accessibility)
         registrar->setAccessibleName(QString());
 #endif // QT_CONFIG(accessibility)
+        label_4->setText(QCoreApplication::translate("registrar", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Registro</span></p></body></html>", nullptr));
         lbllogconf->setText(QCoreApplication::translate("registrar", "\360\237\232\253 - Nenhum nome escrito", nullptr));
         label->setText(QCoreApplication::translate("registrar", "Usu\303\241rio:", nullptr));
         txtLogin->setText(QString());
@@ -136,7 +177,8 @@ public:
         label_3->setText(QCoreApplication::translate("registrar", "Repita a Senha:", nullptr));
         txtSenha_2->setText(QString());
         VerificaSenha->setText(QCoreApplication::translate("registrar", "<html><head/><body><p style=\"color: red;\">N\303\243o pode deixar o campo em branco.</p></body></html>", nullptr));
-        label_4->setText(QCoreApplication::translate("registrar", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Registro</span></p></body></html>", nullptr));
+        dbCriar->setText(QCoreApplication::translate("registrar", "Criar", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("registrar", "Cancelar", nullptr));
     } // retranslateUi
 
 };

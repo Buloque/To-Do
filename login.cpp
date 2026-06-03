@@ -77,7 +77,7 @@ void Login::on_btnEntrar_clicked()
                 //Envia o ID para a Pagina Inicial
                 abrirTI.guardandoID(id);
 
-                abrirTI.setModal(true);
+                //abrirTI.setModal(true);
 
                 abrirTI.exec();
 
@@ -108,7 +108,10 @@ void Login::on_pushButton_clicked()//registrar
 
     registrar *abrirReg = new registrar(); // mesma coisa que Pagina_Inicial abrirTI;
 
-    abrirReg->setModal(true);
+
+    abrirReg->setModal(true);//não deixa o usuario mudar nada na pagina anterior
+
+    this -> hide();//fecha temporariamente a tela
 
     abrirReg->exec();
 

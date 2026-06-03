@@ -339,6 +339,7 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -346,6 +347,7 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \

@@ -405,39 +405,9 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
- D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_pagina_inicial.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreevent.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbasictimer.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qeventloop.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qnativeinterface.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
+ D:\Projetos\QT\To-Do\login.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSql \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSqlDepends \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QtCore \
@@ -452,6 +422,9 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q23functional.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q26numeric.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractanimation.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qeventloop.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractnativeeventfilter.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractproxymodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qanimationgroup.h \
@@ -459,10 +432,16 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QMutex \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qmutex.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qtsan_impl.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbasictimer.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qnativeinterface.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qassociativeiterable.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qatomicscopedvaluerollback.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbitarray.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbuffer.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbytearraymatcher.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcache.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \
@@ -470,6 +449,7 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborvalue.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborcommon.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdatetime.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/quuid.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcbormap.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborstream.h \
@@ -716,6 +696,7 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurlquery.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qvarianthash.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QHash \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QString \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qvariantlist.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QList \
@@ -746,6 +727,29 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
+ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_pagina_inicial.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QSize \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \

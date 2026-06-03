@@ -721,6 +721,8 @@ CMakeFiles/To-Do.dir/main.cpp.obj: D:\Projetos\QT\To-Do\main.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \

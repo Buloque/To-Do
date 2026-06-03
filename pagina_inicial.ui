@@ -6,20 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>586</height>
+    <width>400</width>
+    <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Tela Principal</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Imagens.qrc">
+    <normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</iconset>
   </property>
   <widget class="QLabel" name="lblTeste">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>20</y>
-     <width>49</width>
-     <height>16</height>
+     <x>20</x>
+     <y>10</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -47,6 +63,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="btnEditar">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>Editar</string>
         </property>
@@ -66,7 +85,37 @@
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="pbSair">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>10</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sair</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagens.qrc"/>
+ </resources>
  <connections/>
 </ui>

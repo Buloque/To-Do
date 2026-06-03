@@ -721,6 +721,8 @@ CMakeFiles/To-Do.dir/login.cpp.obj: D:\Projetos\QT\To-Do\login.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_login.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
@@ -756,10 +758,8 @@ CMakeFiles/To-Do.dir/login.cpp.obj: D:\Projetos\QT\To-Do\login.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  D:\Projetos\QT\To-Do\pagina_inicial.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
  D:\Projetos\QT\To-Do\registrar.h

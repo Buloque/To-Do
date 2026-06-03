@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QListWidgetItem>
 
+#include "login.h"
+
 namespace Ui {
 class Pagina_Inicial;
 }
@@ -19,14 +21,18 @@ public:
 
     void carregarDados();
 
+    void limpaDados();
+
 private slots:
     void on_lwTodosT_itemDoubleClicked(QListWidgetItem *item);
 
     void on_btnCriar_clicked();
 
+    void on_pbSair_clicked();
+
 private:
     Ui::Pagina_Inicial *ui;
-
+    Login telaLogin;
 };
 
 #endif // PAGINA_INICIAL_H

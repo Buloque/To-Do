@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "login.h"
+
 namespace Ui {
 class registrar;
 }
@@ -13,6 +15,7 @@ class registrar : public QDialog
 
 public:
     explicit registrar(QWidget *parent = nullptr);
+
     ~registrar();
 
 private slots:
@@ -20,8 +23,13 @@ private slots:
 
     void on_txtLogin_editingFinished();
 
+    void on_dbCriar_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::registrar *ui;
+    Login telaLogin;
 };
 
 #endif // REGISTRAR_H

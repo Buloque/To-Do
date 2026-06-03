@@ -70,3 +70,17 @@ void Pagina_Inicial::on_btnCriar_clicked()
 
 }
 
+void Pagina_Inicial::limpaDados(){
+
+    idGuardada = 0;
+    ui->lwTodosT->clear();
+}
+
+void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, botão desativado.
+{
+
+    this -> hide();
+    telaLogin.show();
+
+}
+

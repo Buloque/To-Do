@@ -11,9 +11,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Editar</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Imagens.qrc">
+    <normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</iconset>
   </property>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagens.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -10,6 +10,7 @@
 #define UI_EDITAR_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 
@@ -24,6 +25,9 @@ public:
         if (editar->objectName().isEmpty())
             editar->setObjectName("editar");
         editar->resize(400, 566);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        editar->setWindowIcon(icon);
 
         retranslateUi(editar);
 
@@ -32,7 +36,7 @@ public:
 
     void retranslateUi(QDialog *editar)
     {
-        editar->setWindowTitle(QCoreApplication::translate("editar", "Dialog", nullptr));
+        editar->setWindowTitle(QCoreApplication::translate("editar", "Editar", nullptr));
     } // retranslateUi
 
 };

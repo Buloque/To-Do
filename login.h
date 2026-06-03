@@ -5,9 +5,11 @@
 #include <QMainWindow>
 #include <QtSql>
 
+#include <QDialog> //para conseguir chamar o Login No
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class Login;
+class Login ;
 }
 QT_END_NAMESPACE
 
