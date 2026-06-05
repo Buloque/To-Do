@@ -10,14 +10,17 @@
 #define UI_CRIAR_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
 
@@ -33,13 +36,19 @@ public:
     QPushButton *pbItalic;
     QPushButton *pbStrikeOut;
     QPushButton *pbUnderline;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *pbReset;
+    QSpacerItem *horizontalSpacer;
     QDateEdit *dateEdit;
+    QPushButton *pbDia;
     QTimeEdit *timeEdit;
-    QPlainTextEdit *plainTextEdit;
+    QPushButton *pbHora;
+    QComboBox *cbUrgencia;
+    QTextEdit *texto;
     QHBoxLayout *horizontalLayout;
     QPushButton *pbSalvar;
     QPushButton *pbCancelar;
-    QLabel *label;
+    QLabel *lblInfo;
 
     void setupUi(QDialog *criar)
     {
@@ -47,6 +56,9 @@ public:
             criar->setObjectName("criar");
         criar->resize(665, 400);
         criar->setMinimumSize(QSize(665, 400));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        criar->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(criar);
         verticalLayout->setObjectName("verticalLayout");
         leTitulo = new QLineEdit(criar);
@@ -58,6 +70,7 @@ public:
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         pbNegrito = new QPushButton(criar);
         pbNegrito->setObjectName("pbNegrito");
+        pbNegrito->setMaximumSize(QSize(30, 30));
         QFont font;
         font.setBold(true);
         pbNegrito->setFont(font);
@@ -66,6 +79,7 @@ public:
 
         pbItalic = new QPushButton(criar);
         pbItalic->setObjectName("pbItalic");
+        pbItalic->setMaximumSize(QSize(30, 30));
         QFont font1;
         font1.setItalic(true);
         pbItalic->setFont(font1);
@@ -74,6 +88,7 @@ public:
 
         pbStrikeOut = new QPushButton(criar);
         pbStrikeOut->setObjectName("pbStrikeOut");
+        pbStrikeOut->setMaximumSize(QSize(30, 30));
         QFont font2;
         font2.setItalic(true);
         font2.setStrikeOut(true);
@@ -84,6 +99,7 @@ public:
 
         pbUnderline = new QPushButton(criar);
         pbUnderline->setObjectName("pbUnderline");
+        pbUnderline->setMaximumSize(QSize(30, 30));
         QFont font3;
         font3.setItalic(false);
         font3.setUnderline(true);
@@ -91,10 +107,30 @@ public:
 
         horizontalLayout_2->addWidget(pbUnderline);
 
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+        pbReset = new QPushButton(criar);
+        pbReset->setObjectName("pbReset");
+        pbReset->setMaximumSize(QSize(30, 30));
+
+        horizontalLayout_2->addWidget(pbReset);
+
+        horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
         dateEdit = new QDateEdit(criar);
         dateEdit->setObjectName("dateEdit");
 
         horizontalLayout_2->addWidget(dateEdit);
+
+        pbDia = new QPushButton(criar);
+        pbDia->setObjectName("pbDia");
+        pbDia->setMaximumSize(QSize(30, 30));
+
+        horizontalLayout_2->addWidget(pbDia);
 
         timeEdit = new QTimeEdit(criar);
         timeEdit->setObjectName("timeEdit");
@@ -104,13 +140,28 @@ public:
 
         horizontalLayout_2->addWidget(timeEdit);
 
+        pbHora = new QPushButton(criar);
+        pbHora->setObjectName("pbHora");
+        pbHora->setMaximumSize(QSize(30, 30));
+
+        horizontalLayout_2->addWidget(pbHora);
+
+        cbUrgencia = new QComboBox(criar);
+        cbUrgencia->addItem(QString());
+        cbUrgencia->addItem(QString());
+        cbUrgencia->addItem(QString());
+        cbUrgencia->addItem(QString());
+        cbUrgencia->setObjectName("cbUrgencia");
+
+        horizontalLayout_2->addWidget(cbUrgencia);
+
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        plainTextEdit = new QPlainTextEdit(criar);
-        plainTextEdit->setObjectName("plainTextEdit");
+        texto = new QTextEdit(criar);
+        texto->setObjectName("texto");
 
-        verticalLayout->addWidget(plainTextEdit);
+        verticalLayout->addWidget(texto);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -127,10 +178,10 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        label = new QLabel(criar);
-        label->setObjectName("label");
+        lblInfo = new QLabel(criar);
+        lblInfo->setObjectName("lblInfo");
 
-        verticalLayout->addWidget(label);
+        verticalLayout->addWidget(lblInfo);
 
 
         retranslateUi(criar);
@@ -140,15 +191,23 @@ public:
 
     void retranslateUi(QDialog *criar)
     {
-        criar->setWindowTitle(QCoreApplication::translate("criar", "Dialog", nullptr));
-        leTitulo->setText(QCoreApplication::translate("criar", "Titulo", nullptr));
+        criar->setWindowTitle(QCoreApplication::translate("criar", "Criar", nullptr));
+        leTitulo->setText(QString());
         pbNegrito->setText(QCoreApplication::translate("criar", "B", nullptr));
         pbItalic->setText(QCoreApplication::translate("criar", "i", nullptr));
         pbStrikeOut->setText(QCoreApplication::translate("criar", "S", nullptr));
         pbUnderline->setText(QCoreApplication::translate("criar", "u", nullptr));
+        pbReset->setText(QCoreApplication::translate("criar", "R", nullptr));
+        pbDia->setText(QCoreApplication::translate("criar", "D", nullptr));
+        pbHora->setText(QCoreApplication::translate("criar", "H", nullptr));
+        cbUrgencia->setItemText(0, QCoreApplication::translate("criar", "\360\237\237\242 Baixo", nullptr));
+        cbUrgencia->setItemText(1, QCoreApplication::translate("criar", "\360\237\237\241 M\303\251dio", nullptr));
+        cbUrgencia->setItemText(2, QCoreApplication::translate("criar", "\360\237\237\240 Alto", nullptr));
+        cbUrgencia->setItemText(3, QCoreApplication::translate("criar", "\360\237\224\264 Urgente", nullptr));
+
         pbSalvar->setText(QCoreApplication::translate("criar", "Salvar", nullptr));
         pbCancelar->setText(QCoreApplication::translate("criar", "Cancelar", nullptr));
-        label->setText(QCoreApplication::translate("criar", "Info adicionais", nullptr));
+        lblInfo->setText(QCoreApplication::translate("criar", "Linha:0  coluna: 0", nullptr));
     } // retranslateUi
 
 };

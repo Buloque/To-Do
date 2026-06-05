@@ -386,6 +386,7 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qbitmap.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_criar.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -400,14 +401,26 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDateEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdatetime.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
@@ -416,7 +429,6 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
@@ -427,31 +439,13 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPlainTextEdit \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qplaintextedit.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qabstracttextdocumentlayout.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextlayout.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qevent.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qeventpoint.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvector2d.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvectornd.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpointingdevice.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputdevice.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qscreen.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QList \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QObject \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QRect \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QSize \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QSizeF \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QTransform \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qscreen_platform.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qglyphrun.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qrawfont.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qfontdatabase.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTimeEdit \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QDateTime
