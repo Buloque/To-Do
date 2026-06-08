@@ -448,4 +448,45 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTimeEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QDateTime
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QDateTime \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QTextStream \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QFileDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdir.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdirlisting.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qfiledevice.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ D:/Programas/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ D:/Programas/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qfile.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h

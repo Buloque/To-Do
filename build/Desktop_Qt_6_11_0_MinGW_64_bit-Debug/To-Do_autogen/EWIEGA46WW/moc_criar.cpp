@@ -48,7 +48,9 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         "on_pbReset_clicked",
         "on_pbDia_clicked",
         "on_pbHora_clicked",
-        "on_texto_cursorPositionChanged"
+        "on_texto_cursorPositionChanged",
+        "on_pbSalvar_clicked",
+        "on_pbCancelar_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -70,6 +72,10 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_texto_cursorPositionChanged'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbSalvar_clicked'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbCancelar_clicked'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -102,6 +108,8 @@ void criar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 6: _t->on_pbDia_clicked(); break;
         case 7: _t->on_pbHora_clicked(); break;
         case 8: _t->on_texto_cursorPositionChanged(); break;
+        case 9: _t->on_pbSalvar_clicked(); break;
+        case 10: _t->on_pbCancelar_clicked(); break;
         default: ;
         }
     }
@@ -127,14 +135,14 @@ int criar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }

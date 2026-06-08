@@ -245,7 +245,7 @@
    <item>
     <widget class="QLabel" name="lblInfo">
      <property name="text">
-      <string>Linha:0  coluna: 0</string>
+      <string>Linha: 0  coluna: 0</string>
      </property>
     </widget>
    </item>

@@ -36,6 +36,10 @@ private slots:
 
     void on_texto_cursorPositionChanged();
 
+    void on_pbSalvar_clicked();
+
+    void on_pbCancelar_clicked();
+
 private:
     Ui::criar *ui;
 };

@@ -2,8 +2,13 @@
 #include "ui_criar.h"
 
 #include <QDateTime> // para pegar a data
+#include <QMessageBox>
+#include <QTextStream>
+#include <QFileDialog>
 
 QFont fonte;
+QFont orig; // Correção Strike
+QFile arquivo;
 
 criar::criar(QWidget *parent)
     : QDialog(parent)
@@ -28,6 +33,8 @@ void criar::subtextos(){
     //atualiza para o mesmo horario que o do usuario
     ui->timeEdit->setDateTime(QDateTime::currentDateTime());
     ui->dateEdit->setDateTime(QDateTime::currentDateTime());
+
+
 
 
 }
@@ -68,13 +75,18 @@ void criar::on_pbStrikeOut_clicked()
 
     if((veficaTexto()) == false){
 
+        orig = ui->texto->currentFont();//salva as caracteri do texto
+
         fonte.setStrikeOut(true);
         ui->texto->setCurrentFont(fonte);
 
     }else{
 
+        //orig = ui->texto->currentFont();
         fonte.setStrikeOut(false);
-        ui->texto->setCurrentFont(fonte);
+        ui->texto->setCurrentFont(orig);//devolve as caracteristicas
+
+
 
     }
 
@@ -134,7 +146,7 @@ void criar::on_pbReset_clicked()//deixa a letra normal
     ui->texto->setFontItalic(false);
 
     fonte.setStrikeOut(false);
-    ui->texto->setCurrentFont(fonte);
+    ui->texto->setCurrentFont(orig);
 
     ui->texto->setFontUnderline(false);
 
@@ -165,4 +177,69 @@ void criar::on_texto_cursorPositionChanged(){
 
     ui->lblInfo->setText("Linha: " + QString::number(linha) + " coluna: "+ QString::number(coluna));
 }
+
+void criar::on_pbCancelar_clicked()
+{
+    //pega o local no ponteiro no texto selecionado
+    QTextCursor cursor = ui->texto->textCursor();
+    int coluna = cursor.columnNumber();
+
+    QMessageBox::StandardButton conf;
+
+    if(coluna > 1){
+
+        conf = QMessageBox::question(this,"Aviso",
+                             "Tem certeza que deseja sair?");
+
+        if(conf == QMessageBox::Yes){
+
+            this->close();
+        }
+
+    }else{
+
+        this->close();
+
+    }
+}
+
+void criar::on_pbSalvar_clicked()
+{
+    QTextStream caminho;
+    QString nomeArquivo;
+
+    QString pegaNome = ui->leTitulo->text();
+
+    nomeArquivo = QFileDialog::getSaveFileName(this,
+                                                    "Salvar",
+                                                    pegaNome,"Arquivo TXT (*.txt)");
+
+    if(nomeArquivo.isEmpty()){
+
+
+        return;
+    }
+
+    arquivo.setFileName(nomeArquivo);
+
+    arquivo.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    if(!arquivo.isOpen()){
+
+        QMessageBox::critical(this,"Aviso",
+                              "Erro ao salvar o arquivo");
+
+    }
+
+    caminho.setDevice(&arquivo);
+
+    caminho << ui->cbUrgencia->currentText() + "  Data: " +  ui->dateEdit->text() + "  Hora: " + ui->timeEdit->text() + "\n\n" +
+        ui->texto->toPlainText();
+    //<< ui->texto->toPlainText() +
+    arquivo.close();
+
+}
+
+
+
 

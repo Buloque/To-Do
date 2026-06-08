@@ -207,7 +207,7 @@ public:
 
         pbSalvar->setText(QCoreApplication::translate("criar", "Salvar", nullptr));
         pbCancelar->setText(QCoreApplication::translate("criar", "Cancelar", nullptr));
-        lblInfo->setText(QCoreApplication::translate("criar", "Linha:0  coluna: 0", nullptr));
+        lblInfo->setText(QCoreApplication::translate("criar", "Linha: 0  coluna: 0", nullptr));
     } // retranslateUi
 
 };
