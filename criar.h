@@ -14,8 +14,12 @@ class criar : public QDialog
 public:
     explicit criar(QWidget *parent = nullptr);
     ~criar();
+    void guardandoID(int ID);
     void subtextos();
     bool veficaTexto();
+
+
+    int verificaUrgencia();
 
 private slots:
     void on_pbNegrito_clicked();
@@ -40,8 +44,11 @@ private slots:
 
     void on_pbCancelar_clicked();
 
+    void on_pbSalvarLocal_clicked();
+
 private:
     Ui::criar *ui;
+
 };
 
 #endif // CRIAR_H

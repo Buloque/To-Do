@@ -50,7 +50,8 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         "on_pbHora_clicked",
         "on_texto_cursorPositionChanged",
         "on_pbSalvar_clicked",
-        "on_pbCancelar_clicked"
+        "on_pbCancelar_clicked",
+        "on_pbSalvarLocal_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -76,6 +77,8 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pbCancelar_clicked'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbSalvarLocal_clicked'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -110,6 +113,7 @@ void criar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 8: _t->on_texto_cursorPositionChanged(); break;
         case 9: _t->on_pbSalvar_clicked(); break;
         case 10: _t->on_pbCancelar_clicked(); break;
+        case 11: _t->on_pbSalvarLocal_clicked(); break;
         default: ;
         }
     }
@@ -135,14 +139,14 @@ int criar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

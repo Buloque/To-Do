@@ -5,17 +5,32 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QFileDialog>
+#include <QtSql>
+
+#include "pagina_inicial.h"
 
 QFont fonte;
 QFont orig; // Correção Strike
 QFile arquivo;
+
+int idRecuperada;
+
+void criar::guardandoID(int ID){
+
+    idRecuperada = ID;
+    subtextos(); // trocado o local para carregar o ID antes de tudo.
+
+}
 
 criar::criar(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::criar)
 {
     ui->setupUi(this);
-    subtextos();
+
+
+
+
 }
 
 criar::~criar()
@@ -31,8 +46,20 @@ void criar::subtextos(){
     ui->texto->setPlaceholderText("Escreva suas notas aqui");
 
     //atualiza para o mesmo horario que o do usuario
-    ui->timeEdit->setDateTime(QDateTime::currentDateTime());
-    ui->dateEdit->setDateTime(QDateTime::currentDateTime());
+
+    //Criando variavel para receber utc
+    QDateTime horaDiaAtual = QDateTime::currentDateTime();
+
+    //pega o fuso horario do computador
+    //bug - Horas sai errada
+    //QTimeZone fuso = QTimeZone::systemTimeZone();
+    //horaDiaAtual.setTimeSpec(Qt::LocalTime);
+
+    //Coloca as horas como a de brasilia
+    //horaDiaAtual.setTimeZone(fuso);
+
+    ui->timeEdit->setDateTime(horaDiaAtual);
+    ui->dateEdit->setDateTime(horaDiaAtual);
 
 
 
@@ -203,16 +230,92 @@ void criar::on_pbCancelar_clicked()
     }
 }
 
+int criar::verificaUrgencia(){
+
+    QString urgString = ui->cbUrgencia->currentText();
+
+    if(urgString == "🟢 Baixo"){
+
+        return 0;
+
+    }else if(urgString == "🟡 Médio"){
+
+        return 1;
+
+    }else if(urgString == "🟠 Alto"){
+
+        return 2;
+
+    }else if(urgString == "🔴 Urgente"){
+
+        return 3;
+
+    }
+
+    return 0;
+
+}
+
 void criar::on_pbSalvar_clicked()
 {
+
+
+    QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
+    QString bloco = ui->texto->toPlainText();
+    QString data =  ui->dateEdit->text();
+    QString hora = ui->timeEdit->text();
+    QString urgencia = QString::number(verificaUrgencia());
+
+    // DEBUG - Mostre o conteúdo das variáveis
+    qDebug() << "nome:" << nome;
+    qDebug() << "bloco:" << bloco;
+    qDebug() << "data:" << data;
+    qDebug() << "hora:" << hora;
+    qDebug() << "urgencia:" << urgencia;
+    qDebug() << "nome está vazio?" << nome.isEmpty();
+
+    QSqlQuery salvaBloco;
+
+    salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId) "
+                       "values ('"+nome+"','"+bloco+"','"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+    //a urgencia recebe 0 para ficar como em andamento
+
+
+    if(salvaBloco.exec()){
+
+        QMessageBox::information(this,"atenção","Registro salvo com sucesso.");
+
+        this->close();
+
+    }else{
+        //mostra o erro
+        QMessageBox::information(this,"atenção","não foi possivel salvar as informações.\n" + salvaBloco.lastError().text());
+
+    }
+
+}
+
+
+
+
+
+void criar::on_pbSalvarLocal_clicked()
+{
+
+
+    //////////////////////////////Salvar localmente
     QTextStream caminho;
     QString nomeArquivo;
 
     QString pegaNome = ui->leTitulo->text();
 
+    Pagina_Inicial idPush;
+
+    int id = idPush.idGuardada;
+
     nomeArquivo = QFileDialog::getSaveFileName(this,
-                                                    "Salvar",
-                                                    pegaNome,"Arquivo TXT (*.txt)");
+                                               "Salvar",
+                                               pegaNome,"Arquivo TXT (*.txt)");
 
     if(nomeArquivo.isEmpty()){
 
@@ -233,13 +336,13 @@ void criar::on_pbSalvar_clicked()
 
     caminho.setDevice(&arquivo);
 
-    caminho << ui->cbUrgencia->currentText() + "  Data: " +  ui->dateEdit->text() + "  Hora: " + ui->timeEdit->text() + "\n\n" +
-        ui->texto->toPlainText();
+    caminho <<"Id:"+ QString::number(id) +" " + ui->cbUrgencia->currentText() + "  Data: " +  ui->dateEdit->text() + "  Hora: " + ui->timeEdit->text() + "\n\n" +
+                   ui->texto->toPlainText();
     //<< ui->texto->toPlainText() +
     arquivo.close();
 
+    //////////////////////////////Salvar localmente
+
+
 }
-
-
-
 

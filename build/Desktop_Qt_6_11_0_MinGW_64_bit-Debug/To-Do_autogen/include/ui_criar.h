@@ -46,6 +46,7 @@ public:
     QComboBox *cbUrgencia;
     QTextEdit *texto;
     QHBoxLayout *horizontalLayout;
+    QPushButton *pbSalvarLocal;
     QPushButton *pbSalvar;
     QPushButton *pbCancelar;
     QLabel *lblInfo;
@@ -165,6 +166,17 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
+        pbSalvarLocal = new QPushButton(criar);
+        pbSalvarLocal->setObjectName("pbSalvarLocal");
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pbSalvarLocal->sizePolicy().hasHeightForWidth());
+        pbSalvarLocal->setSizePolicy(sizePolicy);
+        pbSalvarLocal->setMaximumSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(pbSalvarLocal);
+
         pbSalvar = new QPushButton(criar);
         pbSalvar->setObjectName("pbSalvar");
 
@@ -205,6 +217,7 @@ public:
         cbUrgencia->setItemText(2, QCoreApplication::translate("criar", "\360\237\237\240 Alto", nullptr));
         cbUrgencia->setItemText(3, QCoreApplication::translate("criar", "\360\237\224\264 Urgente", nullptr));
 
+        pbSalvarLocal->setText(QCoreApplication::translate("criar", "\360\237\222\276", nullptr));
         pbSalvar->setText(QCoreApplication::translate("criar", "Salvar", nullptr));
         pbCancelar->setText(QCoreApplication::translate("criar", "Cancelar", nullptr));
         lblInfo->setText(QCoreApplication::translate("criar", "Linha: 0  coluna: 0", nullptr));

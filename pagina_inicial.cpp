@@ -71,6 +71,8 @@ void Pagina_Inicial::on_btnCriar_clicked()
 
     criar abrirCr;
 
+    abrirCr.guardandoID(idGuardada);
+
     abrirCr.setModal(true);
 
     abrirCr.exec();
