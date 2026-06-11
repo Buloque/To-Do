@@ -383,6 +383,12 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/Projetos/QT/To-Do/abrirnota.h",
+			"MU",
+			"EWIEGA46WW/moc_abrirnota.cpp",
+			null
+		],
+		[
 			"D:/Projetos/QT/To-Do/criar.h",
 			"MU",
 			"EWIEGA46WW/moc_criar.cpp",
@@ -487,6 +493,7 @@
 	"SETTINGS_FILE" : "D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/To-Do_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "D:/Projetos/QT/To-Do/abrirnota.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/criar.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/editar.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/login.cpp", "MU", null ],

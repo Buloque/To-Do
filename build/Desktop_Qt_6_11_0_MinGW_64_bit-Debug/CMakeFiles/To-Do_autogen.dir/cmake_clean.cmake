@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/To-Do_autogen"
+  "To-Do_autogen/include/ui_abrirnota.h"
   "To-Do_autogen/include/ui_criar.h"
   "To-Do_autogen/include/ui_editar.h"
   "To-Do_autogen/include/ui_login.h"

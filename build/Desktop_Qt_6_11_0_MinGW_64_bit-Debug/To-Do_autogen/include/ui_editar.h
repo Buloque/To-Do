@@ -24,7 +24,8 @@ public:
     {
         if (editar->objectName().isEmpty())
             editar->setObjectName("editar");
-        editar->resize(400, 566);
+        editar->resize(655, 400);
+        editar->setMinimumSize(QSize(655, 400));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         editar->setWindowIcon(icon);

@@ -247,6 +247,30 @@ To-Do_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.s
 .PHONY : To-Do_autogen/mocs_compilation.cpp.s
 
+abrirnota.obj: abrirnota.cpp.obj
+.PHONY : abrirnota.obj
+
+# target to build an object file
+abrirnota.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/abrirnota.cpp.obj
+.PHONY : abrirnota.cpp.obj
+
+abrirnota.i: abrirnota.cpp.i
+.PHONY : abrirnota.i
+
+# target to preprocess a source file
+abrirnota.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/abrirnota.cpp.i
+.PHONY : abrirnota.cpp.i
+
+abrirnota.s: abrirnota.cpp.s
+.PHONY : abrirnota.s
+
+# target to generate assembly for a file
+abrirnota.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/abrirnota.cpp.s
+.PHONY : abrirnota.cpp.s
+
 criar.obj: criar.cpp.obj
 .PHONY : criar.obj
 
@@ -412,6 +436,9 @@ help:
 	@echo ... To-Do_autogen/mocs_compilation.obj
 	@echo ... To-Do_autogen/mocs_compilation.i
 	@echo ... To-Do_autogen/mocs_compilation.s
+	@echo ... abrirnota.obj
+	@echo ... abrirnota.i
+	@echo ... abrirnota.s
 	@echo ... criar.obj
 	@echo ... criar.i
 	@echo ... criar.s

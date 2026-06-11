@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>abrirNota</class>
+ <widget class="QDialog" name="abrirNota">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>655</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>655</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="lblTitulo">
+       <property name="text">
+        <string>Titulo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cbAndamento">
+       <item>
+        <property name="text">
+         <string>🚶 Em andamento</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>🚩 Finalizado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>❌ Cancelado</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cbUrgencia">
+       <item>
+        <property name="text">
+         <string>🟢 Baixo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>🟡 Médio</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>🟠 Alto</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>🔴 Urgente</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="DiaeHora">
+       <property name="text">
+        <string>Dia: </string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QTextEdit" name="bloco">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

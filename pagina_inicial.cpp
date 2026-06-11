@@ -10,8 +10,10 @@
 
 #include "editar.h"
 #include "criar.h"
+#include "abrirnota.h"
 
 int idGuardada;
+int idBlocoSelecionado;
 
 void Pagina_Inicial::guardandoID(int ID){
 
@@ -37,7 +39,7 @@ Pagina_Inicial::~Pagina_Inicial()
 void Pagina_Inicial::carregarDados(){
 
     QSqlQuery pDados;
-    pDados.prepare("select * from infoUsers WHERE userPropId = :idUsuario");
+    pDados.prepare("select nome,andamento,id from infoUsers WHERE userPropId = :idUsuario");
     pDados.bindValue(":idUsuario", idGuardada);
     pDados.exec();
 
@@ -47,23 +49,36 @@ void Pagina_Inicial::carregarDados(){
 
     while(pDados.next()){
 
+
+        int idBanco = pDados.value(2).toInt();
+
         QString lista = pDados.value(0).toString() + " " + // pegando apenas o nome e dá um espaço maneiro
-                        ((pDados.value(4) == 1) ? "✅" : "❎"); // verifica se a tarefa já foi feita
+                        ((pDados.value(1) == 0) ? "✅" : "❎"); // verifica se a tarefa já foi feita
 
         QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
         bInterno->setSizeHint(QSize(0, 30));
 
 
+        bInterno->setData(Qt::UserRole,idBanco);
+        // esconde a id do usuario
+        //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+
     }
+
 
 }
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
-    editar abrirEd;
 
-    abrirEd.setModal(true);
+    abrirNota abrirB;
 
-    abrirEd.exec();
+    abrirB.idNota(idBlocoSelecionado);
+
+    abrirB.setModal(true);
+
+    abrirB.exec();
+
+    carregarDados();
 }
 
 void Pagina_Inicial::on_btnCriar_clicked()
@@ -77,6 +92,20 @@ void Pagina_Inicial::on_btnCriar_clicked()
 
     abrirCr.exec();
 
+    carregarDados();
+
+}
+
+void Pagina_Inicial::on_btnEditar_clicked()
+{ // selecionar a linha e puxar os dados
+
+    editar abrirEd;
+
+    abrirEd.setModal(true);
+
+    abrirEd.exec();
+
+    carregarDados();
 }
 
 ////////////////////voltar para o login
@@ -94,3 +123,23 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
 
 }
 ////////////////////voltar para o login
+
+
+
+
+
+
+
+void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
+{
+
+    if (!item) return;
+
+    idBlocoSelecionado = item->data(Qt::UserRole).toInt(); // unifica a base
+
+
+
+    qDebug() << "Id clicado: " << idBlocoSelecionado;
+
+}
+

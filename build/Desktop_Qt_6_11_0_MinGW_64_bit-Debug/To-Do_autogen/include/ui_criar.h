@@ -124,6 +124,7 @@ public:
 
         dateEdit = new QDateEdit(criar);
         dateEdit->setObjectName("dateEdit");
+        dateEdit->setTimeSpec(Qt::TimeSpec::LocalTime);
 
         horizontalLayout_2->addWidget(dateEdit);
 
@@ -138,6 +139,7 @@ public:
         timeEdit->setWrapping(false);
         timeEdit->setFrame(true);
         timeEdit->setReadOnly(false);
+        timeEdit->setTimeSpec(Qt::TimeSpec::LocalTime);
 
         horizontalLayout_2->addWidget(timeEdit);
 

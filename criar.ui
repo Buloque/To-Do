@@ -154,7 +154,11 @@
       </spacer>
      </item>
      <item>
-      <widget class="QDateEdit" name="dateEdit"/>
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="timeSpec">
+        <enum>Qt::TimeSpec::LocalTime</enum>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pbDia">
@@ -179,6 +183,9 @@
        </property>
        <property name="readOnly">
         <bool>false</bool>
+       </property>
+       <property name="timeSpec">
+        <enum>Qt::TimeSpec::LocalTime</enum>
        </property>
       </widget>
      </item>

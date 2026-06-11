@@ -261,14 +261,14 @@ void criar::on_pbSalvar_clicked()
 
 
     QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
-    QString bloco = ui->texto->toPlainText();
+    QString bloco = ui->texto->toHtml();
     QString data =  ui->dateEdit->text();
     QString hora = ui->timeEdit->text();
     QString urgencia = QString::number(verificaUrgencia());
 
     // DEBUG - Mostre o conteúdo das variáveis
     qDebug() << "nome:" << nome;
-    qDebug() << "bloco:" << bloco;
+    //qDebug() << "bloco:" << bloco;
     qDebug() << "data:" << data;
     qDebug() << "hora:" << hora;
     qDebug() << "urgencia:" << urgencia;
@@ -277,7 +277,9 @@ void criar::on_pbSalvar_clicked()
     QSqlQuery salvaBloco;
 
     salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId) "
-                       "values ('"+nome+"','"+bloco+"','"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+                       "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+
+    salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
     //a urgencia recebe 0 para ficar como em andamento
 
 

@@ -958,6 +958,8 @@ To-Do_autogen/timestamp: \
 	D:/Programas/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/Projetos/QT/To-Do/CMakeLists.txt \
 	D:/Projetos/QT/To-Do/Imagens.qrc \
+	D:/Projetos/QT/To-Do/abrirnota.cpp \
+	D:/Projetos/QT/To-Do/abrirnota.h \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/package-manager.cmake \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/qtcreator-project.cmake \
@@ -976,6 +978,7 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/pagina_inicial.h \
 	D:/Projetos/QT/To-Do/registrar.cpp \
 	D:/Projetos/QT/To-Do/registrar.h \
+	D:/Projetos/QT/To-Do/abrirnota.ui \
 	D:/Projetos/QT/To-Do/criar.ui \
 	D:/Projetos/QT/To-Do/editar.ui \
 	D:/Projetos/QT/To-Do/login.ui \
