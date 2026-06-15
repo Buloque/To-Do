@@ -51,10 +51,11 @@ void abrirNota::carregaDados(){
 
             int andamento = abreNotas.value(5).toInt();
 
-            ui->lblTitulo->setText(titulo);
-            ui->bloco->setHtml(textoB);
+            this->setWindowTitle(titulo);
+            ui->bloco->setMarkdown(textoB);
             ui->DiaeHora->setText(dhFormatado);
             ui->cbUrgencia->setCurrentIndex(urgencia);
+            ui->cbUrgencia->setEnabled(false);
             ui->cbAndamento->setCurrentIndex(andamento);
 
 
@@ -62,7 +63,7 @@ void abrirNota::carregaDados(){
         }else{
 
             //Erro ao encontrar a ID
-            qDebug() << "Aviso: Nenhum registro encontrado com o ID.";
+            qDebug() << "Aviso: Nenhum registro encontrado com o ID: " << idBloco;
         }
 
     }else{

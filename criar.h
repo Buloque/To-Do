@@ -14,7 +14,7 @@ class criar : public QDialog
 public:
     explicit criar(QWidget *parent = nullptr);
     ~criar();
-    void guardandoID(int ID);
+    void guardandoID(int ID,bool editar,int idBloco);
     void subtextos();
     bool veficaTexto();
 

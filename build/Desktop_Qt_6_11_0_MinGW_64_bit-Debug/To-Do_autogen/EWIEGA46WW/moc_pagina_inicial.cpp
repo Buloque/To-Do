@@ -46,7 +46,8 @@ template <> constexpr inline auto Pagina_Inicial::qt_create_metaobjectdata<qt_me
         "on_btnCriar_clicked",
         "on_pbSair_clicked",
         "on_btnEditar_clicked",
-        "on_lwTodosT_itemClicked"
+        "on_lwTodosT_itemClicked",
+        "on_btnApagar_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -64,6 +65,8 @@ template <> constexpr inline auto Pagina_Inicial::qt_create_metaobjectdata<qt_me
         QtMocHelpers::SlotData<void(QListWidgetItem *)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 3, 4 },
         }}),
+        // Slot 'on_btnApagar_clicked'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -92,6 +95,7 @@ void Pagina_Inicial::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 2: _t->on_pbSair_clicked(); break;
         case 3: _t->on_btnEditar_clicked(); break;
         case 4: _t->on_lwTodosT_itemClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 5: _t->on_btnApagar_clicked(); break;
         default: ;
         }
     }
@@ -116,14 +120,14 @@ int Pagina_Inicial::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

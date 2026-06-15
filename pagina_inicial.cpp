@@ -63,18 +63,31 @@ void Pagina_Inicial::carregarDados(){
         // esconde a id do usuario
         //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
 
-    }
+    }  
+}
 
+void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
+{
+
+    if (!item) return;
+
+    idBlocoSelecionado = item->data(Qt::UserRole).toInt(); // unifica a base
+
+    ///////////////Resolver: abrindo sem atualizar o ID, o que ocasiona em abrir o id selecionado anteriormente ou abrir um id zerado
+
+    qDebug() << "Id clicado: " << idBlocoSelecionado;
 
 }
+
+
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
     abrirNota abrirB;
 
-    abrirB.idNota(idBlocoSelecionado);
-
     abrirB.setModal(true);
+
+    abrirB.idNota(idBlocoSelecionado);
 
     abrirB.exec();
 
@@ -86,7 +99,7 @@ void Pagina_Inicial::on_btnCriar_clicked()
 
     criar abrirCr;
 
-    abrirCr.guardandoID(idGuardada);
+    abrirCr.guardandoID(idGuardada,false,0);
 
     abrirCr.setModal(true);
 
@@ -99,13 +112,58 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
+    /*
     editar abrirEd;
 
     abrirEd.setModal(true);
 
     abrirEd.exec();
+    */
+
+    criar abrirCr;
+    if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
+
+        abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
+
+        abrirCr.setModal(true);
+
+        abrirCr.exec();
+
+    }else{
+
+
+
+    }
+
 
     carregarDados();
+}
+void Pagina_Inicial::on_btnApagar_clicked()
+{
+
+    auto btn = QMessageBox::warning(this,
+                                    "Excluir","deseja excluir o bloco",
+                                    QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+    if(btn == QMessageBox::Yes){
+
+        QSqlQuery pDados;
+        pDados.prepare("DELETE from infoUsers where id ="+ QString::number(idBlocoSelecionado));
+
+        if(pDados.exec()){
+
+            QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
+
+            carregarDados();
+
+        }else{
+            //mostra o erro
+            QMessageBox::information(this,"atenção","não foi possivel apagar as informações.\n" + pDados.lastError().text());
+
+        }
+
+    }
+
 }
 
 ////////////////////voltar para o login
@@ -130,16 +188,8 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
 
 
 
-void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
-{
-
-    if (!item) return;
-
-    idBlocoSelecionado = item->data(Qt::UserRole).toInt(); // unifica a base
 
 
 
-    qDebug() << "Id clicado: " << idBlocoSelecionado;
 
-}
 

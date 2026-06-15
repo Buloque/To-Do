@@ -19,37 +19,53 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Imagens.qrc">
+    <normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</normaloff>:/new/IMG/Imagens/Icone Sem Fundopng.png</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+   </item>
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="lblTitulo">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>Titulo</string>
+        <string>Prazo:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="cbAndamento">
-       <item>
-        <property name="text">
-         <string>🚶 Em andamento</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>🚩 Finalizado</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>❌ Cancelado</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
       <widget class="QComboBox" name="cbUrgencia">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow</enum>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <property name="labelDrawingMode">
+        <enum>QComboBox::LabelDrawingMode::UseStyle</enum>
+       </property>
        <item>
         <property name="text">
          <string>🟢 Baixo</string>
@@ -72,15 +88,36 @@
        </item>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="DiaeHora">
-       <property name="text">
-        <string>Dia: </string>
+      <widget class="QLabel" name="TxtAndamento">
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>16777215</height>
+        </size>
        </property>
+       <property name="text">
+        <string>Andamento:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cbAndamento">
+       <item>
+        <property name="text">
+         <string>🚶 Em andamento</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>🚩 Finalizado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>❌ Cancelado</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
@@ -92,8 +129,17 @@
      </property>
     </widget>
    </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="DiaeHora">
+     <property name="text">
+      <string>Dia: </string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagens.qrc"/>
+ </resources>
  <connections/>
 </ui>

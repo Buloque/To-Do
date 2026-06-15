@@ -35,6 +35,8 @@ private slots:
 
     void on_lwTodosT_itemClicked(QListWidgetItem *item);
 
+    void on_btnApagar_clicked();
+
 private:
     Ui::Pagina_Inicial *ui;
     Login telaLogin;

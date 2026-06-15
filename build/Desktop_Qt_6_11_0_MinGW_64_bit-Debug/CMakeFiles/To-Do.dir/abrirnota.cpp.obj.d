@@ -386,6 +386,7 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qbitmap.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_abrirnota.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -428,6 +429,7 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \

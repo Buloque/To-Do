@@ -401,4 +401,51 @@ CMakeFiles/To-Do.dir/editar.cpp.obj: D:\Projetos\QT\To-Do\editar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDateEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdatetime.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLineEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTimeEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout

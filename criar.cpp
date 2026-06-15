@@ -14,10 +14,17 @@ QFont orig; // Correção Strike
 QFile arquivo;
 
 int idRecuperada;
+bool editando;
+int blocoPush;
 
-void criar::guardandoID(int ID){
+void criar::guardandoID(int ID,bool editar,int idBloco){
 
     idRecuperada = ID;
+    editando = editar;
+    blocoPush = idBloco;
+
+    qDebug() << "ID:" << idBloco;
+
     subtextos(); // trocado o local para carregar o ID antes de tudo.
 
 }
@@ -27,10 +34,6 @@ criar::criar(QWidget *parent)
     , ui(new Ui::criar)
 {
     ui->setupUi(this);
-
-
-
-
 }
 
 criar::~criar()
@@ -42,27 +45,75 @@ criar::~criar()
 
 void criar::subtextos(){
 
+
     ui->leTitulo->setPlaceholderText("Titulo");
     ui->texto->setPlaceholderText("Escreva suas notas aqui");
 
     //atualiza para o mesmo horario que o do usuario
 
     //Criando variavel para receber utc
-    QDateTime horaDiaAtual = QDateTime::currentDateTime();
 
-    //pega o fuso horario do computador
-    //bug - Horas sai errada
-    //QTimeZone fuso = QTimeZone::systemTimeZone();
-    //horaDiaAtual.setTimeSpec(Qt::LocalTime);
+    if(editando == false){
 
-    //Coloca as horas como a de brasilia
-    //horaDiaAtual.setTimeZone(fuso);
+        QDateTime horaDiaAtual = QDateTime::currentDateTime();
 
-    ui->timeEdit->setDateTime(horaDiaAtual);
-    ui->dateEdit->setDateTime(horaDiaAtual);
+        ui->timeEdit->setDateTime(horaDiaAtual);
+        ui->dateEdit->setDateTime(horaDiaAtual);
+
+    }else{
+
+        this->setWindowTitle("Editar");
+
+        QSqlQuery abreNotas;
+        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento FROM infoUsers WHERE id = :id");
+        abreNotas.bindValue(":id", blocoPush);
+        //
+
+        if(abreNotas.exec()){
+
+            //verifica se encontrou o id
+            if(abreNotas.next()){
+
+                QString titulo = abreNotas.value(0).toString();
+                QString textoB = abreNotas.value(1).toString();
+
+                QVariant data = abreNotas.value(2);
+                QString dataTexto = data.toString().trimmed();//convertendo para String // trimmed() = limpa espaços vazios
+                QDate dConv = QDate::fromString(dataTexto, "dd/MM/yyyy");
+
+                QVariant horas = abreNotas.value(3);
+                QTime hConv = horas.toTime();
+
+                qDebug() << "dia: " << dConv.toString();
+                qDebug() << "horas: " << hConv.toString();
+
+                int urgencia = abreNotas.value(4).toInt();
+
+                int andamento = abreNotas.value(5).toInt();
+
+                ui->leTitulo->setText(titulo);
+                ui->texto->setMarkdown(textoB);
+                ui->dateEdit->setDate(dConv);
+                ui->timeEdit->setTime(hConv);
+                ui->cbUrgencia->setCurrentIndex(urgencia);
 
 
 
+
+            }else{
+
+                //Erro ao encontrar a ID
+                qDebug() << "Aviso: Nenhum registro encontrado com o ID.";
+            }
+
+        }else{
+
+            //erro ao executar a requesição
+            qDebug() << "Erro ao executar o SELECT:" << abreNotas.lastError().text();
+
+        }
+
+    }
 
 }
 
@@ -260,8 +311,10 @@ void criar::on_pbSalvar_clicked()
 {
 
 
+
+
     QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
-    QString bloco = ui->texto->toHtml();
+    QString bloco = ui->texto->toMarkdown();
     QString data =  ui->dateEdit->text();
     QString hora = ui->timeEdit->text();
     QString urgencia = QString::number(verificaUrgencia());
@@ -276,11 +329,29 @@ void criar::on_pbSalvar_clicked()
 
     QSqlQuery salvaBloco;
 
-    salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId) "
-                       "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+    if(editando == false){
 
-    salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
-    //a urgencia recebe 0 para ficar como em andamento
+        salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId) "
+                           "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+
+        salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
+        //a urgencia recebe 0 para ficar como em andamento
+
+    }else{
+
+        salvaBloco.prepare("UPDATE infoUsers "
+                           "SET nome = :nome, bloco = :bloco, data = :data, horas = :hora, urgencia = :urgencia WHERE id = :id ");
+
+        salvaBloco.bindValue(":nome", nome);
+        salvaBloco.bindValue(":bloco", bloco);
+        salvaBloco.bindValue(":data", data);
+        salvaBloco.bindValue(":hora", hora);
+        salvaBloco.bindValue(":urgencia", urgencia);
+        salvaBloco.bindValue(":id", blocoPush);
+
+    }
+
+
 
 
     if(salvaBloco.exec()){
