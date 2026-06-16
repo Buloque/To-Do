@@ -47,7 +47,10 @@ template <> constexpr inline auto Pagina_Inicial::qt_create_metaobjectdata<qt_me
         "on_pbSair_clicked",
         "on_btnEditar_clicked",
         "on_lwTodosT_itemClicked",
-        "on_btnApagar_clicked"
+        "on_btnApagar_clicked",
+        "on_lwTodosT_currentItemChanged",
+        "current",
+        "previous"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -67,6 +70,10 @@ template <> constexpr inline auto Pagina_Inicial::qt_create_metaobjectdata<qt_me
         }}),
         // Slot 'on_btnApagar_clicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_lwTodosT_currentItemChanged'
+        QtMocHelpers::SlotData<void(QListWidgetItem *, QListWidgetItem *)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 11 }, { 0x80000000 | 3, 12 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -96,6 +103,7 @@ void Pagina_Inicial::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 3: _t->on_btnEditar_clicked(); break;
         case 4: _t->on_lwTodosT_itemClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         case 5: _t->on_btnApagar_clicked(); break;
+        case 6: _t->on_lwTodosT_currentItemChanged((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[2]))); break;
         default: ;
         }
     }
@@ -120,14 +128,14 @@ int Pagina_Inicial::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

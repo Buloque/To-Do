@@ -749,11 +749,9 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QSize \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- D:\Projetos\QT\To-Do\editar.h D:\Projetos\QT\To-Do\criar.h \
- D:\Projetos\QT\To-Do\abrirnota.h
+ D:\Projetos\QT\To-Do\criar.h D:\Projetos\QT\To-Do\abrirnota.h

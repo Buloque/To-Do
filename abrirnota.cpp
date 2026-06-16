@@ -3,7 +3,7 @@
 
 #include <QtSql>
 
-int idBloco = 0;
+int idBloco;
 
 abrirNota::abrirNota(QWidget *parent)
     : QDialog(parent)

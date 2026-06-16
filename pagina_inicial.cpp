@@ -8,7 +8,6 @@
 
 #include <QMessageBox>
 
-#include "editar.h"
 #include "criar.h"
 #include "abrirnota.h"
 
@@ -39,7 +38,7 @@ Pagina_Inicial::~Pagina_Inicial()
 void Pagina_Inicial::carregarDados(){
 
     QSqlQuery pDados;
-    pDados.prepare("select nome,andamento,id from infoUsers WHERE userPropId = :idUsuario");
+    pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario");
     pDados.bindValue(":idUsuario", idGuardada);
     pDados.exec();
 
@@ -47,12 +46,18 @@ void Pagina_Inicial::carregarDados(){
 
     //QListWidget* lista = new QListWidget(ui->lwTodosT); // QListWidget = não pode chamar com variavel
 
+    int linhas = 0;
+
     while(pDados.next()){
 
 
-        int idBanco = pDados.value(2).toInt();
 
-        QString lista = pDados.value(0).toString() + " " + // pegando apenas o nome e dá um espaço maneiro
+
+        int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+
+        QString lista = pDados.value(0).toString() + " - "
+                        + pDados.value(2).toString() + " - "
+                        + // pegando apenas o nome e dá um espaço maneiro
                         ((pDados.value(1) == 0) ? "✅" : "❎"); // verifica se a tarefa já foi feita
 
         QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
@@ -62,21 +67,16 @@ void Pagina_Inicial::carregarDados(){
         bInterno->setData(Qt::UserRole,idBanco);
         // esconde a id do usuario
         //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+        linhas++;
+    }
 
-    }  
+    ui->lblReg->setText("Total de Registros: " + QString::number(linhas));
+
 }
 
 void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
 {
-
-    if (!item) return;
-
-    idBlocoSelecionado = item->data(Qt::UserRole).toInt(); // unifica a base
-
-    ///////////////Resolver: abrindo sem atualizar o ID, o que ocasiona em abrir o id selecionado anteriormente ou abrir um id zerado
-
-    qDebug() << "Id clicado: " << idBlocoSelecionado;
-
+    // retirar função
 }
 
 
@@ -84,14 +84,19 @@ void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
     abrirNota abrirB;
-
-    abrirB.setModal(true);
+    qDebug() << "Id double clicado: " << idBlocoSelecionado;
 
     abrirB.idNota(idBlocoSelecionado);
+
+    abrirB.setModal(true);
 
     abrirB.exec();
 
     carregarDados();
+
+
+
+
 }
 
 void Pagina_Inicial::on_btnCriar_clicked()
@@ -166,6 +171,15 @@ void Pagina_Inicial::on_btnApagar_clicked()
 
 }
 
+void Pagina_Inicial::on_lwTodosT_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+    if (!current) return;
+
+    idBlocoSelecionado = current->data(Qt::UserRole).toInt(); // unifica a base
+
+    qDebug() << "Id clicado: " << idBlocoSelecionado;
+}
+
 ////////////////////voltar para o login
 void Pagina_Inicial::limpaDados(){
 
@@ -181,15 +195,5 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
 
 }
 ////////////////////voltar para o login
-
-
-
-
-
-
-
-
-
-
 
 
