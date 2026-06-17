@@ -734,6 +734,7 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
@@ -749,6 +750,7 @@ CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QSize \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \

@@ -12,12 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 
 QT_BEGIN_NAMESPACE
 
@@ -31,11 +33,12 @@ public:
     QPushButton *btnCriar;
     QPushButton *btnEditar;
     QPushButton *btnApagar;
-    QListWidget *lwTodosT;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QComboBox *comboBox;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *pbAZ;
+    QPushButton *pbData;
+    QListWidget *lwTodosT;
     QLabel *lblReg;
 
     void setupUi(QDialog *Pagina_Inicial)
@@ -82,35 +85,41 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        comboBox = new QComboBox(Pagina_Inicial);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName("comboBox");
+
+        horizontalLayout_3->addWidget(comboBox);
+
+        horizontalSpacer = new QSpacerItem(70, 20, QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
+        pbAZ = new QPushButton(Pagina_Inicial);
+        pbAZ->setObjectName("pbAZ");
+        pbAZ->setMaximumSize(QSize(50, 35));
+
+        horizontalLayout_3->addWidget(pbAZ);
+
+        pbData = new QPushButton(Pagina_Inicial);
+        pbData->setObjectName("pbData");
+        pbData->setMaximumSize(QSize(50, 35));
+
+        horizontalLayout_3->addWidget(pbData);
+
+
+        gridLayout->addLayout(horizontalLayout_3, 1, 0, 1, 1);
+
         lwTodosT = new QListWidget(Pagina_Inicial);
         lwTodosT->setObjectName("lwTodosT");
         lwTodosT->setEditTriggers(QAbstractItemView::EditTrigger::CurrentChanged|QAbstractItemView::EditTrigger::DoubleClicked|QAbstractItemView::EditTrigger::EditKeyPressed);
 
         gridLayout->addWidget(lwTodosT, 2, 0, 1, 1);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalLayout_3->setContentsMargins(250, -1, -1, -1);
-        pushButton = new QPushButton(Pagina_Inicial);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMaximumSize(QSize(35, 35));
-
-        horizontalLayout_3->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(Pagina_Inicial);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMaximumSize(QSize(35, 35));
-
-        horizontalLayout_3->addWidget(pushButton_2);
-
-        pushButton_3 = new QPushButton(Pagina_Inicial);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setMaximumSize(QSize(35, 35));
-
-        horizontalLayout_3->addWidget(pushButton_3);
-
-
-        gridLayout->addLayout(horizontalLayout_3, 1, 0, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 1, 0, 1, 2);
@@ -140,9 +149,13 @@ public:
         btnCriar->setText(QCoreApplication::translate("Pagina_Inicial", "Criar", nullptr));
         btnEditar->setText(QCoreApplication::translate("Pagina_Inicial", "Editar", nullptr));
         btnApagar->setText(QCoreApplication::translate("Pagina_Inicial", "Apagar", nullptr));
-        pushButton->setText(QCoreApplication::translate("Pagina_Inicial", "1", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Pagina_Inicial", "2", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("Pagina_Inicial", "3", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("Pagina_Inicial", "Todos", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("Pagina_Inicial", "Abertos", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("Pagina_Inicial", "Finalizados", nullptr));
+        comboBox->setItemText(3, QCoreApplication::translate("Pagina_Inicial", "Cancelados", nullptr));
+
+        pbAZ->setText(QCoreApplication::translate("Pagina_Inicial", "A-Z", nullptr));
+        pbData->setText(QCoreApplication::translate("Pagina_Inicial", "\360\237\223\205", nullptr));
         lblReg->setText(QCoreApplication::translate("Pagina_Inicial", "Total de Registros:  ", nullptr));
     } // retranslateUi
 

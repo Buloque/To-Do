@@ -19,21 +19,22 @@ int blocoPush;
 
 void criar::guardandoID(int ID,bool editar,int idBloco){
 
+    ////retirar
+
+}
+
+criar::criar(int ID,bool editar,int idBloco,QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::criar)
+{
+
     idRecuperada = ID;
     editando = editar;
     blocoPush = idBloco;
 
-    qDebug() << "ID:" << idBloco;
-
-    subtextos(); // trocado o local para carregar o ID antes de tudo.
-
-}
-
-criar::criar(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::criar)
-{
     ui->setupUi(this);
+
+    subtextos();
 }
 
 criar::~criar()

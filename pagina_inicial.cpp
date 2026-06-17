@@ -13,6 +13,9 @@
 
 int idGuardada;
 int idBlocoSelecionado;
+int modo = 0;
+int cAZ = 0;
+int cData = 0;
 
 void Pagina_Inicial::guardandoID(int ID){
 
@@ -35,10 +38,66 @@ Pagina_Inicial::~Pagina_Inicial()
     delete ui;
 }
 
+void Pagina_Inicial::on_comboBox_currentIndexChanged(int index)
+{
+    modo = index;
+    //qDebug() << "index: " << index;
+    carregarDados();
+}
+void Pagina_Inicial::on_pbAZ_clicked()//botão filtro a-z
+{
+
+    if(cAZ == 0){
+
+        ui->pbAZ->setText("A-Z⬆");
+        ui->lwTodosT->sortItems();
+
+        cAZ++;
+
+    }else if(cAZ == 1){
+
+        ui->lwTodosT->sortItems(Qt::DescendingOrder);
+        ui->pbAZ->setText("A-Z⬇");
+        cAZ++;
+
+    }else if(cAZ == 2){
+
+        ui->pbAZ->setText("A-Z");
+
+        carregarDados();
+
+        cAZ = 0;
+    }
+}
+
+void Pagina_Inicial::on_pbData_clicked()
+{
+
+    cData++;
+    //qDebug() << "cData: " << cData;
+    carregarDados();
+}
+
+
 void Pagina_Inicial::carregarDados(){
 
     QSqlQuery pDados;
-    pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario");
+
+    if(cData == 1){
+        ui->pbData->setText("📅⬆");
+        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario ORDER BY data ASC");
+
+    }else if(cData == 2){
+        ui->pbData->setText("📅⬇");
+        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario ORDER BY data DESC");
+    }else{
+        ui->pbData->setText("📅");
+        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario");
+        cData = 0;
+    }
+
+
+
     pDados.bindValue(":idUsuario", idGuardada);
     pDados.exec();
 
@@ -47,27 +106,107 @@ void Pagina_Inicial::carregarDados(){
     //QListWidget* lista = new QListWidget(ui->lwTodosT); // QListWidget = não pode chamar com variavel
 
     int linhas = 0;
-
-    while(pDados.next()){
-
+    if(modo == 1){//se em andamento
 
 
+        while(pDados.next()){
 
-        int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+            int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
 
-        QString lista = pDados.value(0).toString() + " - "
-                        + pDados.value(2).toString() + " - "
-                        + // pegando apenas o nome e dá um espaço maneiro
-                        ((pDados.value(1) == 0) ? "✅" : "❎"); // verifica se a tarefa já foi feita
+            if((pDados.value(1) == 0)){
 
-        QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
-        bInterno->setSizeHint(QSize(0, 30));
+                QString lista = pDados.value(0).toString() + " - "
+                                + pDados.value(2).toString() + " - "
+                                + // pegando apenas o nome e dá um espaço maneiro
+                                "🚶"; // verifica se a tarefa já foi feita
+
+                QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
+                bInterno->setSizeHint(QSize(0, 30));
 
 
-        bInterno->setData(Qt::UserRole,idBanco);
-        // esconde a id do usuario
-        //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
-        linhas++;
+                bInterno->setData(Qt::UserRole,idBanco);
+                // esconde a id do usuario
+                //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+                linhas++;
+
+            }
+
+        }
+
+    }else if(modo == 2){//finalizado
+
+        while(pDados.next()){
+
+            int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+
+            if((pDados.value(1) == 1)){
+
+                QString lista = pDados.value(0).toString() + " - "
+                                + pDados.value(2).toString() + " - "
+                                + // pegando apenas o nome e dá um espaço maneiro
+                                "🚩"; // verifica se a tarefa já foi feita
+
+                QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
+                bInterno->setSizeHint(QSize(0, 30));
+
+
+                bInterno->setData(Qt::UserRole,idBanco);
+                // esconde a id do usuario
+                //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+                linhas++;
+
+            }
+
+        }
+
+    }else if(modo == 3){//cancelado
+
+        while(pDados.next()){
+
+            int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+
+            if((pDados.value(1) == 2)){
+
+                QString lista = pDados.value(0).toString() + " - "
+                                + pDados.value(2).toString() + " - "
+                                + // pegando apenas o nome e dá um espaço maneiro
+                                "❌"; // verifica se a tarefa já foi feita
+
+                QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
+                bInterno->setSizeHint(QSize(0, 30));
+
+
+                bInterno->setData(Qt::UserRole,idBanco);
+                // esconde a id do usuario
+                //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+                linhas++;
+
+            }
+
+        }
+
+    }else{
+
+
+        while(pDados.next()){
+
+            int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+
+            QString lista = pDados.value(0).toString() + " - "
+                            + pDados.value(2).toString() + " - "
+                            + // pegando apenas o nome e dá um espaço maneiro
+                            ((pDados.value(1) == 0) ? "🚶" : ((pDados.value(1) == 1) ? "🚩" : "❌")); // verifica se a tarefa já foi feita
+
+            QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
+            bInterno->setSizeHint(QSize(0, 30));
+
+
+            bInterno->setData(Qt::UserRole,idBanco);
+            // esconde a id do usuario
+            //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
+            linhas++;
+        }
+
     }
 
     ui->lblReg->setText("Total de Registros: " + QString::number(linhas));
@@ -83,10 +222,10 @@ void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    abrirNota abrirB;
+    abrirNota abrirB(idBlocoSelecionado);
     qDebug() << "Id double clicado: " << idBlocoSelecionado;
 
-    abrirB.idNota(idBlocoSelecionado);
+    //abrirB.idNota(idBlocoSelecionado);
 
     abrirB.setModal(true);
 
@@ -102,9 +241,9 @@ void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_btnCriar_clicked()
 {
 
-    criar abrirCr;
+    criar abrirCr(idGuardada,false,0);
 
-    abrirCr.guardandoID(idGuardada,false,0);
+    //abrirCr.guardandoID(idGuardada,false,0);
 
     abrirCr.setModal(true);
 
@@ -117,18 +256,10 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
-    /*
-    editar abrirEd;
-
-    abrirEd.setModal(true);
-
-    abrirEd.exec();
-    */
-
-    criar abrirCr;
+    criar abrirCr(idGuardada,true,idBlocoSelecionado);
     if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
 
-        abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
+        //abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
 
         abrirCr.setModal(true);
 
@@ -136,7 +267,7 @@ void Pagina_Inicial::on_btnEditar_clicked()
 
     }else{
 
-
+        QMessageBox::warning(this,"Aviso","Não selecionado nenhuma nota");
 
     }
 
@@ -195,5 +326,13 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
 
 }
 ////////////////////voltar para o login
+
+
+
+
+
+
+
+
 
 

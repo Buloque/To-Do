@@ -2,25 +2,30 @@
 #include "ui_abrirnota.h"
 
 #include <QtSql>
+#include <QMessageBox>
 
 int idBloco;
 
-abrirNota::abrirNota(QWidget *parent)
+
+void abrirNota::idNota(int id){
+
+    ////retirar, não necessario
+
+}
+
+abrirNota::abrirNota(int id,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::abrirNota)
 {
     ui->setupUi(this);
+
+    idBloco = id;
 
     carregaDados();
 
 
 }
 
-void abrirNota::idNota(int id){
-
-    idBloco = id;
-
-}
 
 abrirNota::~abrirNota()
 {
@@ -58,7 +63,7 @@ void abrirNota::carregaDados(){
             ui->cbUrgencia->setEnabled(false);
             ui->cbAndamento->setCurrentIndex(andamento);
 
-
+            //qDebug() << "Aviso: ID aberto banco: " << idBloco;
 
         }else{
 
@@ -75,3 +80,28 @@ void abrirNota::carregaDados(){
 
 
 }
+
+void abrirNota::on_cbAndamento_currentIndexChanged(int index)
+{
+
+    qDebug() << index;
+
+    QSqlQuery salvaAndamento;
+
+    salvaAndamento.prepare("UPDATE infoUsers "
+                       "SET andamento = :andamento WHERE id = :id ");
+    salvaAndamento.bindValue(":andamento", index);
+    salvaAndamento.bindValue(":id", idBloco);
+
+
+
+    if(!salvaAndamento.exec()){
+
+        QMessageBox::information(this,"atenção","não foi possivel salvar as informações.\n" + salvaAndamento.lastError().text());
+
+
+    }
+
+
+}
+
