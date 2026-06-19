@@ -19,18 +19,20 @@ int cData = 0;
 
 void Pagina_Inicial::guardandoID(int ID){
 
-    idGuardada = ID;
-    carregarDados(); // trocado o local para carregar o ID antes de tudo.
+
+     // Função Não utilizada, apagar
 
 }
 
-Pagina_Inicial::Pagina_Inicial(QWidget *parent)
+Pagina_Inicial::Pagina_Inicial(int ID,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Pagina_Inicial)
 {
-
     ui->setupUi(this);
 
+    idGuardada = ID;
+
+    carregarDados();
 }
 
 Pagina_Inicial::~Pagina_Inicial()
@@ -85,14 +87,14 @@ void Pagina_Inicial::carregarDados(){
 
     if(cData == 1){
         ui->pbData->setText("📅⬆");
-        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario ORDER BY data ASC");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario ORDER BY data ASC");
 
     }else if(cData == 2){
         ui->pbData->setText("📅⬇");
-        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario ORDER BY data DESC");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario ORDER BY data DESC");
     }else{
         ui->pbData->setText("📅");
-        pDados.prepare("select nome,andamento,data,id from infoUsers WHERE userPropId = :idUsuario");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario");
         cData = 0;
     }
 
@@ -116,14 +118,12 @@ void Pagina_Inicial::carregarDados(){
             if((pDados.value(1) == 0)){
 
                 QString lista = pDados.value(0).toString() + " - "
-                                + pDados.value(2).toString() + " - "
-                                + // pegando apenas o nome e dá um espaço maneiro
-                                "🚶"; // verifica se a tarefa já foi feita
-
+                                + pDados.value(2).toString() +
+                                "🚶";
                 QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
                 bInterno->setSizeHint(QSize(0, 30));
-
-
+                bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
+                bInterno->setBackground(QColor(Qt::darkYellow));
                 bInterno->setData(Qt::UserRole,idBanco);
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
@@ -144,12 +144,12 @@ void Pagina_Inicial::carregarDados(){
                 QString lista = pDados.value(0).toString() + " - "
                                 + pDados.value(2).toString() + " - "
                                 + // pegando apenas o nome e dá um espaço maneiro
-                                "🚩"; // verifica se a tarefa já foi feita
+                                "🚩 " + pDados.value(4).toString(); // verifica se a tarefa já foi feita
 
                 QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
                 bInterno->setSizeHint(QSize(0, 30));
-
-
+                bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
+                bInterno->setBackground(QColor(Qt::darkGreen));
                 bInterno->setData(Qt::UserRole,idBanco);
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
@@ -170,12 +170,12 @@ void Pagina_Inicial::carregarDados(){
                 QString lista = pDados.value(0).toString() + " - "
                                 + pDados.value(2).toString() + " - "
                                 + // pegando apenas o nome e dá um espaço maneiro
-                                "❌"; // verifica se a tarefa já foi feita
+                                "❌ " + pDados.value(4).toString(); // verifica se a tarefa já foi feita
 
                 QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
                 bInterno->setSizeHint(QSize(0, 30));
-
-
+                 bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
+                bInterno->setBackground(QColor(Qt::darkRed));
                 bInterno->setData(Qt::UserRole,idBanco);
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
@@ -193,12 +193,30 @@ void Pagina_Inicial::carregarDados(){
             int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
 
             QString lista = pDados.value(0).toString() + " - "
-                            + pDados.value(2).toString() + " - "
-                            + // pegando apenas o nome e dá um espaço maneiro
-                            ((pDados.value(1) == 0) ? "🚶" : ((pDados.value(1) == 1) ? "🚩" : "❌")); // verifica se a tarefa já foi feita
+                                + pDados.value(2).toString() + " - "
+                                + // pegando apenas o nome e dá um espaço maneiro
+                                (((pDados.value(1) == 0) ? "🚶 " : ((pDados.value(1) == 1) ? "🚩 " + pDados.value(4).toString() : "❌ " + pDados.value(4).toString()))); // verifica se a tarefa já foi feita
 
             QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
             bInterno->setSizeHint(QSize(0, 30));
+
+            bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
+
+            if(pDados.value(1) == 0){//andamento
+
+                bInterno->setBackground(QColor(Qt::darkYellow));
+
+            }else if(pDados.value(1) == 1){//Finalizado
+
+                bInterno->setBackground(QColor(Qt::darkGreen));
+
+
+            }else{
+
+                bInterno->setBackground(QColor(Qt::darkRed));
+
+            }
+
 
 
             bInterno->setData(Qt::UserRole,idBanco);

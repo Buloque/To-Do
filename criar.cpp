@@ -7,8 +7,6 @@
 #include <QFileDialog>
 #include <QtSql>
 
-#include "pagina_inicial.h"
-
 QFont fonte;
 QFont orig; // Correção Strike
 QFile arquivo;
@@ -383,9 +381,8 @@ void criar::on_pbSalvarLocal_clicked()
 
     QString pegaNome = ui->leTitulo->text();
 
-    Pagina_Inicial idPush;
 
-    int id = idPush.idGuardada;
+    //int id = idPush.idGuardada;
 
     nomeArquivo = QFileDialog::getSaveFileName(this,
                                                "Salvar",
@@ -410,7 +407,7 @@ void criar::on_pbSalvarLocal_clicked()
 
     caminho.setDevice(&arquivo);
 
-    caminho <<"Id:"+ QString::number(id) +" " + ui->cbUrgencia->currentText() + "  Data: " +  ui->dateEdit->text() + "  Hora: " + ui->timeEdit->text() + "\n\n" +
+    caminho <<"Id:"+ QString::number(idRecuperada) +" " + ui->cbUrgencia->currentText() + "  Data: " +  ui->dateEdit->text() + "  Hora: " + ui->timeEdit->text() + "\n\n" +
                    ui->texto->toPlainText();
     //<< ui->texto->toPlainText() +
     arquivo.close();

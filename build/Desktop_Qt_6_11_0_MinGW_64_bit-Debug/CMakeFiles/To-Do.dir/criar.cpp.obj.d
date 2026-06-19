@@ -761,10 +761,4 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlrelationaltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
- D:\Projetos\QT\To-Do\pagina_inicial.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
- D:\Projetos\QT\To-Do\login.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h

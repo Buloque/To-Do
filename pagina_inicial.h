@@ -15,7 +15,7 @@ class Pagina_Inicial : public QDialog
     Q_OBJECT
 
 public:
-    explicit Pagina_Inicial(QWidget *parent = nullptr);
+    explicit Pagina_Inicial(int ID,QWidget *parent = nullptr);
     void guardandoID(int ID);
     int idGuardada;
     ~Pagina_Inicial();

@@ -72,10 +72,10 @@ void Login::on_btnEntrar_clicked()
                 this->close();
 
 
-                Pagina_Inicial abrirTI;
+                Pagina_Inicial abrirTI(id);
 
                 //Envia o ID para a Pagina Inicial
-                abrirTI.guardandoID(id);
+               //abrirTI.guardandoID(id);
 
                 //abrirTI.setModal(true);
 
