@@ -48,9 +48,9 @@ void criar::subtextos(){
     ui->leTitulo->setPlaceholderText("Titulo");
     ui->texto->setPlaceholderText("Escreva suas notas aqui");
 
-    //atualiza para o mesmo horario que o do usuario
+    QSqlQuery abreDiff;
 
-    //Criando variavel para receber utc
+    //////////////////////////////fazer maneira de ver qual e o maior valor, e salvar pra quando salvar, não salvar o mesmo
 
     if(editando == false){
 
@@ -309,9 +309,6 @@ int criar::verificaUrgencia(){
 void criar::on_pbSalvar_clicked()
 {
 
-
-
-
     QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
     QString bloco = ui->texto->toMarkdown();
     QString data =  ui->dateEdit->text();
@@ -319,12 +316,12 @@ void criar::on_pbSalvar_clicked()
     QString urgencia = QString::number(verificaUrgencia());
 
     // DEBUG - Mostre o conteúdo das variáveis
-    qDebug() << "nome:" << nome;
+    //qDebug() << "nome:" << nome;
     //qDebug() << "bloco:" << bloco;
-    qDebug() << "data:" << data;
-    qDebug() << "hora:" << hora;
-    qDebug() << "urgencia:" << urgencia;
-    qDebug() << "nome está vazio?" << nome.isEmpty();
+    //qDebug() << "data:" << data;
+    //qDebug() << "hora:" << hora;
+    //qDebug() << "urgencia:" << urgencia;
+    //qDebug() << "nome está vazio?" << nome.isEmpty();
 
     QSqlQuery salvaBloco;
 
@@ -335,6 +332,8 @@ void criar::on_pbSalvar_clicked()
 
         salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
         //a urgencia recebe 0 para ficar como em andamento
+
+
 
     }else{
 
@@ -352,10 +351,11 @@ void criar::on_pbSalvar_clicked()
 
 
 
-
     if(salvaBloco.exec()){
 
         QMessageBox::information(this,"atenção","Registro salvo com sucesso.");
+
+        blocoPush = salvaBloco.lastInsertId().toInt();
 
         this->close();
 
@@ -365,10 +365,57 @@ void criar::on_pbSalvar_clicked()
 
     }
 
+
+
+    diffBloco();
+
 }
 
 
+void criar::diffBloco(){
 
+    QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
+    QString bloco = ui->texto->toMarkdown();
+    QString data =  ui->dateEdit->text();
+    QString hora = ui->timeEdit->text();
+    QString urgencia = QString::number(verificaUrgencia());
+
+    QSqlQuery salvaBloco;
+
+
+    if(editando == false){
+
+
+        salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,userPropId,idBloco,quantidadeSalvas) "
+                           "values (:nome,:bloco,:data,:hora,:urgencia,:idUser,:idBloco,:qtdSalvo)");
+
+        salvaBloco.bindValue(":nome", nome);
+        salvaBloco.bindValue(":bloco", bloco);
+        salvaBloco.bindValue(":data", data);
+        salvaBloco.bindValue(":hora", hora);
+        salvaBloco.bindValue(":urgencia", urgencia);
+        salvaBloco.bindValue(":idBloco", blocoPush);
+        salvaBloco.bindValue(":idUser", QString::number(idRecuperada));
+        salvaBloco.bindValue(":qtdSalvo", 1);
+
+    }else{
+
+
+
+    }
+    if(salvaBloco.exec()){
+
+        QMessageBox::information(this,"atenção","Registro Diff salvo com sucesso.");
+
+        this->close();
+
+    }else{
+        //mostra o erro
+        QMessageBox::information(this,"atenção","não foi possivel salvar as informações Diff.\n" + salvaBloco.lastError().text());
+
+    }
+
+}
 
 
 void criar::on_pbSalvarLocal_clicked()

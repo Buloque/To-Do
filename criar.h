@@ -18,6 +18,7 @@ public:
     void subtextos();
     bool veficaTexto();
 
+    void diffBloco();
 
     int verificaUrgencia();
 

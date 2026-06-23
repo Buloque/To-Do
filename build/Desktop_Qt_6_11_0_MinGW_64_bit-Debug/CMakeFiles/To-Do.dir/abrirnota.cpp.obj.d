@@ -429,6 +429,9 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
