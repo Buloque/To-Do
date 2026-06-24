@@ -401,6 +401,12 @@
 			null
 		],
 		[
+			"D:/Projetos/QT/To-Do/historico.h",
+			"MU",
+			"EWIEGA46WW/moc_historico.cpp",
+			null
+		],
+		[
 			"D:/Projetos/QT/To-Do/login.h",
 			"MU",
 			"EWIEGA46WW/moc_login.cpp",
@@ -496,6 +502,7 @@
 		[ "D:/Projetos/QT/To-Do/abrirnota.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/criar.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/editar.cpp", "MU", null ],
+		[ "D:/Projetos/QT/To-Do/historico.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/login.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/main.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/pagina_inicial.cpp", "MU", null ],

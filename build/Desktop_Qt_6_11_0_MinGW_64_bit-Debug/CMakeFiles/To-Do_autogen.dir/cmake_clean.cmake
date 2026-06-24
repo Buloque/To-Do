@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "To-Do_autogen/include/ui_abrirnota.h"
   "To-Do_autogen/include/ui_criar.h"
   "To-Do_autogen/include/ui_editar.h"
+  "To-Do_autogen/include/ui_historico.h"
   "To-Do_autogen/include/ui_login.h"
   "To-Do_autogen/include/ui_pagina_inicial.h"
   "To-Do_autogen/include/ui_registrar.h"

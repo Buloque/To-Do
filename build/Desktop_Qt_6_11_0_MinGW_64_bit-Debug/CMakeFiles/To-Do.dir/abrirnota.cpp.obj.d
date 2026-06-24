@@ -752,4 +752,5 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:\Projetos\QT\To-Do\historico.h

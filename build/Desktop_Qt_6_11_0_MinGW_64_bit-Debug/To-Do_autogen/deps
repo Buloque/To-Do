@@ -971,6 +971,8 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/criar.h \
 	D:/Projetos/QT/To-Do/editar.cpp \
 	D:/Projetos/QT/To-Do/editar.h \
+	D:/Projetos/QT/To-Do/historico.cpp \
+	D:/Projetos/QT/To-Do/historico.h \
 	D:/Projetos/QT/To-Do/login.cpp \
 	D:/Projetos/QT/To-Do/login.h \
 	D:/Projetos/QT/To-Do/main.cpp \
@@ -981,6 +983,7 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/abrirnota.ui \
 	D:/Projetos/QT/To-Do/criar.ui \
 	D:/Projetos/QT/To-Do/editar.ui \
+	D:/Projetos/QT/To-Do/historico.ui \
 	D:/Projetos/QT/To-Do/login.ui \
 	D:/Projetos/QT/To-Do/pagina_inicial.ui \
 	D:/Projetos/QT/To-Do/registrar.ui \

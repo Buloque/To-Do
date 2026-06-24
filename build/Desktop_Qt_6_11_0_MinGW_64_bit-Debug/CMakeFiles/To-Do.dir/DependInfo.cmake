@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Projetos/QT/To-Do/abrirnota.cpp" "CMakeFiles/To-Do.dir/abrirnota.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/abrirnota.cpp.obj.d"
   "D:/Projetos/QT/To-Do/criar.cpp" "CMakeFiles/To-Do.dir/criar.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/criar.cpp.obj.d"
   "D:/Projetos/QT/To-Do/editar.cpp" "CMakeFiles/To-Do.dir/editar.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/editar.cpp.obj.d"
+  "D:/Projetos/QT/To-Do/historico.cpp" "CMakeFiles/To-Do.dir/historico.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/historico.cpp.obj.d"
   "D:/Projetos/QT/To-Do/login.cpp" "CMakeFiles/To-Do.dir/login.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/login.cpp.obj.d"
   "D:/Projetos/QT/To-Do/main.cpp" "CMakeFiles/To-Do.dir/main.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/main.cpp.obj.d"
   "D:/Projetos/QT/To-Do/pagina_inicial.cpp" "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/pagina_inicial.cpp.obj.d"

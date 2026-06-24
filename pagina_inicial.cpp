@@ -240,7 +240,7 @@ void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    abrirNota abrirB(idBlocoSelecionado);
+    abrirNota abrirB(idBlocoSelecionado,idGuardada);
     qDebug() << "Id double clicado: " << idBlocoSelecionado;
 
     //abrirB.idNota(idBlocoSelecionado);

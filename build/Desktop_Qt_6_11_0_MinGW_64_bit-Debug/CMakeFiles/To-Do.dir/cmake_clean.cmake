@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/To-Do.dir/criar.cpp.obj.d"
   "CMakeFiles/To-Do.dir/editar.cpp.obj"
   "CMakeFiles/To-Do.dir/editar.cpp.obj.d"
+  "CMakeFiles/To-Do.dir/historico.cpp.obj"
+  "CMakeFiles/To-Do.dir/historico.cpp.obj.d"
   "CMakeFiles/To-Do.dir/login.cpp.obj"
   "CMakeFiles/To-Do.dir/login.cpp.obj.d"
   "CMakeFiles/To-Do.dir/main.cpp.obj"

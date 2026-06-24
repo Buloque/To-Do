@@ -393,6 +393,8 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Projetos/QT/To-Do/criar.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_editar.cpp \
  D:/Projetos/QT/To-Do/editar.h \
+ D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_historico.cpp \
+ D:/Projetos/QT/To-Do/historico.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_login.cpp \
  D:/Projetos/QT/To-Do/login.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \

@@ -319,6 +319,30 @@ editar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/editar.cpp.s
 .PHONY : editar.cpp.s
 
+historico.obj: historico.cpp.obj
+.PHONY : historico.obj
+
+# target to build an object file
+historico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/historico.cpp.obj
+.PHONY : historico.cpp.obj
+
+historico.i: historico.cpp.i
+.PHONY : historico.i
+
+# target to preprocess a source file
+historico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/historico.cpp.i
+.PHONY : historico.cpp.i
+
+historico.s: historico.cpp.s
+.PHONY : historico.s
+
+# target to generate assembly for a file
+historico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/historico.cpp.s
+.PHONY : historico.cpp.s
+
 login.obj: login.cpp.obj
 .PHONY : login.obj
 
@@ -445,6 +469,9 @@ help:
 	@echo ... editar.obj
 	@echo ... editar.i
 	@echo ... editar.s
+	@echo ... historico.obj
+	@echo ... historico.i
+	@echo ... historico.s
 	@echo ... login.obj
 	@echo ... login.i
 	@echo ... login.s

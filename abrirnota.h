@@ -12,14 +12,17 @@ class abrirNota : public QDialog
     Q_OBJECT
 
 public:
-    explicit abrirNota(int id,QWidget *parent = nullptr);
+    explicit abrirNota(int id,int idUser,QWidget *parent = nullptr);
     ~abrirNota();
     void idNota(int id);
     void carregaDados();
+    void diffBloco(int andamento);
 
 
 private slots:
     void on_cbAndamento_currentIndexChanged(int index);
+
+    void on_pbHistorico_clicked();
 
 private:
     Ui::abrirNota *ui;

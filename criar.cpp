@@ -15,6 +15,8 @@ int idRecuperada;
 bool editando;
 int blocoPush;
 
+QDateTime horaDiaAtual = QDateTime::currentDateTime();
+
 void criar::guardandoID(int ID,bool editar,int idBloco){
 
     ////retirar
@@ -54,7 +56,7 @@ void criar::subtextos(){
 
     if(editando == false){
 
-        QDateTime horaDiaAtual = QDateTime::currentDateTime();
+
 
         ui->timeEdit->setDateTime(horaDiaAtual);
         ui->dateEdit->setDateTime(horaDiaAtual);
@@ -315,14 +317,6 @@ void criar::on_pbSalvar_clicked()
     QString hora = ui->timeEdit->text();
     QString urgencia = QString::number(verificaUrgencia());
 
-    // DEBUG - Mostre o conteúdo das variáveis
-    //qDebug() << "nome:" << nome;
-    //qDebug() << "bloco:" << bloco;
-    //qDebug() << "data:" << data;
-    //qDebug() << "hora:" << hora;
-    //qDebug() << "urgencia:" << urgencia;
-    //qDebug() << "nome está vazio?" << nome.isEmpty();
-
     QSqlQuery salvaBloco;
 
     if(editando == false){
@@ -353,11 +347,13 @@ void criar::on_pbSalvar_clicked()
 
     if(salvaBloco.exec()){
 
-        QMessageBox::information(this,"atenção","Registro salvo com sucesso.");
+        if(editando == false){
 
-        blocoPush = salvaBloco.lastInsertId().toInt();
+            blocoPush = salvaBloco.lastInsertId().toInt();
 
-        this->close();
+        }
+
+        diffBloco();
 
     }else{
         //mostra o erro
@@ -365,16 +361,12 @@ void criar::on_pbSalvar_clicked()
 
     }
 
-
-
-    diffBloco();
-
 }
 
 
 void criar::diffBloco(){
 
-    QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
+    QString nome = ui->leTitulo->text();
     QString bloco = ui->texto->toMarkdown();
     QString data =  ui->dateEdit->text();
     QString hora = ui->timeEdit->text();
@@ -382,37 +374,68 @@ void criar::diffBloco(){
 
     QSqlQuery salvaBloco;
 
+    QSqlDatabase db = QSqlDatabase::database();
+    qDebug() << "Banco de dados conectado:" << db.databaseName();
+    qDebug() << "Driver:" << db.driverName();
 
-    if(editando == false){
+    int contBanco = 0;
 
+    QSqlQuery verificaDiff;
 
-        salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,userPropId,idBloco,quantidadeSalvas) "
-                           "values (:nome,:bloco,:data,:hora,:urgencia,:idUser,:idBloco,:qtdSalvo)");
+     // Busca o maior valor já salvo na coluna 'quantidade' para o bloco específico
+    verificaDiff.prepare("SELECT MAX(quantidadeSalvas) FROM diffInfo WHERE idBloco = :idBloco");//cuidar para ter exatamente a mesma palavra
+    verificaDiff.bindValue(":idBloco", blocoPush);
 
-        salvaBloco.bindValue(":nome", nome);
-        salvaBloco.bindValue(":bloco", bloco);
-        salvaBloco.bindValue(":data", data);
-        salvaBloco.bindValue(":hora", hora);
-        salvaBloco.bindValue(":urgencia", urgencia);
-        salvaBloco.bindValue(":idBloco", blocoPush);
-        salvaBloco.bindValue(":idUser", QString::number(idRecuperada));
-        salvaBloco.bindValue(":qtdSalvo", 1);
+    if(verificaDiff.exec()){
+        if(verificaDiff.next()){
+            QVariant valorBruto = verificaDiff.value(0);
 
-    }else{
+            int valorDoMax = 0;
+            //verifica se o qVariant está como null e se está vazio, impedinto tranformar um null ou texto vazio em um numero
+            if(!valorBruto.isNull() && !valorBruto.toString().isEmpty()) {
+                valorDoMax = valorBruto.toInt();
+            }
 
+            contBanco = valorDoMax + 1;
 
+            //qDebug() << "contBanco calculado:" << contBanco;
+
+         }else{
+
+             qDebug() << "NExt falhou";
+
+        }
+     }else{
+
+        qDebug() << "Exec falhou";
 
     }
+
+
+    qDebug() << "Valor de contBanco antes do INSERT:" << contBanco;
+    qDebug() << "Valor de blocoPush:" << blocoPush;
+
+    salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,quantidadeSalvas) "
+                       "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:qtdSalvo)");
+
+    salvaBloco.bindValue(":nome", nome);
+    salvaBloco.bindValue(":bloco", bloco);
+    salvaBloco.bindValue(":data", data);
+    salvaBloco.bindValue(":hora", hora);
+    salvaBloco.bindValue(":urgencia", urgencia);
+    salvaBloco.bindValue(":dataAlterado", horaDiaAtual.toString("dd/MM/yyyy hh:mm"));
+    salvaBloco.bindValue(":idBloco", blocoPush);
+    salvaBloco.bindValue(":idUser", QString::number(idRecuperada));
+    salvaBloco.bindValue(":qtdSalvo", contBanco);
+
+
     if(salvaBloco.exec()){
 
-        QMessageBox::information(this,"atenção","Registro Diff salvo com sucesso.");
-
+        QMessageBox::information(this,"atenção","Registro salvo com sucesso.");
         this->close();
-
     }else{
-        //mostra o erro
-        QMessageBox::information(this,"atenção","não foi possivel salvar as informações Diff.\n" + salvaBloco.lastError().text());
 
+        QMessageBox::information(this,"atenção","não foi possivel salvar as informações Diff.\n" + salvaBloco.lastError().text());
     }
 
 }

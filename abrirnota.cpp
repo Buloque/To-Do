@@ -4,10 +4,15 @@
 #include <QtSql>
 #include <QMessageBox>
 
+#include "historico.h"
+
 int idBloco;
+int idUser;
 
 QString dataB;
 QString horas;
+
+QString dataFinalizado = QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm");
 
 
 void abrirNota::idNota(int id){
@@ -16,12 +21,12 @@ void abrirNota::idNota(int id){
 
 }
 
-abrirNota::abrirNota(int id,QWidget *parent)
+abrirNota::abrirNota(int id,int idUser,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::abrirNota)
 {
     ui->setupUi(this);
-
+    idUser = idUser;
     idBloco = id;
 
     carregaDados();
@@ -40,7 +45,7 @@ abrirNota::~abrirNota()
 void abrirNota::carregaDados(){
 
     QSqlQuery abreNotas;
-    abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,finalizado,dataFinalizado FROM infoUsers WHERE id = :id");
+    abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM infoUsers WHERE id = :id");
     abreNotas.bindValue(":id", idBloco);
     //
 
@@ -61,9 +66,8 @@ void abrirNota::carregaDados(){
 
             if(andamento == 1){
 
-                dhFormatado = "A tarefa foi terminada no dia: "+ abreNotas.value(7).toString();
+                dhFormatado = "A tarefa foi terminada no dia: "+ abreNotas.value(6).toString();
 
-                //ui->cbAndamento->setEnabled(false);
             }else{
 
                 dhFormatado = "Até dia " + dataB + " " + horas + " deve ser feito a tarefa.";
@@ -98,10 +102,10 @@ void abrirNota::carregaDados(){
 
 }
 
-void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando inicia em Finalizado, ele acaba salvando novamente
+void abrirNota::on_cbAndamento_currentIndexChanged(int index)
 {
 
-    QString dataFinalizado = QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm");
+
 
     QSqlQuery salvaAndamento;
 
@@ -115,12 +119,12 @@ void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando ini
         if(btnc == QMessageBox::Yes){
 
             salvaAndamento.prepare("UPDATE infoUsers "
-                                   "SET andamento = :andamento,dataFinalizado = :dataFinalizado,finalizado = :finalizado WHERE id = :id ");
+                                   "SET andamento = :andamento,dataFinalizado = :dataFinalizado WHERE id = :id ");
 
             ui->DiaeHora->setText("A tarefa foi cancelada no dia: "+ dataFinalizado);
 
             salvaAndamento.bindValue(":dataFinalizado", dataFinalizado);
-            salvaAndamento.bindValue(":finalizado", 2);//cancelado
+            //salvaAndamento.bindValue(":finalizado", 2);//cancelado
         }else{
 
             ui->cbAndamento->setCurrentIndex(0);
@@ -137,12 +141,12 @@ void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando ini
         if(btn == QMessageBox::Yes){
 
             salvaAndamento.prepare("UPDATE infoUsers "
-                                   "SET andamento = :andamento,dataFinalizado = :dataFinalizado,finalizado = :finalizado WHERE id = :id ");
+                                   "SET andamento = :andamento,dataFinalizado = :dataFinalizado WHERE id = :id ");
 
             ui->DiaeHora->setText("A tarefa foi terminada no dia: "+ dataFinalizado);
 
             salvaAndamento.bindValue(":dataFinalizado", dataFinalizado);
-            salvaAndamento.bindValue(":finalizado", 1);//finalizado
+            //salvaAndamento.bindValue(":finalizado", 1);//finalizado
 
             //ui->cbAndamento->setEnabled(false);
 
@@ -159,10 +163,10 @@ void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando ini
         ui->DiaeHora->setText("Até dia " + dataB + " " + horas + " deve ser feito a tarefa.");
 
         salvaAndamento.prepare("UPDATE infoUsers "
-                               "SET andamento = :andamento,dataFinalizado = :dataFinalizado,finalizado = :finalizado WHERE id = :id ");
+                               "SET andamento = :andamento,dataFinalizado = :dataFinalizado WHERE id = :id ");
 
         salvaAndamento.bindValue(":finalizado", "");
-        salvaAndamento.bindValue(":finalizado", 0);//em aberto
+        //salvaAndamento.bindValue(":finalizado", 0);//em aberto
 
     }
 
@@ -170,7 +174,7 @@ void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando ini
 
     salvaAndamento.bindValue(":id", idBloco);
 
-
+    diffBloco(index);
 
     if(!salvaAndamento.exec()){
 
@@ -179,6 +183,77 @@ void abrirNota::on_cbAndamento_currentIndexChanged(int index)///erro, quando ini
 
     }
 
+
+}
+
+void abrirNota::diffBloco(int andamento){
+
+
+    QSqlQuery salvaBloco;
+
+    int contBanco = 0;
+
+    QSqlQuery verificaDiff;
+
+    // Busca o maior valor já salvo na coluna 'quantidade' para o bloco específico
+    verificaDiff.prepare("SELECT MAX(quantidadeSalvas) FROM diffInfo WHERE idBloco = :idBloco");//cuidar para ter exatamente a mesma palavra
+    verificaDiff.bindValue(":idBloco", idBloco);
+
+    if(verificaDiff.exec()){
+        if(verificaDiff.next()){
+            QVariant valorBruto = verificaDiff.value(0);
+
+            int valorDoMax = 0;
+
+            //verifica se o qVariant está como null e se está vazio, impedinto tranformar um null ou texto vazio em um numero
+            if(!valorBruto.isNull() && !valorBruto.toString().isEmpty()) {
+                valorDoMax = valorBruto.toInt();
+            }
+
+            contBanco = valorDoMax + 1;
+
+            //qDebug() << "contBanco calculado:" << contBanco;
+
+        }else{
+
+            qDebug() << "NExt falhou";
+
+        }
+    }else{
+
+        qDebug() << "Exec falhou";
+
+    }
+
+    salvaBloco.prepare("insert into diffInfo (dataFinalizado,andamento,quantidadeSalvas,idBloco,userPropId) "
+                           "values (:dataFinalizado,:andamento,:qtdSalvo,:idBloco,:userPropId)");
+
+    salvaBloco.bindValue(":dataFinalizado", dataFinalizado);
+    salvaBloco.bindValue(":andamento", andamento);//colocando em andamento
+    salvaBloco.bindValue(":qtdSalvo", contBanco);
+    salvaBloco.bindValue(":idBloco", idBloco);
+    salvaBloco.bindValue(":userPropId", idUser);
+
+    if(salvaBloco.exec()){
+
+        QMessageBox::information(this,"atenção","Registro salvo com sucesso.");
+
+    }else{
+
+        QMessageBox::information(this,"atenção","não foi possivel salvar as informações Diff.\n" + salvaBloco.lastError().text());
+    }
+
+}
+
+
+void abrirNota::on_pbHistorico_clicked()
+{
+
+    Historico abrirH(idBloco);
+
+    abrirH.setModal(true);
+
+    abrirH.exec();
 
 }
 
