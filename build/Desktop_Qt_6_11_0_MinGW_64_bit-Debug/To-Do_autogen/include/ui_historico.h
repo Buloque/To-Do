@@ -10,8 +10,11 @@
 #define UI_HISTORICO_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QListWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +22,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Historico
 {
 public:
+    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout;
     QListWidget *lwHistorico;
 
     void setupUi(QDialog *Historico)
@@ -26,10 +31,23 @@ public:
         if (Historico->objectName().isEmpty())
             Historico->setObjectName("Historico");
         Historico->resize(400, 600);
+        Historico->setMinimumSize(QSize(400, 600));
         Historico->setMaximumSize(QSize(400, 600));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        Historico->setWindowIcon(icon);
+        gridLayout = new QGridLayout(Historico);
+        gridLayout->setObjectName("gridLayout");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
+
         lwHistorico = new QListWidget(Historico);
         lwHistorico->setObjectName("lwHistorico");
-        lwHistorico->setGeometry(QRect(20, 40, 361, 541));
+
+        gridLayout->addWidget(lwHistorico, 1, 0, 1, 1);
+
 
         retranslateUi(Historico);
 
@@ -38,7 +56,7 @@ public:
 
     void retranslateUi(QDialog *Historico)
     {
-        Historico->setWindowTitle(QCoreApplication::translate("Historico", "Dialog", nullptr));
+        Historico->setWindowTitle(QCoreApplication::translate("Historico", "Historico", nullptr));
     } // retranslateUi
 
 };

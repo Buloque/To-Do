@@ -295,6 +295,30 @@ criar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/criar.cpp.s
 .PHONY : criar.cpp.s
 
+diferenca.obj: diferenca.cpp.obj
+.PHONY : diferenca.obj
+
+# target to build an object file
+diferenca.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/diferenca.cpp.obj
+.PHONY : diferenca.cpp.obj
+
+diferenca.i: diferenca.cpp.i
+.PHONY : diferenca.i
+
+# target to preprocess a source file
+diferenca.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/diferenca.cpp.i
+.PHONY : diferenca.cpp.i
+
+diferenca.s: diferenca.cpp.s
+.PHONY : diferenca.s
+
+# target to generate assembly for a file
+diferenca.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/diferenca.cpp.s
+.PHONY : diferenca.cpp.s
+
 editar.obj: editar.cpp.obj
 .PHONY : editar.obj
 
@@ -466,6 +490,9 @@ help:
 	@echo ... criar.obj
 	@echo ... criar.i
 	@echo ... criar.s
+	@echo ... diferenca.obj
+	@echo ... diferenca.i
+	@echo ... diferenca.s
 	@echo ... editar.obj
 	@echo ... editar.i
 	@echo ... editar.s

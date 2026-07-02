@@ -391,15 +391,45 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_criar.cpp \
  D:/Projetos/QT/To-Do/criar.h \
+ D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_diferenca.cpp \
+ D:/Projetos/QT/To-Do/diferenca.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_editar.cpp \
  D:/Projetos/QT/To-Do/editar.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_historico.cpp \
  D:/Projetos/QT/To-Do/historico.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_login.cpp \
  D:/Projetos/QT/To-Do/login.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSql \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSqlDepends \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QtCore \
@@ -416,7 +446,6 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qeventloop.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractnativeeventfilter.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractproxymodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qanimationgroup.h \
@@ -437,13 +466,10 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbytearraymatcher.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcache.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborarray.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborvalue.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborcommon.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qdatetime.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/quuid.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcbormap.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcborstream.h \
@@ -521,7 +547,6 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qfuturesynchronizer.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qfuturewatcher.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qidentityproxymodel.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qjsonarray.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qjsonvalue.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qjsondocument.h \
@@ -716,28 +741,12 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlquerymodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlrelationaltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_pagina_inicial.cpp \
- D:/Projetos/QT/To-Do/pagina_inicial.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
- D:/Projetos/QT/To-Do/login.h \
+ D:/Projetos/QT/To-Do/pagina_inicial.h D:/Projetos/QT/To-Do/login.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_registrar.cpp \
  D:/Projetos/QT/To-Do/registrar.h

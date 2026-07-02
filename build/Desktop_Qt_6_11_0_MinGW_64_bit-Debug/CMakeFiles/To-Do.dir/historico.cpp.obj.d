@@ -384,8 +384,30 @@ CMakeFiles/To-Do.dir/historico.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qcursor.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qbitmap.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_historico.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -398,28 +420,15 @@ CMakeFiles/To-Do.dir/historico.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSql \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/QtSqlDepends \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QtCore \
@@ -732,4 +741,12 @@ CMakeFiles/To-Do.dir/historico.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:\Projetos\QT\To-Do\diferenca.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h

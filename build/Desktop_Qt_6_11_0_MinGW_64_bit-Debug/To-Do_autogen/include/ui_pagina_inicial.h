@@ -35,6 +35,7 @@ public:
     QPushButton *btnApagar;
     QHBoxLayout *horizontalLayout_3;
     QComboBox *comboBox;
+    QPushButton *pushButton;
     QSpacerItem *horizontalSpacer;
     QPushButton *pbAZ;
     QPushButton *pbData;
@@ -96,6 +97,12 @@ public:
 
         horizontalLayout_3->addWidget(comboBox);
 
+        pushButton = new QPushButton(Pagina_Inicial);
+        pushButton->setObjectName("pushButton");
+        pushButton->setMaximumSize(QSize(35, 35));
+
+        horizontalLayout_3->addWidget(pushButton);
+
         horizontalSpacer = new QSpacerItem(70, 20, QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer);
@@ -154,6 +161,7 @@ public:
         comboBox->setItemText(2, QCoreApplication::translate("Pagina_Inicial", "Finalizados", nullptr));
         comboBox->setItemText(3, QCoreApplication::translate("Pagina_Inicial", "Cancelados", nullptr));
 
+        pushButton->setText(QCoreApplication::translate("Pagina_Inicial", "\360\237\223\232", nullptr));
         pbAZ->setText(QCoreApplication::translate("Pagina_Inicial", "A-Z", nullptr));
         pbData->setText(QCoreApplication::translate("Pagina_Inicial", "\360\237\223\205", nullptr));
         lblReg->setText(QCoreApplication::translate("Pagina_Inicial", "Total de Registros:  ", nullptr));

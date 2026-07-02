@@ -10,9 +10,10 @@
 
 #include "criar.h"
 #include "abrirnota.h"
+#include "historico.h"
 
-int idGuardada;
-int idBlocoSelecionado;
+int idGuardada; // id do usuario
+int idBlocoSelecionado; // id do bloco
 int modo = 0;
 int cAZ = 0;
 int cData = 0;
@@ -240,10 +241,7 @@ void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    abrirNota abrirB(idBlocoSelecionado,idGuardada);
-    qDebug() << "Id double clicado: " << idBlocoSelecionado;
-
-    //abrirB.idNota(idBlocoSelecionado);
+    abrirNota abrirB(idBlocoSelecionado,idGuardada,false);
 
     abrirB.setModal(true);
 
@@ -325,8 +323,6 @@ void Pagina_Inicial::on_lwTodosT_currentItemChanged(QListWidgetItem *current, QL
     if (!current) return;
 
     idBlocoSelecionado = current->data(Qt::UserRole).toInt(); // unifica a base
-
-    qDebug() << "Id clicado: " << idBlocoSelecionado;
 }
 
 ////////////////////voltar para o login
@@ -353,4 +349,14 @@ void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, b
 
 
 
+
+
+void Pagina_Inicial::on_pushButton_clicked()
+{
+    Historico abrirH(idBlocoSelecionado,idGuardada);
+
+    abrirH.setModal(true);
+
+    abrirH.exec();
+}
 

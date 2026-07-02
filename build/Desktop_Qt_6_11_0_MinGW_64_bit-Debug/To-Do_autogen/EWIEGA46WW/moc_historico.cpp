@@ -38,10 +38,28 @@ template <> constexpr inline auto Historico::qt_create_metaobjectdata<qt_meta_ta
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "Historico"
+        "Historico",
+        "on_lwHistorico_itemDoubleClicked",
+        "",
+        "QListWidgetItem*",
+        "item",
+        "on_lwHistorico_currentItemChanged",
+        "current",
+        "previous",
+        "on_pushButton_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Slot 'on_lwHistorico_itemDoubleClicked'
+        QtMocHelpers::SlotData<void(QListWidgetItem *)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'on_lwHistorico_currentItemChanged'
+        QtMocHelpers::SlotData<void(QListWidgetItem *, QListWidgetItem *)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 6 }, { 0x80000000 | 3, 7 },
+        }}),
+        // Slot 'on_pushButton_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -63,10 +81,14 @@ Q_CONSTINIT const QMetaObject Historico::staticMetaObject = { {
 void Historico::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<Historico *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->on_lwHistorico_itemDoubleClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 1: _t->on_lwHistorico_currentItemChanged((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[2]))); break;
+        case 2: _t->on_pushButton_clicked(); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject *Historico::metaObject() const
@@ -85,6 +107,18 @@ void *Historico::qt_metacast(const char *_clname)
 int Historico::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
     return _id;
 }
 QT_WARNING_POP

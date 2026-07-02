@@ -395,6 +395,12 @@
 			null
 		],
 		[
+			"D:/Projetos/QT/To-Do/diferenca.h",
+			"MU",
+			"EWIEGA46WW/moc_diferenca.cpp",
+			null
+		],
+		[
 			"D:/Projetos/QT/To-Do/editar.h",
 			"MU",
 			"EWIEGA46WW/moc_editar.cpp",
@@ -501,6 +507,7 @@
 	[
 		[ "D:/Projetos/QT/To-Do/abrirnota.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/criar.cpp", "MU", null ],
+		[ "D:/Projetos/QT/To-Do/diferenca.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/editar.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/historico.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/login.cpp", "MU", null ],

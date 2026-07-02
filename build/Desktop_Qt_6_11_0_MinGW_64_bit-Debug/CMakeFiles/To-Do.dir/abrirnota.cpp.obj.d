@@ -429,9 +429,6 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
@@ -753,4 +750,7 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
  D:\Projetos\QT\To-Do\historico.h

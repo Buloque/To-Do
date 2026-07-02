@@ -17,7 +17,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextEdit>
 
@@ -30,8 +29,6 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
-    QLabel *label_2;
-    QPushButton *pbHistorico;
     QLabel *label;
     QComboBox *cbUrgencia;
     QLabel *TxtAndamento;
@@ -60,18 +57,6 @@ public:
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
-
-        label_2 = new QLabel(abrirNota);
-        label_2->setObjectName("label_2");
-
-        horizontalLayout->addWidget(label_2);
-
-        pbHistorico = new QPushButton(abrirNota);
-        pbHistorico->setObjectName("pbHistorico");
-        pbHistorico->setMinimumSize(QSize(3, 0));
-        pbHistorico->setMaximumSize(QSize(30, 30));
-
-        horizontalLayout->addWidget(pbHistorico);
 
         label = new QLabel(abrirNota);
         label->setObjectName("label");
@@ -129,8 +114,6 @@ public:
     void retranslateUi(QDialog *abrirNota)
     {
         abrirNota->setWindowTitle(QCoreApplication::translate("abrirNota", "Dialog", nullptr));
-        label_2->setText(QCoreApplication::translate("abrirNota", "Historico:", nullptr));
-        pbHistorico->setText(QCoreApplication::translate("abrirNota", "\360\237\223\232", nullptr));
         label->setText(QCoreApplication::translate("abrirNota", "Prazo:", nullptr));
         cbUrgencia->setItemText(0, QCoreApplication::translate("abrirNota", "\360\237\237\242 Baixo", nullptr));
         cbUrgencia->setItemText(1, QCoreApplication::translate("abrirNota", "\360\237\237\241 M\303\251dio", nullptr));

@@ -218,11 +218,26 @@ CMakeFiles/To-Do.dir/historico.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/To-Do.dir/historico.cpp.s"
 	D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projetos\QT\To-Do\historico.cpp -o CMakeFiles\To-Do.dir\historico.cpp.s
 
+CMakeFiles/To-Do.dir/diferenca.cpp.obj: CMakeFiles/To-Do.dir/flags.make
+CMakeFiles/To-Do.dir/diferenca.cpp.obj: CMakeFiles/To-Do.dir/includes_CXX.rsp
+CMakeFiles/To-Do.dir/diferenca.cpp.obj: D:/Projetos/QT/To-Do/diferenca.cpp
+CMakeFiles/To-Do.dir/diferenca.cpp.obj: CMakeFiles/To-Do.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/To-Do.dir/diferenca.cpp.obj"
+	D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/To-Do.dir/diferenca.cpp.obj -MF CMakeFiles\To-Do.dir\diferenca.cpp.obj.d -o CMakeFiles\To-Do.dir\diferenca.cpp.obj -c D:\Projetos\QT\To-Do\diferenca.cpp
+
+CMakeFiles/To-Do.dir/diferenca.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/To-Do.dir/diferenca.cpp.i"
+	D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projetos\QT\To-Do\diferenca.cpp > CMakeFiles\To-Do.dir\diferenca.cpp.i
+
+CMakeFiles/To-Do.dir/diferenca.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/To-Do.dir/diferenca.cpp.s"
+	D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projetos\QT\To-Do\diferenca.cpp -o CMakeFiles\To-Do.dir\diferenca.cpp.s
+
 CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj: CMakeFiles/To-Do.dir/flags.make
 CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj: CMakeFiles/To-Do.dir/includes_CXX.rsp
 CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj: To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp
 CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj: CMakeFiles/To-Do.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj"
 	D:\Programas\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj -MF CMakeFiles\To-Do.dir\To-Do_autogen\EWIEGA46WW\qrc_Imagens.cpp.obj.d -o CMakeFiles\To-Do.dir\To-Do_autogen\EWIEGA46WW\qrc_Imagens.cpp.obj -c D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW\qrc_Imagens.cpp
 
 CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.i: cmake_force
@@ -244,6 +259,7 @@ To__Do_OBJECTS = \
 "CMakeFiles/To-Do.dir/criar.cpp.obj" \
 "CMakeFiles/To-Do.dir/abrirnota.cpp.obj" \
 "CMakeFiles/To-Do.dir/historico.cpp.obj" \
+"CMakeFiles/To-Do.dir/diferenca.cpp.obj" \
 "CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj"
 
 # External object files for target To-Do
@@ -258,6 +274,7 @@ To-Do.exe: CMakeFiles/To-Do.dir/registrar.cpp.obj
 To-Do.exe: CMakeFiles/To-Do.dir/criar.cpp.obj
 To-Do.exe: CMakeFiles/To-Do.dir/abrirnota.cpp.obj
 To-Do.exe: CMakeFiles/To-Do.dir/historico.cpp.obj
+To-Do.exe: CMakeFiles/To-Do.dir/diferenca.cpp.obj
 To-Do.exe: CMakeFiles/To-Do.dir/To-Do_autogen/EWIEGA46WW/qrc_Imagens.cpp.obj
 To-Do.exe: CMakeFiles/To-Do.dir/build.make
 To-Do.exe: D:/Programas/Qt/6.11.0/mingw_64/lib/libQt6Widgets.a
@@ -268,7 +285,7 @@ To-Do.exe: D:/Programas/Qt/6.11.0/mingw_64/lib/libQt6EntryPoint.a
 To-Do.exe: CMakeFiles/To-Do.dir/linkLibs.rsp
 To-Do.exe: CMakeFiles/To-Do.dir/objects1.rsp
 To-Do.exe: CMakeFiles/To-Do.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable To-Do.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable To-Do.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\To-Do.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

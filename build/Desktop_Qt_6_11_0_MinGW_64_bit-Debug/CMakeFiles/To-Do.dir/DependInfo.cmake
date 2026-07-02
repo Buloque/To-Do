@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/mocs_compilation.cpp" "CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj.d"
   "D:/Projetos/QT/To-Do/abrirnota.cpp" "CMakeFiles/To-Do.dir/abrirnota.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/abrirnota.cpp.obj.d"
   "D:/Projetos/QT/To-Do/criar.cpp" "CMakeFiles/To-Do.dir/criar.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/criar.cpp.obj.d"
+  "D:/Projetos/QT/To-Do/diferenca.cpp" "CMakeFiles/To-Do.dir/diferenca.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/diferenca.cpp.obj.d"
   "D:/Projetos/QT/To-Do/editar.cpp" "CMakeFiles/To-Do.dir/editar.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/editar.cpp.obj.d"
   "D:/Projetos/QT/To-Do/historico.cpp" "CMakeFiles/To-Do.dir/historico.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/historico.cpp.obj.d"
   "D:/Projetos/QT/To-Do/login.cpp" "CMakeFiles/To-Do.dir/login.cpp.obj" "gcc" "CMakeFiles/To-Do.dir/login.cpp.obj.d"

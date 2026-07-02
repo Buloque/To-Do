@@ -9,6 +9,7 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q20utility.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q23type_traits.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/q23utility.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qalgorithms.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qalloc.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qanystringview.h \
@@ -52,11 +53,13 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qhash.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qhashfunctions.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevicebase.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiterable.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiterator.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlatin1stringview.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qline.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlist.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlogging.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qmalloc.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qmap.h \
@@ -77,6 +80,7 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qprocessordetection.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qrect.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qrefcount.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qset.h \
@@ -152,11 +156,28 @@ D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/EW
   D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtguiexports.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtguiglobal.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtransform.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

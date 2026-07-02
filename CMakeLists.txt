@@ -30,6 +30,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         criar.h criar.cpp criar.ui
         abrirnota.h abrirnota.cpp abrirnota.ui
         historico.h historico.cpp historico.ui
+        diferenca.h diferenca.cpp diferenca.ui
 
     )
 # Define target properties for Android with Qt 6 as:

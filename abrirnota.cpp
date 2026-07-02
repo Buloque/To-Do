@@ -4,10 +4,14 @@
 #include <QtSql>
 #include <QMessageBox>
 
+#include <QListWidget>
+#include <QListWidgetItem>
+
 #include "historico.h"
 
 int idBloco;
 int idUser;
+bool hist;
 
 QString dataB;
 QString horas;
@@ -21,13 +25,14 @@ void abrirNota::idNota(int id){
 
 }
 
-abrirNota::abrirNota(int id,int idUser,QWidget *parent)
+abrirNota::abrirNota(int id,int idUser,bool historico,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::abrirNota)
 {
     ui->setupUi(this);
     idUser = idUser;
     idBloco = id;
+    hist = historico;
 
     carregaDados();
 
@@ -45,7 +50,18 @@ abrirNota::~abrirNota()
 void abrirNota::carregaDados(){
 
     QSqlQuery abreNotas;
-    abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM infoUsers WHERE id = :id");
+    if(hist == true){
+
+        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM diffInfo WHERE id = :id");
+        ui->cbAndamento->setEnabled(false);
+        ui->cbUrgencia->setEnabled(false);
+
+    }else{
+
+        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM infoUsers WHERE id = :id");
+
+    }
+
     abreNotas.bindValue(":id", idBloco);
     //
 
@@ -248,12 +264,7 @@ void abrirNota::diffBloco(int andamento){
 
 void abrirNota::on_pbHistorico_clicked()
 {
-
-    Historico abrirH(idBloco);
-
-    abrirH.setModal(true);
-
-    abrirH.exec();
+//////excluir
 
 }
 

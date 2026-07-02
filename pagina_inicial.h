@@ -45,6 +45,8 @@ private slots:
 
     void on_pbData_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Pagina_Inicial *ui;
     Login telaLogin;

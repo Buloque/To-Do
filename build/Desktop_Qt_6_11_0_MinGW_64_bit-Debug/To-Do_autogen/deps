@@ -306,12 +306,17 @@ To-Do_autogen/timestamp: \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qkeysequence.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpaintdevice.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpalette.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpixelformat.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpixmap.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpolygon.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qregion.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qrgb.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qrgba64.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtgui-config.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtguiexports.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtguiglobal.h \
@@ -339,6 +344,7 @@ To-Do_autogen/timestamp: \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -349,6 +355,7 @@ To-Do_autogen/timestamp: \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -360,6 +367,7 @@ To-Do_autogen/timestamp: \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
 	D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -969,6 +977,8 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/moc_predefs.h \
 	D:/Projetos/QT/To-Do/criar.cpp \
 	D:/Projetos/QT/To-Do/criar.h \
+	D:/Projetos/QT/To-Do/diferenca.cpp \
+	D:/Projetos/QT/To-Do/diferenca.h \
 	D:/Projetos/QT/To-Do/editar.cpp \
 	D:/Projetos/QT/To-Do/editar.h \
 	D:/Projetos/QT/To-Do/historico.cpp \
@@ -982,6 +992,7 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/registrar.h \
 	D:/Projetos/QT/To-Do/abrirnota.ui \
 	D:/Projetos/QT/To-Do/criar.ui \
+	D:/Projetos/QT/To-Do/diferenca.ui \
 	D:/Projetos/QT/To-Do/editar.ui \
 	D:/Projetos/QT/To-Do/historico.ui \
 	D:/Projetos/QT/To-Do/login.ui \

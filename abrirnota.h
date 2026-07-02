@@ -12,7 +12,7 @@ class abrirNota : public QDialog
     Q_OBJECT
 
 public:
-    explicit abrirNota(int id,int idUser,QWidget *parent = nullptr);
+    explicit abrirNota(int id,int idUser,bool historico,QWidget *parent = nullptr);
     ~abrirNota();
     void idNota(int id);
     void carregaDados();
