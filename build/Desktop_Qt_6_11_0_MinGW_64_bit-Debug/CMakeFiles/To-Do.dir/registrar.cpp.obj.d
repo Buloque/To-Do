@@ -725,6 +725,7 @@ CMakeFiles/To-Do.dir/registrar.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_registrar.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \

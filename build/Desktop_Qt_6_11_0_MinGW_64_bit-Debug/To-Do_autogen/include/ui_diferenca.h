@@ -10,27 +10,33 @@
 #define UI_DIFERENCA_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_diferenca
 {
 public:
-    QWidget *horizontalLayoutWidget;
+    QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
     QTextEdit *txtOriginal;
     QTextEdit *txtDiff;
-    QWidget *horizontalLayoutWidget_2;
     QGridLayout *gridLayout_2;
+    QLabel *nomeUsuario;
+    QLabel *label;
+    QLabel *label_2;
     QLineEdit *leOriginal;
     QLineEdit *leDiff;
+    QCheckBox *cbTitulo;
+    QCheckBox *cbEditavel;
 
     void setupUi(QDialog *diferenca)
     {
@@ -38,37 +44,73 @@ public:
             diferenca->setObjectName("diferenca");
         diferenca->resize(655, 400);
         diferenca->setMaximumSize(QSize(655, 400));
-        horizontalLayoutWidget = new QWidget(diferenca);
-        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(9, 50, 641, 341));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        diferenca->setWindowIcon(icon);
+        gridLayout = new QGridLayout(diferenca);
+        gridLayout->setObjectName("gridLayout");
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        txtOriginal = new QTextEdit(horizontalLayoutWidget);
+        txtOriginal = new QTextEdit(diferenca);
         txtOriginal->setObjectName("txtOriginal");
 
         horizontalLayout->addWidget(txtOriginal);
 
-        txtDiff = new QTextEdit(horizontalLayoutWidget);
+        txtDiff = new QTextEdit(diferenca);
         txtDiff->setObjectName("txtDiff");
 
         horizontalLayout->addWidget(txtDiff);
 
-        horizontalLayoutWidget_2 = new QWidget(diferenca);
-        horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
-        horizontalLayoutWidget_2->setGeometry(QRect(9, 9, 641, 32));
-        gridLayout_2 = new QGridLayout(horizontalLayoutWidget_2);
+
+        gridLayout->addLayout(horizontalLayout, 5, 0, 1, 1);
+
+        gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        leOriginal = new QLineEdit(horizontalLayoutWidget_2);
+        nomeUsuario = new QLabel(diferenca);
+        nomeUsuario->setObjectName("nomeUsuario");
+        nomeUsuario->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+
+        gridLayout_2->addWidget(nomeUsuario, 1, 2, 1, 1);
+
+        label = new QLabel(diferenca);
+        label->setObjectName("label");
+        QFont font;
+        font.setBold(true);
+        label->setFont(font);
+        label->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_2->addWidget(label, 2, 0, 1, 1);
+
+        label_2 = new QLabel(diferenca);
+        label_2->setObjectName("label_2");
+        label_2->setFont(font);
+        label_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_2->addWidget(label_2, 2, 2, 1, 1);
+
+        leOriginal = new QLineEdit(diferenca);
         leOriginal->setObjectName("leOriginal");
 
-        gridLayout_2->addWidget(leOriginal, 0, 0, 1, 1);
+        gridLayout_2->addWidget(leOriginal, 5, 0, 1, 1);
 
-        leDiff = new QLineEdit(horizontalLayoutWidget_2);
+        leDiff = new QLineEdit(diferenca);
         leDiff->setObjectName("leDiff");
 
-        gridLayout_2->addWidget(leDiff, 0, 1, 1, 1);
+        gridLayout_2->addWidget(leDiff, 5, 2, 1, 1);
+
+        cbTitulo = new QCheckBox(diferenca);
+        cbTitulo->setObjectName("cbTitulo");
+        cbTitulo->setCheckable(true);
+
+        gridLayout_2->addWidget(cbTitulo, 5, 1, 1, 1);
+
+        cbEditavel = new QCheckBox(diferenca);
+        cbEditavel->setObjectName("cbEditavel");
+
+        gridLayout_2->addWidget(cbEditavel, 1, 0, 1, 1);
+
+
+        gridLayout->addLayout(gridLayout_2, 4, 0, 1, 1);
 
 
         retranslateUi(diferenca);
@@ -78,7 +120,7 @@ public:
 
     void retranslateUi(QDialog *diferenca)
     {
-        diferenca->setWindowTitle(QCoreApplication::translate("diferenca", "Dialog", nullptr));
+        diferenca->setWindowTitle(QCoreApplication::translate("diferenca", "Diferen\303\247a", nullptr));
         txtOriginal->setHtml(QCoreApplication::translate("diferenca", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -95,8 +137,13 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        nomeUsuario->setText(QCoreApplication::translate("diferenca", "Usuario que alterou: ", nullptr));
+        label->setText(QCoreApplication::translate("diferenca", "Conteudo Atual", nullptr));
+        label_2->setText(QCoreApplication::translate("diferenca", "Condeudo anterior", nullptr));
         leOriginal->setText(QString());
         leDiff->setText(QString());
+        cbTitulo->setText(QCoreApplication::translate("diferenca", "Titulo Igual", nullptr));
+        cbEditavel->setText(QCoreApplication::translate("diferenca", "Editavel", nullptr));
     } // retranslateUi
 
 };

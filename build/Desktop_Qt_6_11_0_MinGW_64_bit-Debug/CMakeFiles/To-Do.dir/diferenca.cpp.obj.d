@@ -396,6 +396,7 @@ CMakeFiles/To-Do.dir/diferenca.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_diferenca.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -410,6 +411,9 @@ CMakeFiles/To-Do.dir/diferenca.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QCheckBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcheckbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
@@ -417,11 +421,14 @@ CMakeFiles/To-Do.dir/diferenca.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLineEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QString \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
@@ -454,7 +461,6 @@ CMakeFiles/To-Do.dir/diferenca.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qatomicscopedvaluerollback.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbitarray.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbuffer.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qbytearraymatcher.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcache.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \

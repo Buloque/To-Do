@@ -14,7 +14,7 @@ class registrar : public QDialog
     Q_OBJECT
 
 public:
-    explicit registrar(QWidget *parent = nullptr);
+    explicit registrar(bool primeiroRegistro,QWidget *parent = nullptr);
 
     ~registrar();
 

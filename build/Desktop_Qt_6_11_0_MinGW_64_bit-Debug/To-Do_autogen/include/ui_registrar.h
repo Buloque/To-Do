@@ -10,6 +10,7 @@
 #define UI_REGISTRAR_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -40,7 +41,7 @@ public:
     QLabel *label_3;
     QLineEdit *txtSenha_2;
     QLabel *VerificaSenha;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
     QPushButton *dbCriar;
     QPushButton *pushButton_2;
@@ -52,6 +53,9 @@ public:
         registrar->resize(350, 549);
         registrar->setMinimumSize(QSize(350, 549));
         registrar->setMaximumSize(QSize(350, 549));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        registrar->setWindowIcon(icon);
         layoutWidget = new QWidget(registrar);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(20, 30, 311, 373));
@@ -131,13 +135,13 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
-        widget = new QWidget(registrar);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(160, 470, 168, 26));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(registrar);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(160, 470, 168, 26));
+        horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        dbCriar = new QPushButton(widget);
+        dbCriar = new QPushButton(layoutWidget1);
         dbCriar->setObjectName("dbCriar");
         dbCriar->setCheckable(false);
         dbCriar->setChecked(false);
@@ -145,7 +149,7 @@ public:
 
         horizontalLayout->addWidget(dbCriar);
 
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget1);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout->addWidget(pushButton_2);

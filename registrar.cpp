@@ -8,12 +8,21 @@
 
 bool confirmaUser = false;
 bool confirmaSenha = false;
+bool pRegistro;
 
-registrar::registrar(QWidget *parent)
+registrar::registrar(bool primeiroRegistro,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::registrar)
 {
     ui->setupUi(this);
+
+    pRegistro = primeiroRegistro;
+
+    if(primeiroRegistro == true){
+
+        QMessageBox::information(this,"atenção","O Primeiro usuario será ADM, Registre com cautela.");
+
+    }
 }
 
 registrar::~registrar()
@@ -101,12 +110,23 @@ void registrar::on_dbCriar_clicked()
     banco.exec();
 
     if(confirmaUser == true && confirmaSenha == true){
+        if(pRegistro == true){
 
-        banco.prepare("insert into Users (Usuario,Senha) values ('"+nome+"','"+senha+"')");
+            banco.prepare("insert into Users (Usuario,Senha,Perm) values ('"+nome+"','"+senha+"',1)");
+
+
+        }else{
+
+            banco.prepare("insert into Users (Usuario,Senha) values ('"+nome+"','"+senha+"')");
+
+        }
 
         if(banco.exec()){
 
             QMessageBox::information(this,"atenção","Usuario salvo com sucesso.");
+            this -> hide();////erro, por algum motivo o botão não está ficando disponivel quando sai por aqui
+            telaLogin.show();
+
 
         }else{
 
@@ -144,9 +164,6 @@ void registrar::on_pushButton_2_clicked()
 
     this -> hide();
     telaLogin.show();
-
-
-
 
 }
 

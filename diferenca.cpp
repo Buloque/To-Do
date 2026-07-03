@@ -4,7 +4,6 @@
 #include <QTextEdit>
 #include <QString>
 #include <QStringList>
-#include <algorithm>
 #include <QScrollBar>
 #include <QtSql>
 
@@ -15,6 +14,8 @@ QString textoOriginal;
 
 QString tituloDiff;
 QString textoDiff;
+
+int idUserDiff;
 
 diferenca::diferenca(int idBloco,int idDiff,QWidget *parent)
     : QDialog(parent)
@@ -27,6 +28,7 @@ diferenca::diferenca(int idBloco,int idDiff,QWidget *parent)
 
     chamandoBanco();
     chamandoDiff();
+    chamandoUser();
 
     ui->leOriginal->setText(tituloOriginal);
     ui->txtOriginal->setText(textoOriginal);
@@ -36,12 +38,14 @@ diferenca::diferenca(int idBloco,int idDiff,QWidget *parent)
 
 
     compararTextos();
+    comparaTitulo();
 
     ui->leOriginal->setReadOnly(true);
     ui->txtOriginal->setReadOnly(true);
     ui->leDiff->setReadOnly(true);
     ui->txtDiff->setReadOnly(true);
-
+    ui->cbTitulo->setAttribute(Qt::WA_TransparentForMouseEvents, true);//não deixa o mouse interagir com o Check Box
+    ui->cbEditavel->setAttribute(Qt::WA_TransparentForMouseEvents, true);
 }
 
 diferenca::~diferenca()
@@ -64,6 +68,7 @@ void diferenca::chamandoBanco(){
             tituloOriginal = abrenota.value(0).toString();
             textoOriginal = abrenota.value(1).toString();
 
+
         }
 
     }else{
@@ -79,7 +84,7 @@ void diferenca::chamandoBanco(){
 void diferenca::chamandoDiff(){
 
     QSqlQuery abreDiff;
-    abreDiff.prepare("SELECT nome,bloco FROM diffInfo WHERE id = :id");
+    abreDiff.prepare("SELECT nome,bloco,userPropId FROM diffInfo WHERE id = :id");
     abreDiff.bindValue(":id", idD);
 
     if(abreDiff.exec()){
@@ -88,7 +93,7 @@ void diferenca::chamandoDiff(){
 
             tituloDiff = abreDiff.value(0).toString();
             textoDiff = abreDiff.value(1).toString();
-
+            idUserDiff = abreDiff.value(2).toInt();
         }
 
     }else{
@@ -97,51 +102,69 @@ void diferenca::chamandoDiff(){
 
     }
 
+}
+
+void diferenca::chamandoUser(){
+
+    QSqlQuery solicitaNome;
+    solicitaNome.prepare("SELECT Usuario FROM Users WHERE id = :id");
+    solicitaNome.bindValue(":id", idUserDiff);
+
+    if(solicitaNome.exec()){
+
+        if(solicitaNome.next()){
+
+            ui->nomeUsuario->setText("Usuario que alterou: " + solicitaNome.value(0).toString());
+
+        }
+
+    }else{
+
+        qDebug() << "Erro ao executar SolicitaNome:" << solicitaNome.lastError().text();
+
+    }
 
 
 }
 
+void diferenca::comparaTitulo(){
+
+    if(tituloOriginal == tituloDiff){
+
+        ui->cbTitulo->setChecked(true);
+        qDebug() << "titulo true";
+    }else{
+
+        ui->cbTitulo->setChecked(false);
+        qDebug() << "titulo false";
+
+    }
+
+
+}
 
 void diferenca::compararTextos()
 {
     // ------------------------------------------------------------------
     // TIPOS AUXILIARES (locais à função, só existem aqui dentro)
     // ------------------------------------------------------------------
-    // Classifica cada token do diff:
-    //  - Igual:    token idêntico presente nas duas versões
-    //  - Removido: token que só existe no texto original
-    //  - Inserido: token que só existe no texto novo (diff)
     enum class TipoToken { Igual, Removido, Inserido };
-
-    // Um "passo" do diff: o tipo acima + o texto do próprio token.
     struct OperacaoDiff {
         TipoToken tipo;
         QString texto;
     };
 
     // ------------------------------------------------------------------
-    // 1) COMPARAÇÃO DOS TÍTULOS (QLineEdit) + SINAL
-    // ------------------------------------------------------------------
-    const QString tituloOriginal = ui->leOriginal->text();
-    const QString tituloDiff     = ui->leDiff->text();
-    const bool tituloFoiAlterado = (tituloOriginal != tituloDiff);
-
-    // ------------------------------------------------------------------
-    // 2) CAPTURA DO TEXTO BRUTO (markdown) DOS DOIS QTextEdit
+    // 1) CAPTURA DO TEXTO BRUTO (markdown) DOS DOIS QTextEdit
     //    Pega o texto ANTES de qualquer setHtml(), já que setHtml() muda
-    //    o conteúdo interno do QTextEdit (e toPlainText() passaria a
-    //    devolver outra coisa depois disso).
+    //    o conteúdo interno do QTextEdit.
     // ------------------------------------------------------------------
     const QString textoOriginalBruto = ui->txtOriginal->toPlainText();
     const QString textoNovoBruto     = ui->txtDiff->toPlainText();
 
     // ------------------------------------------------------------------
-    // 3) TOKENIZADOR (função auxiliar em forma de lambda)
-    //    Quebra o texto em uma lista de pedaços: cada pedaço é OU uma
-    //    palavra (sequência de caracteres que não são espaço) OU um bloco
-    //    de espaços/tabs/quebras de linha. Guardar os espaços como tokens
-    //    também é o que permite remontar o texto formatado igualzinho ao
-    //    original na hora de gerar o HTML.
+    // 2) TOKENIZADOR (função auxiliar em forma de lambda)
+    //    Quebra o texto em palavras e blocos de espaço/quebra de linha.
     // ------------------------------------------------------------------
     auto tokenizar = [](const QString &texto) -> QVector<QString> {
         QVector<QString> tokens;
@@ -150,18 +173,14 @@ void diferenca::compararTextos()
         bool existeTokenAtual = false;
 
         for (const QChar &c : texto) {
-            const bool ehEspaco = c.isSpace(); // cobre ' ', '\t', '\n', etc.
+            const bool ehEspaco = c.isSpace();
             if (!existeTokenAtual) {
                 tokenAtual = c;
                 tokenAtualEhEspaco = ehEspaco;
                 existeTokenAtual = true;
             } else if (ehEspaco == tokenAtualEhEspaco) {
-                // mesmo "tipo" (palavra continuando palavra, ou espaço
-                // continuando espaço) -> acumula no token atual
                 tokenAtual += c;
             } else {
-                // mudou de palavra pra espaço (ou vice-versa) -> fecha o
-                // token atual e começa um novo
                 tokens.append(tokenAtual);
                 tokenAtual = c;
                 tokenAtualEhEspaco = ehEspaco;
@@ -177,9 +196,7 @@ void diferenca::compararTextos()
     const QVector<QString> tokensNovo     = tokenizar(textoNovoBruto);
 
     // ------------------------------------------------------------------
-    // 4) LCS (Longest Common Subsequence) - tabela de programação dinâmica
-    //    dp[i][j] = tamanho da maior subsequência comum entre os primeiros
-    //    i tokens do original e os primeiros j tokens do novo.
+    // 3) LCS (Longest Common Subsequence) - tabela de programação dinâmica
     // ------------------------------------------------------------------
     const int n = tokensOriginal.size();
     const int m = tokensNovo.size();
@@ -195,9 +212,8 @@ void diferenca::compararTextos()
     }
 
     // ------------------------------------------------------------------
-    // 5) BACKTRACK na tabela dp (de trás pra frente) reconstruindo, token
-    //    a token, o que ficou Igual, foi Removido ou foi Inserido. Sai na
-    //    ordem invertida, por isso o std::reverse() no final do bloco.
+    // 4) BACKTRACK na tabela dp reconstruindo o que ficou Igual, foi
+    //    Removido ou foi Inserido.
     // ------------------------------------------------------------------
     QVector<OperacaoDiff> operacoes;
     {
@@ -220,102 +236,72 @@ void diferenca::compararTextos()
     }
 
     // ------------------------------------------------------------------
-    // 6) REORDENAÇÃO POR BLOCOS ("hunks")
-    //    A LCS pura, ao intercalar remoções/inserções, pode colocar a
-    //    palavra NOVA antes da palavra ANTIGA riscada (tecnicamente
-    //    correto, mas confuso de ler). Aqui a gente agrupa sequências
-    //    consecutivas de Removido/Inserido e força a ordem "tachado antigo
-    //    primeiro, sublinhado novo depois" - o padrão visual usado em
-    //    controle de alterações (Word, Google Docs, etc.).
+    // 5) AGRUPAMENTO EM BLOCOS DE MUDANÇA ("hunks"), já separando o texto
+    //    removido do texto inserido de cada bloco. Os trechos "Igual" são
+    //    descartados - só delimitam onde um bloco de mudança termina.
     // ------------------------------------------------------------------
-    QVector<OperacaoDiff> operacoesOrdenadas;
-    operacoesOrdenadas.reserve(operacoes.size());
+    QVector<QString> hunksRemovido; // texto removido de cada bloco (pode ser "" se o bloco só teve inserção)
+    QVector<QString> hunksInserido; // texto inserido de cada bloco (pode ser "" se o bloco só teve remoção)
+
     for (int i = 0; i < operacoes.size(); ) {
         if (operacoes[i].tipo == TipoToken::Igual) {
-            operacoesOrdenadas.append(operacoes[i]);
-            ++i;
+            ++i; // trecho igual: não entra no resultado, só delimita blocos
             continue;
         }
-        // início de um bloco de mudanças: acumula até achar o próximo
-        // token Igual (ou o fim da lista de operações)
-        QVector<OperacaoDiff> removidosDoBloco;
-        QVector<OperacaoDiff> inseridosDoBloco;
+
+        QString removidoConcat;
+        QString inseridoConcat;
         while (i < operacoes.size() && operacoes[i].tipo != TipoToken::Igual) {
             if (operacoes[i].tipo == TipoToken::Removido)
-                removidosDoBloco.append(operacoes[i]);
+                removidoConcat += operacoes[i].texto;
             else
-                inseridosDoBloco.append(operacoes[i]);
+                inseridoConcat += operacoes[i].texto;
             ++i;
         }
-        for (const auto &op : removidosDoBloco) operacoesOrdenadas.append(op);
-        for (const auto &op : inseridosDoBloco) operacoesOrdenadas.append(op);
+
+        hunksRemovido.append(removidoConcat);
+        hunksInserido.append(inseridoConcat);
     }
 
     // ------------------------------------------------------------------
-    // 7) MESCLAGEM DE TOKENS CONSECUTIVOS DO MESMO TIPO
-    //    Só limpeza estética: "Muito" + " " (ambos Inserido, por ex.) viram
-    //    uma única operação " Muito", gerando um <span> só em vez de vários
-    //    grudados um no outro.
+    // 6) MONTAGEM DO HTML
+    //    Função auxiliar reaproveitada pros dois lados (remoção/inserção):
+    //    escapa o texto, pula blocos vazios (que não têm nada relevante
+    //    pra esse lado) e separa blocos com linha em branco.
     // ------------------------------------------------------------------
-    QVector<OperacaoDiff> operacoesFinais;
-    operacoesFinais.reserve(operacoesOrdenadas.size());
-    for (const OperacaoDiff &op : operacoesOrdenadas) {
-        if (!operacoesFinais.isEmpty() && operacoesFinais.last().tipo == op.tipo) {
-            operacoesFinais.last().texto += op.texto;
-        } else {
-            operacoesFinais.append(op);
-        }
-    }
-
-    // ------------------------------------------------------------------
-    // 8) MONTAGEM DO HTML FINAL
-    //    Cada operação vira texto puro (Igual) ou um <span> colorido
-    //    (Removido/Inserido). O texto de cada token é escapado (função
-    //    auxiliar abaixo) antes de entrar no HTML, pra um "<", ">" ou "&"
-    //    que exista no markdown bruto não ser interpretado como tag/
-    //    entidade HTML.
-    // ------------------------------------------------------------------
-
-    // Função auxiliar: escapa caracteres especiais de HTML e converte
-    // quebras de linha em <br>, já que HTML normal ignora '\n' puro.
     auto escaparEQuebrarLinha = [](const QString &texto) -> QString {
-        QString escapado = texto.toHtmlEscaped(); // trata &, <, >, etc.
+        QString escapado = texto.toHtmlEscaped();
         escapado.replace(QLatin1Char('\n'), QStringLiteral("<br>"));
         return escapado;
     };
 
-    // Cores do realce (fica livre pra ajustar caso queira combinar com o
-    // tema da UI):
-    //   #2E7D32 = verde escuro  -> texto inserido (sublinhado)
-    //   #C62828 = vermelho escuro -> texto removido (tachado)
-    QString htmlFinal;
-    // white-space:pre-wrap preserva espaços múltiplos (útil p/ blocos de
-    // código indentados em markdown) mantendo a quebra automática de linha.
-    htmlFinal += QStringLiteral("<div style=\"white-space:pre-wrap;\">");
-    for (const OperacaoDiff &op : operacoesFinais) {
-        const QString textoEscapado = escaparEQuebrarLinha(op.texto);
-        switch (op.tipo) {
-        case TipoToken::Igual:
-            htmlFinal += textoEscapado;
-            break;
-        case TipoToken::Removido:
-            htmlFinal += QStringLiteral(
-                             "<span style=\"color:#C62828; text-decoration: line-through;\">%1</span>"
-                             ).arg(textoEscapado);
-            break;
-        case TipoToken::Inserido:
-            htmlFinal += QStringLiteral(
-                             "<span style=\"color:#2E7D32; text-decoration: underline;\">%1</span>"
-                             ).arg(textoEscapado);
-            break;
+    auto montarHtmlLado = [&](const QVector<QString> &blocos,
+                              const QString &corHex,
+                              const QString &decoracao) -> QString {
+        QString html = QStringLiteral("<div style=\"white-space:pre-wrap;\">");
+        bool algumBlocoValido = false;
+        for (const QString &bloco : blocos) {
+            if (bloco.isEmpty()) continue; // bloco sem conteúdo desse lado -> pula
+            if (algumBlocoValido) html += QStringLiteral("<br><br>");
+            algumBlocoValido = true;
+            const QString textoEscapado = escaparEQuebrarLinha(bloco);
+            html += QStringLiteral("<span style=\"color:%1; text-decoration: %2;\">%3</span>")
+                        .arg(corHex, decoracao, textoEscapado);
         }
-    }
-    htmlFinal += QStringLiteral("</div>");
+        if (!algumBlocoValido) {
+            html += QStringLiteral("<i>Nenhuma alteração encontrada.</i>");
+        }
+        html += QStringLiteral("</div>");
+        return html;
+    };
+
+    // vermelho tachado = removido | amarelo sublinhado = inserido
+    const QString htmlOriginal = montarHtmlLado(hunksRemovido, QStringLiteral("#C62828"), QStringLiteral("line-through"));
+    const QString htmlDiff     = montarHtmlLado(hunksInserido, QStringLiteral("#FDD835"), QStringLiteral("underline"));
 
     // ------------------------------------------------------------------
-    // 9) APLICA O RESULTADO NA UI
-    //    Só o txtDiff é reescrito (em HTML); txtOriginal continua exibindo
-    //    o markdown puro, sem nenhuma marcação.
+    // 7) APLICA O RESULTADO NA UI
     // ------------------------------------------------------------------
-    ui->txtDiff->setHtml(htmlFinal);
+    ui->txtOriginal->setHtml(htmlOriginal);
+    ui->txtDiff->setHtml(htmlDiff);
 }

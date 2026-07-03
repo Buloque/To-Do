@@ -20,7 +20,7 @@ class Login : public QMainWindow
 public:
     explicit Login(QWidget *parent = nullptr);
     ~Login() override;
-
+    void verificaUsers();
 
 
 
@@ -31,5 +31,10 @@ private slots:
 
 private:
     Ui::Login *ui;
+
+    void iniciandoBanco();
+    void criandoBanco();
+
+
 };
 #endif // LOGIN_H

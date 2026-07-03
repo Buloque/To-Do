@@ -14,6 +14,7 @@
 
 int idGuardada; // id do usuario
 int idBlocoSelecionado; // id do bloco
+int adm = 0;
 int modo = 0;
 int cAZ = 0;
 int cData = 0;
@@ -303,16 +304,28 @@ void Pagina_Inicial::on_btnApagar_clicked()
         pDados.prepare("DELETE from infoUsers where id ="+ QString::number(idBlocoSelecionado));
 
         if(pDados.exec()){
+            ////criar função
+            QSqlQuery apagaDiff;
+            apagaDiff.prepare("DELETE from diffInfo where idBloco ="+ QString::number(idBlocoSelecionado));
 
-            QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
+            if(apagaDiff.exec()){
 
-            carregarDados();
+                QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
+                carregarDados();
+
+            }else{
+                //mostra o erro
+                QMessageBox::information(this,"atenção","não foi possivel apagar as informações.\n" + pDados.lastError().text());
+
+            }
 
         }else{
             //mostra o erro
             QMessageBox::information(this,"atenção","não foi possivel apagar as informações.\n" + pDados.lastError().text());
 
         }
+
+
 
     }
 

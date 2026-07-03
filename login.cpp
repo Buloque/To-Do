@@ -3,13 +3,18 @@
 
 #include <QtSql>
 #include <QMessageBox>
+#include <QFile>
+#include <QStringList>
 
 #include "pagina_inicial.h"
 #include "registrar.h"
 
+
 static QSqlDatabase bancoDados;
 
 static int id;
+
+bool primeiroLogin;
 
 Login::Login(QWidget *parent)
     : QMainWindow(parent)
@@ -17,31 +22,104 @@ Login::Login(QWidget *parent)
 {
     ui->setupUi(this);
 
-    bancoDados = QSqlDatabase::addDatabase("QSQLITE");
+    iniciandoBanco();
 
-    //ALTERAR: banco de dados está como caminho no pc haha
-    bancoDados.setDatabaseName("D:/Projetos/QT/To-Do/bancoDoTodo.db");
-
-    //Preparando o banco de dados
-    bancoDados.open();
-
-    //Confirmando a abertuda do banco de dados correto
-    if(bancoDados.databaseName() == "D:/Projetos/QT/To-Do/bancoDoTodo.db") {
-
-        ui->statusbar->showMessage("Banco de dados conectado com sucesso!");
-
-
-    }else{
-
-        ui->statusbar->showMessage("Erro ao conectar no Banco de Dados.");
-
-    }
+    verificaUsers();
 
 }
 
 Login::~Login()
 {
     delete ui;
+}
+
+void Login::iniciandoBanco(){
+
+    QFileInfo infoArquivo("bancoDoTodo.db");
+    bancoDados = QSqlDatabase::addDatabase("QSQLITE");
+    bancoDados.setDatabaseName("bancoDoTodo.db");
+
+    //Preparando o banco de dados
+    if (!bancoDados.open()) {
+        ui->statusbar->showMessage("Erro ao abrir o banco de dados: " + bancoDados.lastError().text());
+        return;
+    }else{
+
+        ui->statusbar->showMessage("Banco aberto com sucesso!");
+
+    }
+
+    qint64 tamanhoEmBytes = infoArquivo.size();
+    if (QFile::exists("bancoDoTodo.db") && tamanhoEmBytes == 0) {
+        criandoBanco();
+    }
+
+
+
+}
+
+void Login::verificaUsers(){
+
+    QSqlQuery consultaQUsers;
+    qDebug() << "Entrou na consulta";
+    int contaRegEncontrados = 0;
+    if(consultaQUsers.exec("SELECT * FROM Users")){
+
+        while(consultaQUsers.next()){
+
+            contaRegEncontrados++;
+
+        }
+
+    }
+
+
+    if(contaRegEncontrados > 0){
+
+        ui->btnEntrar->setDisabled(false);
+        primeiroLogin = false;
+    }else{
+
+        ui->btnEntrar->setDisabled(true);
+        primeiroLogin = true;
+    }
+
+}
+
+void Login::criandoBanco(){
+
+    QStringList tabelas;
+
+    tabelas <<  R"(CREATE TABLE IF NOT EXISTS diffInfo
+                                            (nome TEXT (50), bloco TEXT (99999), data TEXT (10), horas TEXT (5), dataFinalizado TEXT (10), dataAlterado TEXT (10), urgencia INTEGER (1), andamento INTEGER (1), editavel INTEGER (1), userPropId INTEGER, idBloco INTEGER, quantidadeSalvas INTEGER, id INTEGER PRIMARY KEY AUTOINCREMENT);)"
+            <<
+                R"(CREATE TABLE IF NOT EXISTS infoUsers
+                                            (nome TEXT (50), bloco TEXT (99999), data TEXT (10), horas TEXT (5), dataFinalizado TEXT (10), urgencia INTEGER (1), andamento INTEGER (1), userPropId INTEGER, id INTEGER PRIMARY KEY AUTOINCREMENT);)"
+            <<
+
+                R"(CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, Usuario TEXT (20), Senha TEXT (20), Perm INTEGER (1) DEFAULT (0));)";
+
+    QSqlQuery criando;
+
+    if (!bancoDados.isOpen()) {
+        qDebug() << "Erro fatal: O banco de dados não está aberto.";
+        qDebug() << "Detalhes do banco:" << bancoDados.lastError().text();
+    }
+
+    for(const QString &tabela : std::as_const(tabelas)){//
+
+        if(!criando.exec(tabela)){
+
+            ui->statusbar->showMessage("Erro ao executar a criação de tabela:" + criando.lastError().text());
+
+        }else{
+
+            ui->statusbar->showMessage("Banco Criado!");
+
+        }
+
+    }
+
 }
 
 void Login::on_btnEntrar_clicked()
@@ -106,7 +184,7 @@ void Login::on_btnEntrar_clicked()
 void Login::on_pushButton_clicked()//registrar
 {
 
-    registrar *abrirReg = new registrar(); // mesma coisa que Pagina_Inicial abrirTI;
+    registrar *abrirReg = new registrar(primeiroLogin); // mesma coisa que Pagina_Inicial abrirTI;
 
 
     abrirReg->setModal(true);//não deixa o usuario mudar nada na pagina anterior
@@ -114,6 +192,10 @@ void Login::on_pushButton_clicked()//registrar
     this -> hide();//fecha temporariamente a tela
 
     abrirReg->exec();
+
+
+
+    verificaUsers();
 
 }
 

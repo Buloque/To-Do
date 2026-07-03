@@ -18,11 +18,12 @@ public:
     ~diferenca();
     void chamandoBanco();
     void chamandoDiff();
+    void chamandoUser();
 
 
 private:
     Ui::diferenca *ui;
-
+    void comparaTitulo();
     void compararTextos();
 };
 

@@ -759,6 +759,8 @@ CMakeFiles/To-Do.dir/login.cpp.obj: D:\Projetos\QT\To-Do\login.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QFile \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
  D:\Projetos\QT\To-Do\pagina_inicial.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
