@@ -21,6 +21,7 @@ public:
     explicit Login(QWidget *parent = nullptr);
     ~Login() override;
     void verificaUsers();
+    void verificaADM();
 
 
 

@@ -19,6 +19,8 @@ int modo = 0;
 int cAZ = 0;
 int cData = 0;
 
+QString nomeUser;
+
 void Pagina_Inicial::guardandoID(int ID){
 
 
@@ -26,13 +28,17 @@ void Pagina_Inicial::guardandoID(int ID){
 
 }
 
-Pagina_Inicial::Pagina_Inicial(int ID,QWidget *parent)
+Pagina_Inicial::Pagina_Inicial(int ID,QString user,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Pagina_Inicial)
 {
     ui->setupUi(this);
 
     idGuardada = ID;
+
+
+
+    ui->lblNome->setText("Usuário: " + nomeUser);//nomeUser
 
     carregarDados();
 }
@@ -176,7 +182,7 @@ void Pagina_Inicial::carregarDados(){
 
                 QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwTodosT);//pode chamar com variavel
                 bInterno->setSizeHint(QSize(0, 30));
-                 bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
+                bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
                 bInterno->setBackground(QColor(Qt::darkRed));
                 bInterno->setData(Qt::UserRole,idBanco);
                 // esconde a id do usuario
@@ -294,24 +300,32 @@ void Pagina_Inicial::on_btnEditar_clicked()
 void Pagina_Inicial::on_btnApagar_clicked()
 {
 
-    auto btn = QMessageBox::warning(this,
-                                    "Excluir","deseja excluir o bloco",
-                                    QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+    if(!(idBlocoSelecionado == 0)){
 
-    if(btn == QMessageBox::Yes){
+        auto btn = QMessageBox::warning(this,
+                                        "Excluir","deseja excluir o bloco",
+                                        QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
 
-        QSqlQuery pDados;
-        pDados.prepare("DELETE from infoUsers where id ="+ QString::number(idBlocoSelecionado));
+        if(btn == QMessageBox::Yes){
 
-        if(pDados.exec()){
-            ////criar função
-            QSqlQuery apagaDiff;
-            apagaDiff.prepare("DELETE from diffInfo where idBloco ="+ QString::number(idBlocoSelecionado));
+            QSqlQuery pDados;
+            pDados.prepare("DELETE from infoUsers where id ="+ QString::number(idBlocoSelecionado));
 
-            if(apagaDiff.exec()){
+            if(pDados.exec()){
+                ////criar função
+                QSqlQuery apagaDiff;
+                apagaDiff.prepare("DELETE from diffInfo where idBloco ="+ QString::number(idBlocoSelecionado));
 
-                QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
-                carregarDados();
+                if(apagaDiff.exec()){
+
+                    QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
+                    carregarDados();
+
+                }else{
+                    //mostra o erro
+                    QMessageBox::information(this,"atenção","não foi possivel apagar as informações.\n" + pDados.lastError().text());
+
+                }
 
             }else{
                 //mostra o erro
@@ -319,16 +333,17 @@ void Pagina_Inicial::on_btnApagar_clicked()
 
             }
 
-        }else{
-            //mostra o erro
-            QMessageBox::information(this,"atenção","não foi possivel apagar as informações.\n" + pDados.lastError().text());
+
 
         }
 
+    }else{
 
+        QMessageBox::warning(this,"Aviso","Não selecionado nenhuma nota");
+
+        return;
 
     }
-
 }
 
 void Pagina_Inicial::on_lwTodosT_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
@@ -347,29 +362,30 @@ void Pagina_Inicial::limpaDados(){
 
 void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, botão desativado.
 {
-
-    this -> hide();
-    telaLogin.show();
+    idBlocoSelecionado = 0;
+    this -> close();
 
 }
 ////////////////////voltar para o login
 
 
-
-
-
-
-
-
-
-
-
 void Pagina_Inicial::on_pushButton_clicked()
 {
-    Historico abrirH(idBlocoSelecionado,idGuardada);
 
-    abrirH.setModal(true);
+    if(!(idBlocoSelecionado == 0)){
 
-    abrirH.exec();
+        Historico abrirH(idBlocoSelecionado,idGuardada);
+
+        abrirH.setModal(true);
+
+        abrirH.exec();
+
+    }else{
+
+        QMessageBox::warning(this,"Aviso","Não selecionado nenhuma nota");
+
+        return;
+
+    }
 }
 

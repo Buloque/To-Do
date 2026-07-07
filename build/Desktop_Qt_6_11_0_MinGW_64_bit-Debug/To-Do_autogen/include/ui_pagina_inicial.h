@@ -41,6 +41,7 @@ public:
     QPushButton *pbData;
     QListWidget *lwTodosT;
     QLabel *lblReg;
+    QLabel *lblNome;
 
     void setupUi(QDialog *Pagina_Inicial)
     {
@@ -56,10 +57,10 @@ public:
         gridLayout_2->setObjectName("gridLayout_2");
         pbSair = new QPushButton(Pagina_Inicial);
         pbSair->setObjectName("pbSair");
-        pbSair->setEnabled(false);
+        pbSair->setEnabled(true);
         pbSair->setCheckable(true);
         pbSair->setAutoDefault(true);
-        pbSair->setFlat(true);
+        pbSair->setFlat(false);
 
         gridLayout_2->addWidget(pbSair, 0, 1, 1, 1);
 
@@ -140,6 +141,12 @@ public:
 
         gridLayout_2->addWidget(lblReg, 2, 0, 1, 1);
 
+        lblNome = new QLabel(Pagina_Inicial);
+        lblNome->setObjectName("lblNome");
+        lblNome->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_2->addWidget(lblNome, 0, 0, 1, 1);
+
 
         retranslateUi(Pagina_Inicial);
 
@@ -165,6 +172,7 @@ public:
         pbAZ->setText(QCoreApplication::translate("Pagina_Inicial", "A-Z", nullptr));
         pbData->setText(QCoreApplication::translate("Pagina_Inicial", "\360\237\223\205", nullptr));
         lblReg->setText(QCoreApplication::translate("Pagina_Inicial", "Total de Registros:  ", nullptr));
+        lblNome->setText(QCoreApplication::translate("Pagina_Inicial", "User", nullptr));
     } // retranslateUi
 
 };

@@ -425,6 +425,12 @@
 			null
 		],
 		[
+			"D:/Projetos/QT/To-Do/pagina_inicial_adm.h",
+			"MU",
+			"EWIEGA46WW/moc_pagina_inicial_adm.cpp",
+			null
+		],
+		[
 			"D:/Projetos/QT/To-Do/registrar.h",
 			"MU",
 			"EWIEGA46WW/moc_registrar.cpp",
@@ -513,6 +519,7 @@
 		[ "D:/Projetos/QT/To-Do/login.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/main.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/pagina_inicial.cpp", "MU", null ],
+		[ "D:/Projetos/QT/To-Do/pagina_inicial_adm.cpp", "MU", null ],
 		[ "D:/Projetos/QT/To-Do/registrar.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

@@ -123,9 +123,19 @@ void registrar::on_dbCriar_clicked()
 
         if(banco.exec()){
 
-            QMessageBox::information(this,"atenção","Usuario salvo com sucesso.");
-            this -> hide();////erro, por algum motivo o botão não está ficando disponivel quando sai por aqui
-            telaLogin.show();
+            auto btn = QMessageBox::information(this,"atenção","Usuario salvo com sucesso<br>deseja voltar a tela de Login?",QMessageBox::Yes | QMessageBox::No,QMessageBox::Yes);
+
+            if(btn == QMessageBox::Yes){
+
+                this -> hide();
+                telaLogin.show();
+
+            }else{
+
+                return;
+
+            }
+
 
 
         }else{

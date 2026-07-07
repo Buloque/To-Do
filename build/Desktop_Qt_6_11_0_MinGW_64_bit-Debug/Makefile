@@ -439,6 +439,30 @@ pagina_inicial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/pagina_inicial.cpp.s
 .PHONY : pagina_inicial.cpp.s
 
+pagina_inicial_adm.obj: pagina_inicial_adm.cpp.obj
+.PHONY : pagina_inicial_adm.obj
+
+# target to build an object file
+pagina_inicial_adm.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/pagina_inicial_adm.cpp.obj
+.PHONY : pagina_inicial_adm.cpp.obj
+
+pagina_inicial_adm.i: pagina_inicial_adm.cpp.i
+.PHONY : pagina_inicial_adm.i
+
+# target to preprocess a source file
+pagina_inicial_adm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/pagina_inicial_adm.cpp.i
+.PHONY : pagina_inicial_adm.cpp.i
+
+pagina_inicial_adm.s: pagina_inicial_adm.cpp.s
+.PHONY : pagina_inicial_adm.s
+
+# target to generate assembly for a file
+pagina_inicial_adm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\To-Do.dir\build.make CMakeFiles/To-Do.dir/pagina_inicial_adm.cpp.s
+.PHONY : pagina_inicial_adm.cpp.s
+
 registrar.obj: registrar.cpp.obj
 .PHONY : registrar.obj
 
@@ -508,6 +532,9 @@ help:
 	@echo ... pagina_inicial.obj
 	@echo ... pagina_inicial.i
 	@echo ... pagina_inicial.s
+	@echo ... pagina_inicial_adm.obj
+	@echo ... pagina_inicial_adm.i
+	@echo ... pagina_inicial_adm.s
 	@echo ... registrar.obj
 	@echo ... registrar.i
 	@echo ... registrar.s

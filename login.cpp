@@ -7,12 +7,19 @@
 #include <QStringList>
 
 #include "pagina_inicial.h"
+#include "pagina_inicial_adm.h"
 #include "registrar.h"
 
 
 static QSqlDatabase bancoDados;
 
+//mudar para extern, para não precisar chamar na propria função, já que todos os codigos usam ele, TEM MUITO CODIGO, CUIDA PELO O AMOR DE DEUS, FAZ BACKUP
 static int id;
+
+//para poder acessar de outros arquivos
+extern QString nomeUser;
+
+int intADM; //tipo de ADM
 
 bool primeiroLogin;
 
@@ -86,6 +93,42 @@ void Login::verificaUsers(){
 
 }
 
+void Login::verificaADM(){
+
+    QSqlQuery consultaADM;
+
+    consultaADM.prepare("select Perm from Users WHERE Usuario = :nomeUser");
+    consultaADM.bindValue(":nomeUser", nomeUser);
+
+    if(consultaADM.exec()){
+        while(consultaADM.next()){
+
+            int consulta = consultaADM.value(0).toInt();
+
+            if(consulta == 1){
+
+                intADM = 1;
+
+            }else if(consulta == 2){
+
+                intADM = 2;
+
+            }else{
+
+                intADM = 0;
+
+            }
+
+        }
+
+    }else{
+
+        qDebug() << "erro";
+
+    }
+
+}
+
 void Login::criandoBanco(){
 
     QStringList tabelas;
@@ -139,6 +182,9 @@ void Login::on_btnEntrar_clicked()
             while(consultaNoBancoDeDados.next()){
                 //Armazena o ID no ID
                 id = consultaNoBancoDeDados.value(0).toInt();
+
+
+
                 //caso tenha encontrado, contaRegEncontrados + 1, para autenticar a verificação
                 contaRegEncontrados++;
 
@@ -147,19 +193,31 @@ void Login::on_btnEntrar_clicked()
             if(contaRegEncontrados == 1){
                 //validação feita, usuario logado
 
-                this->close();
+                //armazena o nome o user
+                nomeUser = user;
+                verificaADM(); // verifica se o user é adm
 
+                if(intADM == 1 || intADM == 2){
 
-                Pagina_Inicial abrirTI(id);
+                    this->hide();
+                    pagina_inicial_ADM abrirADM(intADM);
 
-                //Envia o ID para a Pagina Inicial
-               //abrirTI.guardandoID(id);
+                    abrirADM.setModal(true);
 
-                //abrirTI.setModal(true);
+                    abrirADM.exec();
 
-                abrirTI.exec();
+                }else{
 
+                    this->hide();
+                    Pagina_Inicial abrirTI(id,nomeUser);
 
+                    abrirTI.setModal(true);
+
+                    abrirTI.exec();
+
+                }
+
+                this->show();
 
 
             }else{

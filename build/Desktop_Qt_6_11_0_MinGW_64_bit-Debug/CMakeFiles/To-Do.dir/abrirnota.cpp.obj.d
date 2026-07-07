@@ -752,5 +752,4 @@ CMakeFiles/To-Do.dir/abrirnota.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
- D:\Projetos\QT\To-Do\historico.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem

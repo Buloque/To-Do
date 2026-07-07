@@ -94,6 +94,8 @@ void diferenca::chamandoDiff(){
             tituloDiff = abreDiff.value(0).toString();
             textoDiff = abreDiff.value(1).toString();
             idUserDiff = abreDiff.value(2).toInt();
+
+            qDebug() << textoDiff;
         }
 
     }else{
@@ -153,18 +155,21 @@ void diferenca::compararTextos()
         TipoToken tipo;
         QString texto;
     };
+    // Um bloco de mudança já separado em "o que saiu" e "o que entrou".
+    struct Hunk {
+        QString removido;
+        QString inserido;
+    };
 
     // ------------------------------------------------------------------
     // 1) CAPTURA DO TEXTO BRUTO (markdown) DOS DOIS QTextEdit
-    //    Pega o texto ANTES de qualquer setHtml(), já que setHtml() muda
-    //    o conteúdo interno do QTextEdit.
     // ------------------------------------------------------------------
     const QString textoOriginalBruto = ui->txtOriginal->toPlainText();
     const QString textoNovoBruto     = ui->txtDiff->toPlainText();
 
     // ------------------------------------------------------------------
-    // 2) TOKENIZADOR (função auxiliar em forma de lambda)
-    //    Quebra o texto em palavras e blocos de espaço/quebra de linha.
+    // 2) TOKENIZADOR: quebra o texto em palavras e blocos de espaço/quebra
+    //    de linha.
     // ------------------------------------------------------------------
     auto tokenizar = [](const QString &texto) -> QVector<QString> {
         QVector<QString> tokens;
@@ -236,38 +241,65 @@ void diferenca::compararTextos()
     }
 
     // ------------------------------------------------------------------
-    // 5) AGRUPAMENTO EM BLOCOS DE MUDANÇA ("hunks"), já separando o texto
-    //    removido do texto inserido de cada bloco. Os trechos "Igual" são
-    //    descartados - só delimitam onde um bloco de mudança termina.
+    // 5) AGRUPAMENTO EM BLOCOS DE MUDANÇA ("hunks")
+    //    Só uma palavra IGUAL de verdade fecha um bloco. Um espaço igual
+    //    fica "pendente": se depois dele vier mais mudança real, o espaço
+    //    entra nos dois lados (mantendo a frase fluindo); se depois vier
+    //    uma palavra igual (ou acabar o texto), o espaço pendente é
+    //    descartado - ele não fazia parte de nenhuma mudança de verdade.
     // ------------------------------------------------------------------
-    QVector<QString> hunksRemovido; // texto removido de cada bloco (pode ser "" se o bloco só teve inserção)
-    QVector<QString> hunksInserido; // texto inserido de cada bloco (pode ser "" se o bloco só teve remoção)
+    auto ehTokenDeEspaco = [](const QString &s) {
+        return !s.isEmpty() && s.at(0).isSpace();
+    };
 
-    for (int i = 0; i < operacoes.size(); ) {
-        if (operacoes[i].tipo == TipoToken::Igual) {
-            ++i; // trecho igual: não entra no resultado, só delimita blocos
-            continue;
+    QVector<Hunk> hunks;
+    {
+        QString removidoAtual;
+        QString inseridoAtual;
+        bool hunkAberto = false;
+        QString espacosPendentes;
+
+        auto fecharBloco = [&]() {
+            if (hunkAberto) {
+                hunks.append({removidoAtual, inseridoAtual});
+                removidoAtual.clear();
+                inseridoAtual.clear();
+                hunkAberto = false;
+            }
+            espacosPendentes.clear();
+        };
+
+        for (const OperacaoDiff &op : operacoes) {
+            if (op.tipo == TipoToken::Igual) {
+                if (ehTokenDeEspaco(op.texto)) {
+                    if (hunkAberto) {
+                        espacosPendentes += op.texto; // decide depois
+                    }
+                } else {
+                    fecharBloco(); // palavra igual de verdade
+                }
+            } else {
+                if (hunkAberto && !espacosPendentes.isEmpty()) {
+                    removidoAtual += espacosPendentes;
+                    inseridoAtual += espacosPendentes;
+                    espacosPendentes.clear();
+                }
+                hunkAberto = true;
+                if (op.tipo == TipoToken::Removido)
+                    removidoAtual += op.texto;
+                else
+                    inseridoAtual += op.texto;
+            }
         }
-
-        QString removidoConcat;
-        QString inseridoConcat;
-        while (i < operacoes.size() && operacoes[i].tipo != TipoToken::Igual) {
-            if (operacoes[i].tipo == TipoToken::Removido)
-                removidoConcat += operacoes[i].texto;
-            else
-                inseridoConcat += operacoes[i].texto;
-            ++i;
-        }
-
-        hunksRemovido.append(removidoConcat);
-        hunksInserido.append(inseridoConcat);
+        fecharBloco();
     }
 
     // ------------------------------------------------------------------
     // 6) MONTAGEM DO HTML
-    //    Função auxiliar reaproveitada pros dois lados (remoção/inserção):
-    //    escapa o texto, pula blocos vazios (que não têm nada relevante
-    //    pra esse lado) e separa blocos com linha em branco.
+    //    txtOriginal: mostra só o "removido" de cada bloco, em vermelho.
+    //    txtDiff: mostra só o "inserido" de cada bloco - amarelo se o
+    //    bloco também tinha remoção (substituição), verde se foi inserção
+    //    pura (nada removido nesse bloco).
     // ------------------------------------------------------------------
     auto escaparEQuebrarLinha = [](const QString &texto) -> QString {
         QString escapado = texto.toHtmlEscaped();
@@ -275,29 +307,39 @@ void diferenca::compararTextos()
         return escapado;
     };
 
-    auto montarHtmlLado = [&](const QVector<QString> &blocos,
-                              const QString &corHex,
-                              const QString &decoracao) -> QString {
-        QString html = QStringLiteral("<div style=\"white-space:pre-wrap;\">");
+    QString htmlOriginal = QStringLiteral("<div style=\"white-space:pre-wrap;\">");
+    {
         bool algumBlocoValido = false;
-        for (const QString &bloco : blocos) {
-            if (bloco.isEmpty()) continue; // bloco sem conteúdo desse lado -> pula
-            if (algumBlocoValido) html += QStringLiteral("<br><br>");
+        for (const Hunk &h : hunks) {
+            if (h.removido.isEmpty()) continue; // nada removido nesse bloco -> nao aparece aqui
+            if (algumBlocoValido) htmlOriginal += QStringLiteral("<br><br>");
             algumBlocoValido = true;
-            const QString textoEscapado = escaparEQuebrarLinha(bloco);
-            html += QStringLiteral("<span style=\"color:%1; text-decoration: %2;\">%3</span>")
-                        .arg(corHex, decoracao, textoEscapado);
+            htmlOriginal += QStringLiteral("<span style=\"color:#C62828; text-decoration: line-through;\">%1</span>")
+                                .arg(escaparEQuebrarLinha(h.removido));
         }
         if (!algumBlocoValido) {
-            html += QStringLiteral("<i>Nenhuma alteração encontrada.</i>");
+            htmlOriginal += QStringLiteral("<i>Nenhuma alteração encontrada.</i>");
         }
-        html += QStringLiteral("</div>");
-        return html;
-    };
+    }
+    htmlOriginal += QStringLiteral("</div>");
 
-    // vermelho tachado = removido | amarelo sublinhado = inserido
-    const QString htmlOriginal = montarHtmlLado(hunksRemovido, QStringLiteral("#C62828"), QStringLiteral("line-through"));
-    const QString htmlDiff     = montarHtmlLado(hunksInserido, QStringLiteral("#FDD835"), QStringLiteral("underline"));
+    QString htmlDiff = QStringLiteral("<div style=\"white-space:pre-wrap;\">");
+    {
+        bool algumBlocoValido = false;
+        for (const Hunk &h : hunks) {
+            if (h.inserido.isEmpty()) continue; // nada inserido nesse bloco -> nao aparece aqui
+            if (algumBlocoValido) htmlDiff += QStringLiteral("<br><br>");
+            algumBlocoValido = true;
+            // amarelo = substituição (também tinha remoção) | verde = inserção pura
+            const QString corHex = h.removido.isEmpty() ? QStringLiteral("#66BB6A") : QStringLiteral("#FDD835");
+            htmlDiff += QStringLiteral("<span style=\"color:%1; text-decoration: underline;\">%2</span>")
+                            .arg(corHex, escaparEQuebrarLinha(h.inserido));
+        }
+        if (!algumBlocoValido) {
+            htmlDiff += QStringLiteral("<i>Nenhuma alteração encontrada.</i>");
+        }
+    }
+    htmlDiff += QStringLiteral("</div>");
 
     // ------------------------------------------------------------------
     // 7) APLICA O RESULTADO NA UI

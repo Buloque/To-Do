@@ -6,4 +6,5 @@
 #include "EWIEGA46WW/moc_historico.cpp"
 #include "EWIEGA46WW/moc_login.cpp"
 #include "EWIEGA46WW/moc_pagina_inicial.cpp"
+#include "EWIEGA46WW/moc_pagina_inicial_adm.cpp"
 #include "EWIEGA46WW/moc_registrar.cpp"

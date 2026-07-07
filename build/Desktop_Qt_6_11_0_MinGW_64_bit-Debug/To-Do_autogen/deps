@@ -988,6 +988,8 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/main.cpp \
 	D:/Projetos/QT/To-Do/pagina_inicial.cpp \
 	D:/Projetos/QT/To-Do/pagina_inicial.h \
+	D:/Projetos/QT/To-Do/pagina_inicial_adm.cpp \
+	D:/Projetos/QT/To-Do/pagina_inicial_adm.h \
 	D:/Projetos/QT/To-Do/registrar.cpp \
 	D:/Projetos/QT/To-Do/registrar.h \
 	D:/Projetos/QT/To-Do/abrirnota.ui \
@@ -997,5 +999,6 @@ To-Do_autogen/timestamp: \
 	D:/Projetos/QT/To-Do/historico.ui \
 	D:/Projetos/QT/To-Do/login.ui \
 	D:/Projetos/QT/To-Do/pagina_inicial.ui \
+	D:/Projetos/QT/To-Do/pagina_inicial_adm.ui \
 	D:/Projetos/QT/To-Do/registrar.ui \
 	D:/Programas/Qt/Tools/CMake_64/bin/cmake.exe

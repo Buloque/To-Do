@@ -7,7 +7,6 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 
-#include "historico.h"
 
 int idBloco;
 int idUser;

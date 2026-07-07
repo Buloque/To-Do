@@ -748,5 +748,7 @@ CMakeFiles/To-Do.dir/To-Do_autogen/mocs_compilation.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_pagina_inicial.cpp \
  D:/Projetos/QT/To-Do/pagina_inicial.h D:/Projetos/QT/To-Do/login.h \
+ D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_pagina_inicial_adm.cpp \
+ D:/Projetos/QT/To-Do/pagina_inicial_adm.h \
  D:\Projetos\QT\To-Do\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\To-Do_autogen\EWIEGA46WW/moc_registrar.cpp \
  D:/Projetos/QT/To-Do/registrar.h
