@@ -5,7 +5,9 @@
 #include <QMainWindow>
 #include <QtSql>
 
-#include <QDialog> //para conseguir chamar o Login No
+#include <QDialog> //para conseguir chamar o Login No ???? //o q eu quis dizer com isso????
+
+//extern QString nomeUser;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +24,7 @@ public:
     ~Login() override;
     void verificaUsers();
     void verificaADM();
+
 
 
 

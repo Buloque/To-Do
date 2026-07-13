@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
@@ -30,7 +31,9 @@ class Ui_criar
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_4;
     QLineEdit *leTitulo;
+    QCheckBox *editavelADM;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pbNegrito;
     QPushButton *pbItalic;
@@ -62,10 +65,20 @@ public:
         criar->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(criar);
         verticalLayout->setObjectName("verticalLayout");
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
         leTitulo = new QLineEdit(criar);
         leTitulo->setObjectName("leTitulo");
 
-        verticalLayout->addWidget(leTitulo);
+        horizontalLayout_4->addWidget(leTitulo);
+
+        editavelADM = new QCheckBox(criar);
+        editavelADM->setObjectName("editavelADM");
+
+        horizontalLayout_4->addWidget(editavelADM);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
@@ -207,6 +220,7 @@ public:
     {
         criar->setWindowTitle(QCoreApplication::translate("criar", "Criar", nullptr));
         leTitulo->setText(QString());
+        editavelADM->setText(QCoreApplication::translate("criar", "Edit\303\241vel", nullptr));
         pbNegrito->setText(QCoreApplication::translate("criar", "B", nullptr));
         pbItalic->setText(QCoreApplication::translate("criar", "i", nullptr));
         pbStrikeOut->setText(QCoreApplication::translate("criar", "S", nullptr));

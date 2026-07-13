@@ -18,6 +18,7 @@ static int id;
 
 //para poder acessar de outros arquivos
 extern QString nomeUser;
+//QString nomeUser;
 
 int intADM; //tipo de ADM
 
@@ -200,7 +201,7 @@ void Login::on_btnEntrar_clicked()
                 if(intADM == 1 || intADM == 2){
 
                     this->hide();
-                    pagina_inicial_ADM abrirADM(intADM);
+                    pagina_inicial_ADM abrirADM(intADM,id,nomeUser);
 
                     abrirADM.setModal(true);
 
@@ -209,7 +210,7 @@ void Login::on_btnEntrar_clicked()
                 }else{
 
                     this->hide();
-                    Pagina_Inicial abrirTI(id,nomeUser);
+                    Pagina_Inicial abrirTI(id,nomeUser,false,0);
 
                     abrirTI.setModal(true);
 

@@ -401,6 +401,9 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QCheckBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcheckbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -441,7 +444,6 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \

@@ -15,7 +15,7 @@ class Pagina_Inicial : public QDialog
     Q_OBJECT
 
 public:
-    explicit Pagina_Inicial(int ID,QString user,QWidget *parent = nullptr);
+    explicit Pagina_Inicial(int ID,QString user,bool verificaadm,int idADM,QWidget *parent = nullptr);
     void guardandoID(int ID);
     int idGuardada;
     ~Pagina_Inicial();
@@ -23,6 +23,7 @@ public:
     void carregarDados();
 
     void limpaDados();
+
 
 private slots:
     void on_lwTodosT_itemDoubleClicked(QListWidgetItem *item);

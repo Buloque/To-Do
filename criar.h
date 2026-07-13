@@ -12,7 +12,7 @@ class criar : public QDialog
     Q_OBJECT
 
 public:
-    explicit criar(int ID,bool editar,int idBloco,QWidget *parent = nullptr);
+    explicit criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget *parent = nullptr);
     ~criar();
     void guardandoID(int ID,bool editar,int idBloco);
     void subtextos();

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,7 +20,8 @@ QT_BEGIN_NAMESPACE
 class Ui_pagina_inicial_ADM
 {
 public:
-    QListWidget *listWidget;
+    QListWidget *lwUsers;
+    QLabel *lblNome;
 
     void setupUi(QDialog *pagina_inicial_ADM)
     {
@@ -28,9 +30,13 @@ public:
         pagina_inicial_ADM->resize(400, 600);
         pagina_inicial_ADM->setMinimumSize(QSize(400, 600));
         pagina_inicial_ADM->setMaximumSize(QSize(400, 600));
-        listWidget = new QListWidget(pagina_inicial_ADM);
-        listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(10, 40, 381, 531));
+        lwUsers = new QListWidget(pagina_inicial_ADM);
+        lwUsers->setObjectName("lwUsers");
+        lwUsers->setGeometry(QRect(10, 70, 381, 501));
+        lblNome = new QLabel(pagina_inicial_ADM);
+        lblNome->setObjectName("lblNome");
+        lblNome->setGeometry(QRect(30, 10, 188, 24));
+        lblNome->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         retranslateUi(pagina_inicial_ADM);
 
@@ -40,6 +46,7 @@ public:
     void retranslateUi(QDialog *pagina_inicial_ADM)
     {
         pagina_inicial_ADM->setWindowTitle(QCoreApplication::translate("pagina_inicial_ADM", "Dialog", nullptr));
+        lblNome->setText(QCoreApplication::translate("pagina_inicial_ADM", "User", nullptr));
     } // retranslateUi
 
 };

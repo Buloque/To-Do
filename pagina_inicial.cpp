@@ -14,10 +14,11 @@
 
 int idGuardada; // id do usuario
 int idBlocoSelecionado; // id do bloco
-int adm = 0;
+int adm;
 int modo = 0;
 int cAZ = 0;
 int cData = 0;
+bool verificadoOadm;
 
 QString nomeUser;
 
@@ -28,17 +29,29 @@ void Pagina_Inicial::guardandoID(int ID){
 
 }
 
-Pagina_Inicial::Pagina_Inicial(int ID,QString user,QWidget *parent)
+Pagina_Inicial::Pagina_Inicial(int ID,QString user,bool verificaadm,int idADM,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Pagina_Inicial)
 {
     ui->setupUi(this);
 
     idGuardada = ID;
+    adm = idADM;
+
+    qDebug() << "verificaadm: " << verificaadm;
+
+    if (verificaadm == true){
+
+        ui->lblNome->setText("Usuário: " + user + "<br>ADM: " + nomeUser);
+        verificadoOadm = verificaadm;
+
+    }else{
+
+        ui->lblNome->setText("Usuário: " + nomeUser);//nomeUser
+
+    }
 
 
-
-    ui->lblNome->setText("Usuário: " + nomeUser);//nomeUser
 
     carregarDados();
 }
@@ -264,7 +277,7 @@ void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_btnCriar_clicked()
 {
 
-    criar abrirCr(idGuardada,false,0);
+    criar abrirCr(idGuardada,false,0,verificadoOadm,adm);
 
     //abrirCr.guardandoID(idGuardada,false,0);
 
@@ -279,7 +292,10 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
-    criar abrirCr(idGuardada,true,idBlocoSelecionado);
+    qDebug() << "verificadoOadm: " << verificadoOadm;
+    qDebug() << "adm: " << adm;
+
+    criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
     if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
 
         //abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
@@ -360,10 +376,13 @@ void Pagina_Inicial::limpaDados(){
     ui->lwTodosT->clear();
 }
 
-void Pagina_Inicial::on_pbSair_clicked()//Não funciona, não sei o que fazer, botão desativado.
+void Pagina_Inicial::on_pbSair_clicked()//ao clicar em sair, ele vai para o login, ao inves do painel adm
 {
     idBlocoSelecionado = 0;
+
+    qDebug() << "Saida User";
     this -> close();
+
 
 }
 ////////////////////voltar para o login

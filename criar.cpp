@@ -15,6 +15,9 @@ int idRecuperada;
 bool editando;
 int blocoPush;
 
+bool ADMEditando;
+int IdDoCriador;
+
 QDateTime horaDiaAtual = QDateTime::currentDateTime();
 
 void criar::guardandoID(int ID,bool editar,int idBloco){
@@ -23,7 +26,7 @@ void criar::guardandoID(int ID,bool editar,int idBloco){
 
 }
 
-criar::criar(int ID,bool editar,int idBloco,QWidget *parent)
+criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::criar)
 {
@@ -31,6 +34,12 @@ criar::criar(int ID,bool editar,int idBloco,QWidget *parent)
     idRecuperada = ID;
     editando = editar;
     blocoPush = idBloco;
+
+    ADMEditando = editarADM;
+    IdDoCriador = IDCriador;
+
+    qDebug() << "Editando ADM: " << ADMEditando;
+    qDebug() << "id do criador: " << IdDoCriador;
 
     ui->setupUi(this);
 
@@ -45,6 +54,21 @@ criar::~criar()
 }
 
 void criar::subtextos(){
+
+    if(ADMEditando == true){
+
+        qDebug() << ADMEditando;
+        qDebug() << "if no editavel";
+
+        ui->editavelADM->setDisabled(false);
+
+    }else{
+
+        qDebug() << "else no editavel";
+
+        ui->editavelADM->setDisabled(true);
+
+    }
 
 
     ui->leTitulo->setPlaceholderText("Titulo");

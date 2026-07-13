@@ -25,14 +25,30 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="lwUsers">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>40</y>
+     <y>70</y>
      <width>381</width>
-     <height>531</height>
+     <height>501</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblNome">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>188</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>User</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
    </property>
   </widget>
  </widget>
