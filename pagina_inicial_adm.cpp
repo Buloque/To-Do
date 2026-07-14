@@ -97,11 +97,15 @@ void pagina_inicial_ADM::on_lwUsers_currentItemChanged(QListWidgetItem *current,
 void pagina_inicial_ADM::on_lwUsers_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    Pagina_Inicial abrirTI(idUserSelecionado,nomeArmazenadoUser,true,id);
 
-    abrirTI.setModal(true);
+    //Pagina_Inicial abrirTI(idUserSelecionado,nomeArmazenadoUser,true,id);
+    Pagina_Inicial *abrirTI = new Pagina_Inicial(idUserSelecionado,nomeArmazenadoUser,true,id);
 
-    abrirTI.exec();
+    abrirTI->setModal(true);
+
+    abrirTI->exec();
+
+    abrirTI->deleteLater();
 
 }
 

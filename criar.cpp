@@ -15,7 +15,7 @@ int idRecuperada;
 bool editando;
 int blocoPush;
 
-bool ADMEditando;
+bool ADMEditando = false;
 int IdDoCriador;
 
 QDateTime horaDiaAtual = QDateTime::currentDateTime();
@@ -37,9 +37,9 @@ criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget
 
     ADMEditando = editarADM;
     IdDoCriador = IDCriador;
-
+    qDebug() << "editarADM: " << editarADM;
     qDebug() << "Editando ADM: " << ADMEditando;
-    qDebug() << "id do criador: " << IdDoCriador;
+
 
     ui->setupUi(this);
 
@@ -51,6 +51,7 @@ criar::~criar()
 
     delete ui;
 
+
 }
 
 void criar::subtextos(){
@@ -58,13 +59,13 @@ void criar::subtextos(){
     if(ADMEditando == true){
 
         qDebug() << ADMEditando;
-        qDebug() << "if no editavel";
+        qDebug() << "ADMEditando True";
 
         ui->editavelADM->setDisabled(false);
 
     }else{
 
-        qDebug() << "else no editavel";
+        qDebug() << "ADMEditando False";
 
         ui->editavelADM->setDisabled(true);
 
@@ -109,8 +110,7 @@ void criar::subtextos(){
                 QVariant horas = abreNotas.value(3);
                 QTime hConv = horas.toTime();
 
-                qDebug() << "dia: " << dConv.toString();
-                qDebug() << "horas: " << hConv.toString();
+
 
                 int urgencia = abreNotas.value(4).toInt();
 
@@ -128,13 +128,13 @@ void criar::subtextos(){
             }else{
 
                 //Erro ao encontrar a ID
-                qDebug() << "Aviso: Nenhum registro encontrado com o ID.";
+                qDebug() << "Aviso: Nenhum registro encontrado com o ID."; // mudar para texto para usuario
             }
 
         }else{
 
             //erro ao executar a requesição
-            qDebug() << "Erro ao executar o SELECT:" << abreNotas.lastError().text();
+            qDebug() << "Erro ao executar o SELECT:" << abreNotas.lastError().text(); // mudar para texto para usuario
 
         }
 
@@ -399,8 +399,7 @@ void criar::diffBloco(){
     QSqlQuery salvaBloco;
 
     QSqlDatabase db = QSqlDatabase::database();
-    qDebug() << "Banco de dados conectado:" << db.databaseName();
-    qDebug() << "Driver:" << db.driverName();
+
 
     int contBanco = 0;
 
@@ -426,18 +425,17 @@ void criar::diffBloco(){
 
          }else{
 
-             qDebug() << "NExt falhou";
+             qDebug() << "NExt falhou";// mudar para texto para usuario
 
         }
      }else{
 
-        qDebug() << "Exec falhou";
+        qDebug() << "Exec falhou";// mudar para texto para usuario
 
     }
 
 
-    qDebug() << "Valor de contBanco antes do INSERT:" << contBanco;
-    qDebug() << "Valor de blocoPush:" << blocoPush;
+
 
     salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,quantidadeSalvas) "
                        "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:qtdSalvo)");

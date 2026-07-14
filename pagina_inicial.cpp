@@ -292,17 +292,21 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
-    qDebug() << "verificadoOadm: " << verificadoOadm;
-    qDebug() << "adm: " << adm;
+    qDebug() << "Verifica o admin: " << verificadoOadm;
 
-    criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
+    //criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
+
+    criar *abrirCr = new criar(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
+
     if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
 
         //abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
 
-        abrirCr.setModal(true);
+        abrirCr->setModal(true);
 
-        abrirCr.exec();
+        abrirCr->exec();
+
+        abrirCr->deleteLater();
 
     }else{
 
@@ -310,7 +314,7 @@ void Pagina_Inicial::on_btnEditar_clicked()
 
     }
 
-
+    abrirCr->deleteLater();
     carregarDados();
 }
 void Pagina_Inicial::on_btnApagar_clicked()
@@ -379,8 +383,8 @@ void Pagina_Inicial::limpaDados(){
 void Pagina_Inicial::on_pbSair_clicked()//ao clicar em sair, ele vai para o login, ao inves do painel adm
 {
     idBlocoSelecionado = 0;
+    verificadoOadm = false;
 
-    qDebug() << "Saida User";
     this -> close();
 
 
@@ -408,3 +412,13 @@ void Pagina_Inicial::on_pushButton_clicked()
     }
 }
 
+void Pagina_Inicial::closeEvent(QCloseEvent *event)
+{
+
+    on_pbSair_clicked();
+
+    // Para permitir que a janela feche normalmente após a execução da sua função:
+   // event->accept();
+
+
+}

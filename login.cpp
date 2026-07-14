@@ -69,7 +69,7 @@ void Login::iniciandoBanco(){
 void Login::verificaUsers(){
 
     QSqlQuery consultaQUsers;
-    qDebug() << "Entrou na consulta";
+
     int contaRegEncontrados = 0;
     if(consultaQUsers.exec("SELECT * FROM Users")){
 
@@ -124,7 +124,7 @@ void Login::verificaADM(){
 
     }else{
 
-        qDebug() << "erro";
+        qDebug() << "erro";// mostrar para o usuario
 
     }
 
@@ -146,8 +146,8 @@ void Login::criandoBanco(){
     QSqlQuery criando;
 
     if (!bancoDados.isOpen()) {
-        qDebug() << "Erro fatal: O banco de dados não está aberto.";
-        qDebug() << "Detalhes do banco:" << bancoDados.lastError().text();
+        qDebug() << "Erro fatal: O banco de dados não está aberto.";//fazer mostrar para o usuario
+        qDebug() << "Detalhes do banco:" << bancoDados.lastError().text();//fazer mostrar para o usuario
     }
 
     for(const QString &tabela : std::as_const(tabelas)){//
@@ -201,11 +201,15 @@ void Login::on_btnEntrar_clicked()
                 if(intADM == 1 || intADM == 2){
 
                     this->hide();
-                    pagina_inicial_ADM abrirADM(intADM,id,nomeUser);
+                    //pagina_inicial_ADM abrirADM(intADM,id,nomeUser);
+                    pagina_inicial_ADM *abrirADM = new pagina_inicial_ADM(intADM, id, nomeUser);
 
-                    abrirADM.setModal(true);
+                    abrirADM->setModal(true);
 
-                    abrirADM.exec();
+                    abrirADM->exec();
+
+                    abrirADM->deleteLater();
+
 
                 }else{
 
