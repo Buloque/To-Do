@@ -51,7 +51,9 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         "on_texto_cursorPositionChanged",
         "on_pbSalvar_clicked",
         "on_pbCancelar_clicked",
-        "on_pbSalvarLocal_clicked"
+        "on_pbSalvarLocal_clicked",
+        "on_editavelADM_stateChanged",
+        "arg1"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -79,6 +81,10 @@ template <> constexpr inline auto criar::qt_create_metaobjectdata<qt_meta_tag_ZN
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pbSalvarLocal_clicked'
         QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_editavelADM_stateChanged'
+        QtMocHelpers::SlotData<void(int)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 15 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -114,10 +120,10 @@ void criar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 9: _t->on_pbSalvar_clicked(); break;
         case 10: _t->on_pbCancelar_clicked(); break;
         case 11: _t->on_pbSalvarLocal_clicked(); break;
+        case 12: _t->on_editavelADM_stateChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *criar::metaObject() const
@@ -139,14 +145,14 @@ int criar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

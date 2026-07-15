@@ -24,14 +24,13 @@ void abrirNota::idNota(int id){
 
 }
 
-abrirNota::abrirNota(int id,int idUser,bool historico,QWidget *parent)
+abrirNota::abrirNota(int id,int idUser,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::abrirNota)
 {
     ui->setupUi(this);
     idUser = idUser;
     idBloco = id;
-    hist = historico;
 
     carregaDados();
 
@@ -49,20 +48,10 @@ abrirNota::~abrirNota()
 void abrirNota::carregaDados(){
 
     QSqlQuery abreNotas;
-    if(hist == true){
 
-        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM diffInfo WHERE id = :id");
-        ui->cbAndamento->setEnabled(false);
-        ui->cbUrgencia->setEnabled(false);
-
-    }else{
-
-        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado FROM infoUsers WHERE id = :id");
-
-    }
+    abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,dataFinalizado,userCreatorId,editavel FROM infoUsers WHERE id = :id");
 
     abreNotas.bindValue(":id", idBloco);
-    //
 
     if(abreNotas.exec()){
 
@@ -88,6 +77,9 @@ void abrirNota::carregaDados(){
                 dhFormatado = "Até dia " + dataB + " " + horas + " deve ser feito a tarefa.";
 
             }
+
+
+
 
             this->setWindowTitle(titulo);
             ui->bloco->setMarkdown(textoB);

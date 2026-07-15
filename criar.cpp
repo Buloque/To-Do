@@ -15,6 +15,8 @@ int idRecuperada;
 bool editando;
 int blocoPush;
 
+int editarADMFiltro = 0;
+
 bool ADMEditando = false;
 int IdDoCriador;
 
@@ -37,9 +39,6 @@ criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget
 
     ADMEditando = editarADM;
     IdDoCriador = IDCriador;
-    qDebug() << "editarADM: " << editarADM;
-    qDebug() << "Editando ADM: " << ADMEditando;
-
 
     ui->setupUi(this);
 
@@ -54,18 +53,20 @@ criar::~criar()
 
 }
 
+void criar::confADM(){
+
+    //editar ou retirar do codigo
+
+
+}
+
 void criar::subtextos(){
 
     if(ADMEditando == true){
 
-        qDebug() << ADMEditando;
-        qDebug() << "ADMEditando True";
-
         ui->editavelADM->setDisabled(false);
 
     }else{
-
-        qDebug() << "ADMEditando False";
 
         ui->editavelADM->setDisabled(true);
 
@@ -78,10 +79,9 @@ void criar::subtextos(){
     QSqlQuery abreDiff;
 
     //////////////////////////////fazer maneira de ver qual e o maior valor, e salvar pra quando salvar, não salvar o mesmo
+    /// Edit do futuro: OQ EU QUIS DIZER COM ISSO PESTE
 
     if(editando == false){
-
-
 
         ui->timeEdit->setDateTime(horaDiaAtual);
         ui->dateEdit->setDateTime(horaDiaAtual);
@@ -91,7 +91,7 @@ void criar::subtextos(){
         this->setWindowTitle("Editar");
 
         QSqlQuery abreNotas;
-        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento FROM infoUsers WHERE id = :id");
+        abreNotas.prepare("SELECT nome,bloco,data,horas,urgencia,andamento,editavel FROM infoUsers WHERE id = :id");
         abreNotas.bindValue(":id", blocoPush);
         //
 
@@ -110,7 +110,7 @@ void criar::subtextos(){
                 QVariant horas = abreNotas.value(3);
                 QTime hConv = horas.toTime();
 
-
+                bool editavel = abreNotas.value(6).toBool();
 
                 int urgencia = abreNotas.value(4).toInt();
 
@@ -121,6 +121,8 @@ void criar::subtextos(){
                 ui->dateEdit->setDate(dConv);
                 ui->timeEdit->setTime(hConv);
                 ui->cbUrgencia->setCurrentIndex(urgencia);
+
+                ui->editavelADM->setChecked(editavel);
 
 
 
@@ -332,6 +334,22 @@ int criar::verificaUrgencia(){
 
 }
 
+void criar::on_editavelADM_stateChanged(int arg1)//0 - desativado | 1 - ativado
+{
+    //(arg1 == 2) ? editarADMFiltro = 1 : editarADMFiltro = 0;
+
+    if(arg1 == 2){
+
+        editarADMFiltro = 1;
+
+    }else if(arg1 == 0){
+
+        editarADMFiltro = 0;
+
+    }
+
+}
+
 void criar::on_pbSalvar_clicked()
 {
 
@@ -345,13 +363,23 @@ void criar::on_pbSalvar_clicked()
 
     if(editando == false){
 
-        salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId) "
-                           "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"')");
+        salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId,userCreatorID,editavel) "
+                           "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"',:userCreator,:editar)");
 
         salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
         //a urgencia recebe 0 para ficar como em andamento
 
+        if(ADMEditando == true){
 
+            salvaBloco.bindValue(":userCreator", IdDoCriador);
+
+        }else{
+
+            salvaBloco.bindValue(":userCreator", idRecuperada);
+
+        }
+
+        salvaBloco.bindValue(":editar", editarADMFiltro);//0 - desativado | 1 - ativado
 
     }else{
 
@@ -437,8 +465,8 @@ void criar::diffBloco(){
 
 
 
-    salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,quantidadeSalvas) "
-                       "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:qtdSalvo)");
+    salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,editavel,quantidadeSalvas) "
+                       "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:editavel,:qtdSalvo)");
 
     salvaBloco.bindValue(":nome", nome);
     salvaBloco.bindValue(":bloco", bloco);
@@ -447,6 +475,7 @@ void criar::diffBloco(){
     salvaBloco.bindValue(":urgencia", urgencia);
     salvaBloco.bindValue(":dataAlterado", horaDiaAtual.toString("dd/MM/yyyy hh:mm"));
     salvaBloco.bindValue(":idBloco", blocoPush);
+    salvaBloco.bindValue(":editavel", editarADMFiltro);
     salvaBloco.bindValue(":idUser", QString::number(idRecuperada));
     salvaBloco.bindValue(":qtdSalvo", contBanco);
 
@@ -508,4 +537,7 @@ void criar::on_pbSalvarLocal_clicked()
 
 
 }
+
+
+
 

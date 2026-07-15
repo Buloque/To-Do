@@ -21,6 +21,7 @@ public:
     void diffBloco();
 
     int verificaUrgencia();
+    void confADM();
 
 private slots:
     void on_pbNegrito_clicked();
@@ -46,6 +47,8 @@ private slots:
     void on_pbCancelar_clicked();
 
     void on_pbSalvarLocal_clicked();
+
+    void on_editavelADM_stateChanged(int arg1);
 
 private:
     Ui::criar *ui;

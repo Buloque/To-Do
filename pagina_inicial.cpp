@@ -20,6 +20,8 @@ int cAZ = 0;
 int cData = 0;
 bool verificadoOadm;
 
+bool botaoEditavel = true;
+
 QString nomeUser;
 
 void Pagina_Inicial::guardandoID(int ID){
@@ -45,11 +47,14 @@ Pagina_Inicial::Pagina_Inicial(int ID,QString user,bool verificaadm,int idADM,QW
         ui->lblNome->setText("Usuário: " + user + "<br>ADM: " + nomeUser);
         verificadoOadm = verificaadm;
 
+
     }else{
 
         ui->lblNome->setText("Usuário: " + nomeUser);//nomeUser
-
+        setarbtnEditar();
     }
+
+
 
 
 
@@ -59,6 +64,12 @@ Pagina_Inicial::Pagina_Inicial(int ID,QString user,bool verificaadm,int idADM,QW
 Pagina_Inicial::~Pagina_Inicial()
 {
     delete ui;
+}
+
+void Pagina_Inicial::setarbtnEditar(){
+
+    (botaoEditavel == true) ? ui->btnEditar->setEnabled(true) : ui->btnEditar->setEnabled(false);//verifica se o bloco é editavel
+
 }
 
 void Pagina_Inicial::on_comboBox_currentIndexChanged(int index)
@@ -108,14 +119,14 @@ void Pagina_Inicial::carregarDados(){
 
     if(cData == 1){
         ui->pbData->setText("📅⬆");
-        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario ORDER BY data ASC");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado,editavel from infoUsers WHERE userPropId = :idUsuario ORDER BY data ASC");
 
     }else if(cData == 2){
         ui->pbData->setText("📅⬇");
-        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario ORDER BY data DESC");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado,editavel from infoUsers WHERE userPropId = :idUsuario ORDER BY data DESC");
     }else{
         ui->pbData->setText("📅");
-        pDados.prepare("select nome,andamento,data,id,dataFinalizado from infoUsers WHERE userPropId = :idUsuario");
+        pDados.prepare("select nome,andamento,data,id,dataFinalizado,editavel from infoUsers WHERE userPropId = :idUsuario");
         cData = 0;
     }
 
@@ -135,6 +146,7 @@ void Pagina_Inicial::carregarDados(){
         while(pDados.next()){
 
             int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+            int editavel = pDados.value(5).toInt();
 
             if((pDados.value(1) == 0)){
 
@@ -146,6 +158,8 @@ void Pagina_Inicial::carregarDados(){
                 bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
                 bInterno->setBackground(QColor(Qt::darkYellow));
                 bInterno->setData(Qt::UserRole,idBanco);
+                bInterno->setData(Qt::UserRole + 3,editavel);
+
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
                 linhas++;
@@ -159,6 +173,7 @@ void Pagina_Inicial::carregarDados(){
         while(pDados.next()){
 
             int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+            int editavel = pDados.value(5).toInt();
 
             if((pDados.value(1) == 1)){
 
@@ -172,6 +187,7 @@ void Pagina_Inicial::carregarDados(){
                 bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
                 bInterno->setBackground(QColor(Qt::darkGreen));
                 bInterno->setData(Qt::UserRole,idBanco);
+                bInterno->setData(Qt::UserRole + 3,editavel);
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
                 linhas++;
@@ -185,6 +201,7 @@ void Pagina_Inicial::carregarDados(){
         while(pDados.next()){
 
             int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+            int editavel = pDados.value(5).toInt();
 
             if((pDados.value(1) == 2)){
 
@@ -198,6 +215,7 @@ void Pagina_Inicial::carregarDados(){
                 bInterno->setTextAlignment(Qt::AlignCenter);//centraliza as informações
                 bInterno->setBackground(QColor(Qt::darkRed));
                 bInterno->setData(Qt::UserRole,idBanco);
+                bInterno->setData(Qt::UserRole + 3,editavel);
                 // esconde a id do usuario
                 //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
                 linhas++;
@@ -212,6 +230,7 @@ void Pagina_Inicial::carregarDados(){
         while(pDados.next()){
 
             int idBanco = pDados.value(3).toInt(); // id do banco, cuidar select
+            int editavel = pDados.value(5).toInt();
 
             QString lista = pDados.value(0).toString() + " - "
                                 + pDados.value(2).toString() + " - "
@@ -238,9 +257,8 @@ void Pagina_Inicial::carregarDados(){
 
             }
 
-
-
             bInterno->setData(Qt::UserRole,idBanco);
+            bInterno->setData(Qt::UserRole + 3,editavel);
             // esconde a id do usuario
             //set data é um método do Qt que permite anexar dados extras e invisíveis a um item.
             linhas++;
@@ -261,7 +279,7 @@ void Pagina_Inicial::on_lwTodosT_itemClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    abrirNota abrirB(idBlocoSelecionado,idGuardada,false);
+    abrirNota abrirB(idBlocoSelecionado,idGuardada);
 
     abrirB.setModal(true);
 
@@ -292,9 +310,8 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
-    qDebug() << "Verifica o admin: " << verificadoOadm;
-
     //criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
+
 
     criar *abrirCr = new criar(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
 
@@ -339,6 +356,7 @@ void Pagina_Inicial::on_btnApagar_clicked()
                 if(apagaDiff.exec()){
 
                     QMessageBox::information(this,"atenção","Registro apagado com sucesso.");
+                    idBlocoSelecionado = 0;
                     carregarDados();
 
                 }else{
@@ -371,6 +389,15 @@ void Pagina_Inicial::on_lwTodosT_currentItemChanged(QListWidgetItem *current, QL
     if (!current) return;
 
     idBlocoSelecionado = current->data(Qt::UserRole).toInt(); // unifica a base
+    botaoEditavel = current->data(Qt::UserRole +3).toBool();
+
+    if(!(verificadoOadm == true)){
+
+        setarbtnEditar();
+
+    }
+
+
 }
 
 ////////////////////voltar para o login
@@ -412,13 +439,8 @@ void Pagina_Inicial::on_pushButton_clicked()
     }
 }
 
-void Pagina_Inicial::closeEvent(QCloseEvent *event)
-{
+void Pagina_Inicial::closeEvent(QCloseEvent *event){//muda a função do botão de fechar do proprio windows
 
     on_pbSair_clicked();
-
-    // Para permitir que a janela feche normalmente após a execução da sua função:
-   // event->accept();
-
 
 }

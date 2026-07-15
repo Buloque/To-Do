@@ -30,12 +30,12 @@ public:
     QTextEdit *txtOriginal;
     QTextEdit *txtDiff;
     QGridLayout *gridLayout_2;
-    QLabel *nomeUsuario;
     QLabel *label;
     QLabel *label_2;
     QLineEdit *leOriginal;
     QLineEdit *leDiff;
     QCheckBox *cbTitulo;
+    QLabel *nomeUsuario;
     QCheckBox *cbEditavel;
 
     void setupUi(QDialog *diferenca)
@@ -66,12 +66,6 @@ public:
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
-        nomeUsuario = new QLabel(diferenca);
-        nomeUsuario->setObjectName("nomeUsuario");
-        nomeUsuario->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        gridLayout_2->addWidget(nomeUsuario, 1, 2, 1, 1);
-
         label = new QLabel(diferenca);
         label->setObjectName("label");
         QFont font;
@@ -103,6 +97,12 @@ public:
         cbTitulo->setCheckable(true);
 
         gridLayout_2->addWidget(cbTitulo, 5, 1, 1, 1);
+
+        nomeUsuario = new QLabel(diferenca);
+        nomeUsuario->setObjectName("nomeUsuario");
+        nomeUsuario->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+
+        gridLayout_2->addWidget(nomeUsuario, 1, 2, 1, 1);
 
         cbEditavel = new QCheckBox(diferenca);
         cbEditavel->setObjectName("cbEditavel");
@@ -137,12 +137,12 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        nomeUsuario->setText(QCoreApplication::translate("diferenca", "Usuario que alterou: ", nullptr));
         label->setText(QCoreApplication::translate("diferenca", "Conteudo Atual", nullptr));
         label_2->setText(QCoreApplication::translate("diferenca", "Condeudo anterior", nullptr));
         leOriginal->setText(QString());
         leDiff->setText(QString());
         cbTitulo->setText(QCoreApplication::translate("diferenca", "Titulo Igual", nullptr));
+        nomeUsuario->setText(QCoreApplication::translate("diferenca", "Usuario que alterou: ", nullptr));
         cbEditavel->setText(QCoreApplication::translate("diferenca", "Editavel", nullptr));
     } // retranslateUi
 

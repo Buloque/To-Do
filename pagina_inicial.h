@@ -24,6 +24,8 @@ public:
 
     void limpaDados();
 
+    void setarbtnEditar();
+
 
 private slots:
     void on_lwTodosT_itemDoubleClicked(QListWidgetItem *item);

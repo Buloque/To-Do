@@ -58,16 +58,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </item>
    <item row="4" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="1" column="2">
-      <widget class="QLabel" name="nomeUsuario">
-       <property name="text">
-        <string>Usuario que alterou: </string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label">
        <property name="font">
@@ -119,6 +109,16 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <property name="checkable">
         <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="nomeUsuario">
+       <property name="text">
+        <string>Usuario que alterou: </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
      </item>
