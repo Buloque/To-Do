@@ -7,6 +7,7 @@
 #include <QListWidgetItem>
 
 #include "pagina_inicial.h"
+#include "criar.h"
 
 int idPerm;
 int id;
@@ -106,6 +107,59 @@ void pagina_inicial_ADM::on_lwUsers_itemDoubleClicked(QListWidgetItem *item)
     abrirTI->exec();
 
     abrirTI->deleteLater();
+
+}
+
+
+void pagina_inicial_ADM::on_pbMudarSenha_clicked()
+{
+
+    /////////////////////////////////////continuar
+
+    QSqlQuery mudaSenha;
+
+    mudaSenha.prepare("UPDATE Senha SET :senha WHERE id = :id");
+
+}
+
+
+void pagina_inicial_ADM::on_pbPessoal_clicked()//Abrindo Pagina Pessoal do Supervisor
+{
+
+    //Pagina_Inicial abrirTI(idUserSelecionado,nomeArmazenadoUser,true,id);
+    Pagina_Inicial *abrirTI = new Pagina_Inicial(id,NomeAdmUser,false,0);
+
+    abrirTI->setModal(true);
+
+    abrirTI->exec();
+
+    abrirTI->deleteLater();
+
+}
+
+
+void pagina_inicial_ADM::on_pbSair_clicked()
+{
+    idUserSelecionado = 0;
+
+    this -> close();
+}
+
+void pagina_inicial_ADM::closeEvent(QCloseEvent *event){//muda a função do botão de fechar do proprio windows
+
+    on_pbSair_clicked();
+
+}
+
+
+void pagina_inicial_ADM::on_pbCriarM_clicked()
+{
+    criar abrirCr(id,false,0,true,id,true);
+
+    abrirCr.setModal(true);
+
+    abrirCr.exec();
+
 
 }
 

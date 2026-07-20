@@ -12,7 +12,7 @@ class criar : public QDialog
     Q_OBJECT
 
 public:
-    explicit criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget *parent = nullptr);
+    explicit criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,bool criarMult,QWidget *parent = nullptr);
     ~criar();
     void guardandoID(int ID,bool editar,int idBloco);
     void subtextos();
@@ -22,6 +22,8 @@ public:
 
     int verificaUrgencia();
     void confADM();
+    void salvarParaMultiplosUsuarios();
+    void salvar();
 
 private slots:
     void on_pbNegrito_clicked();
@@ -52,6 +54,7 @@ private slots:
 
 private:
     Ui::criar *ui;
+    QStringList listaDeUsuarios;
 
 };
 

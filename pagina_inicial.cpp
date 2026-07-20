@@ -295,7 +295,7 @@ void Pagina_Inicial::on_lwTodosT_itemDoubleClicked(QListWidgetItem *item)
 void Pagina_Inicial::on_btnCriar_clicked()
 {
 
-    criar abrirCr(idGuardada,false,0,verificadoOadm,adm);
+    criar abrirCr(idGuardada,false,0,verificadoOadm,adm,false);
 
     //abrirCr.guardandoID(idGuardada,false,0);
 
@@ -313,7 +313,7 @@ void Pagina_Inicial::on_btnEditar_clicked()
     //criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
 
 
-    criar *abrirCr = new criar(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
+    criar *abrirCr = new criar(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm,false);
 
     if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
 

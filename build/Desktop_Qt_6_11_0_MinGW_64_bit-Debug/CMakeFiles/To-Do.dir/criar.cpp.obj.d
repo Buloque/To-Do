@@ -454,6 +454,8 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QTextStream \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QFileDialog \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h \
@@ -763,4 +765,5 @@ CMakeFiles/To-Do.dir/criar.cpp.obj: D:\Projetos\QT\To-Do\criar.cpp \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlrelationaltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqltablemodel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
- D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QStringList

@@ -45,7 +45,11 @@ template <> constexpr inline auto pagina_inicial_ADM::qt_create_metaobjectdata<q
         "current",
         "previous",
         "on_lwUsers_itemDoubleClicked",
-        "item"
+        "item",
+        "on_pbMudarSenha_clicked",
+        "on_pbPessoal_clicked",
+        "on_pbSair_clicked",
+        "on_pbCriarM_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -57,6 +61,14 @@ template <> constexpr inline auto pagina_inicial_ADM::qt_create_metaobjectdata<q
         QtMocHelpers::SlotData<void(QListWidgetItem *)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 3, 7 },
         }}),
+        // Slot 'on_pbMudarSenha_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbPessoal_clicked'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbSair_clicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pbCriarM_clicked'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -82,6 +94,10 @@ void pagina_inicial_ADM::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         switch (_id) {
         case 0: _t->on_lwUsers_currentItemChanged((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[2]))); break;
         case 1: _t->on_lwUsers_itemDoubleClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 2: _t->on_pbMudarSenha_clicked(); break;
+        case 3: _t->on_pbPessoal_clicked(); break;
+        case 4: _t->on_pbSair_clicked(); break;
+        case 5: _t->on_pbCriarM_clicked(); break;
         default: ;
         }
     }
@@ -106,14 +122,14 @@ int pagina_inicial_ADM::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 6;
     }
     return _id;
 }

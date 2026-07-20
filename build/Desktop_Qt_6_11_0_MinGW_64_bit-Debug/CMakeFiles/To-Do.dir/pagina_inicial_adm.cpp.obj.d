@@ -728,19 +728,29 @@ CMakeFiles/To-Do.dir/pagina_inicial_adm.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qsqlresult.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtSql/qtsqlversion.h \
  D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/To-Do_autogen/include/ui_pagina_inicial_adm.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QGridLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLabel \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
- D:\Projetos\QT\To-Do\pagina_inicial.h
+ D:\Projetos\QT\To-Do\pagina_inicial.h D:\Projetos\QT\To-Do\criar.h

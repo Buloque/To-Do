@@ -84,7 +84,7 @@ void diferenca::chamandoBanco(){
 void diferenca::chamandoDiff(){
 
     QSqlQuery abreDiff;
-    abreDiff.prepare("SELECT nome,bloco,userPropId FROM diffInfo WHERE id = :id");
+    abreDiff.prepare("SELECT nome,bloco,userEditId FROM diffInfo WHERE id = :id");
     abreDiff.bindValue(":id", idD);
 
     if(abreDiff.exec()){

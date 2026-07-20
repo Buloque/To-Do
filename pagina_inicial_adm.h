@@ -24,6 +24,17 @@ private slots:
 
     void on_lwUsers_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_pbMudarSenha_clicked();
+
+    void on_pbPessoal_clicked();
+
+    void on_pbSair_clicked();
+
+    void on_pbCriarM_clicked();
+
+protected:
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::pagina_inicial_ADM *ui;
     Login telaLogin;

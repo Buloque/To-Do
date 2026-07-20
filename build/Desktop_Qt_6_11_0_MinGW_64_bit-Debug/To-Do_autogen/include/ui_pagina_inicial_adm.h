@@ -10,18 +10,31 @@
 #define UI_PAGINA_INICIAL_ADM_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_pagina_inicial_ADM
 {
 public:
-    QListWidget *lwUsers;
+    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *lblNome;
+    QPushButton *pbPessoal;
+    QPushButton *pbSair;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pbCriarM;
+    QPushButton *pbApagar;
+    QPushButton *pbMudarSenha;
+    QPushButton *pbConfiguracao;
+    QListWidget *lwUsers;
 
     void setupUi(QDialog *pagina_inicial_ADM)
     {
@@ -30,13 +43,64 @@ public:
         pagina_inicial_ADM->resize(400, 600);
         pagina_inicial_ADM->setMinimumSize(QSize(400, 600));
         pagina_inicial_ADM->setMaximumSize(QSize(400, 600));
-        lwUsers = new QListWidget(pagina_inicial_ADM);
-        lwUsers->setObjectName("lwUsers");
-        lwUsers->setGeometry(QRect(10, 70, 381, 501));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/IMG/Imagens/Icone Sem Fundopng.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        pagina_inicial_ADM->setWindowIcon(icon);
+        gridLayout = new QGridLayout(pagina_inicial_ADM);
+        gridLayout->setObjectName("gridLayout");
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
         lblNome = new QLabel(pagina_inicial_ADM);
         lblNome->setObjectName("lblNome");
-        lblNome->setGeometry(QRect(30, 10, 188, 24));
         lblNome->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        horizontalLayout_2->addWidget(lblNome);
+
+        pbPessoal = new QPushButton(pagina_inicial_ADM);
+        pbPessoal->setObjectName("pbPessoal");
+        pbPessoal->setMaximumSize(QSize(100, 16777215));
+
+        horizontalLayout_2->addWidget(pbPessoal);
+
+        pbSair = new QPushButton(pagina_inicial_ADM);
+        pbSair->setObjectName("pbSair");
+        pbSair->setMaximumSize(QSize(40, 16777215));
+
+        horizontalLayout_2->addWidget(pbSair);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        pbCriarM = new QPushButton(pagina_inicial_ADM);
+        pbCriarM->setObjectName("pbCriarM");
+
+        horizontalLayout->addWidget(pbCriarM);
+
+        pbApagar = new QPushButton(pagina_inicial_ADM);
+        pbApagar->setObjectName("pbApagar");
+
+        horizontalLayout->addWidget(pbApagar);
+
+        pbMudarSenha = new QPushButton(pagina_inicial_ADM);
+        pbMudarSenha->setObjectName("pbMudarSenha");
+
+        horizontalLayout->addWidget(pbMudarSenha);
+
+        pbConfiguracao = new QPushButton(pagina_inicial_ADM);
+        pbConfiguracao->setObjectName("pbConfiguracao");
+
+        horizontalLayout->addWidget(pbConfiguracao);
+
+
+        gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
+
+        lwUsers = new QListWidget(pagina_inicial_ADM);
+        lwUsers->setObjectName("lwUsers");
+
+        gridLayout->addWidget(lwUsers, 2, 0, 1, 1);
+
 
         retranslateUi(pagina_inicial_ADM);
 
@@ -45,8 +109,14 @@ public:
 
     void retranslateUi(QDialog *pagina_inicial_ADM)
     {
-        pagina_inicial_ADM->setWindowTitle(QCoreApplication::translate("pagina_inicial_ADM", "Dialog", nullptr));
+        pagina_inicial_ADM->setWindowTitle(QCoreApplication::translate("pagina_inicial_ADM", "Painel do ADM", nullptr));
         lblNome->setText(QCoreApplication::translate("pagina_inicial_ADM", "User", nullptr));
+        pbPessoal->setText(QCoreApplication::translate("pagina_inicial_ADM", "Bloco Pessoal", nullptr));
+        pbSair->setText(QCoreApplication::translate("pagina_inicial_ADM", "Sair", nullptr));
+        pbCriarM->setText(QCoreApplication::translate("pagina_inicial_ADM", "Criar Multi.", nullptr));
+        pbApagar->setText(QCoreApplication::translate("pagina_inicial_ADM", "Apagar Multi.", nullptr));
+        pbMudarSenha->setText(QCoreApplication::translate("pagina_inicial_ADM", "Mudar Senha", nullptr));
+        pbConfiguracao->setText(QCoreApplication::translate("pagina_inicial_ADM", "Conf ADM", nullptr));
     } // retranslateUi
 
 };

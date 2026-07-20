@@ -3,9 +3,13 @@
 
 #include <QDateTime> // para pegar a data
 #include <QMessageBox>
+#include <QComboBox>
+#include <QLayout>
+
 #include <QTextStream>
 #include <QFileDialog>
 #include <QtSql>
+#include <QStringList>
 
 QFont fonte;
 QFont orig; // Correção Strike
@@ -20,6 +24,8 @@ int editarADMFiltro = 0;
 bool ADMEditando = false;
 int IdDoCriador;
 
+bool criarParaMultiplosUsers = false;
+
 QDateTime horaDiaAtual = QDateTime::currentDateTime();
 
 void criar::guardandoID(int ID,bool editar,int idBloco){
@@ -28,7 +34,7 @@ void criar::guardandoID(int ID,bool editar,int idBloco){
 
 }
 
-criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget *parent)
+criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,bool criarMult,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::criar)
 {
@@ -39,6 +45,8 @@ criar::criar(int ID,bool editar,int idBloco,bool editarADM,int IDCriador,QWidget
 
     ADMEditando = editarADM;
     IdDoCriador = IDCriador;
+
+    criarParaMultiplosUsers = criarMult;
 
     ui->setupUi(this);
 
@@ -209,8 +217,6 @@ void criar::on_pbUnderline_clicked()
         ui->texto->setFontUnderline(false);
 
     }
-
-
 }
 
 bool criar::veficaTexto(){
@@ -352,6 +358,20 @@ void criar::on_editavelADM_stateChanged(int arg1)//0 - desativado | 1 - ativado
 
 void criar::on_pbSalvar_clicked()
 {
+    if(criarParaMultiplosUsers == true){
+
+        salvarParaMultiplosUsuarios();
+
+    }else{
+
+        salvar();
+
+    }
+
+
+}
+
+void criar::salvar(){
 
     QString nome = ui->leTitulo->text(); // cuidar o tipo de variavel que entrega, da erro se for o errado
     QString bloco = ui->texto->toMarkdown();
@@ -465,8 +485,8 @@ void criar::diffBloco(){
 
 
 
-    salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,editavel,quantidadeSalvas) "
-                       "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:editavel,:qtdSalvo)");
+    salvaBloco.prepare("insert into diffInfo (nome,bloco,data,horas,urgencia,dataAlterado,userPropId,idBloco,editavel,quantidadeSalvas,userEditId) "
+                       "values (:nome,:bloco,:data,:hora,:urgencia,:dataAlterado,:idUser,:idBloco,:editavel,:qtdSalvo,:editorId)");
 
     salvaBloco.bindValue(":nome", nome);
     salvaBloco.bindValue(":bloco", bloco);
@@ -475,6 +495,17 @@ void criar::diffBloco(){
     salvaBloco.bindValue(":urgencia", urgencia);
     salvaBloco.bindValue(":dataAlterado", horaDiaAtual.toString("dd/MM/yyyy hh:mm"));
     salvaBloco.bindValue(":idBloco", blocoPush);
+
+    if(ADMEditando == true){
+
+        salvaBloco.bindValue(":editorId", QString::number(IdDoCriador));
+
+    }else{
+
+        salvaBloco.bindValue(":editorId", QString::number(idRecuperada));
+
+    }
+
     salvaBloco.bindValue(":editavel", editarADMFiltro);
     salvaBloco.bindValue(":idUser", QString::number(idRecuperada));
     salvaBloco.bindValue(":qtdSalvo", contBanco);
@@ -490,6 +521,93 @@ void criar::diffBloco(){
     }
 
 }
+
+
+void criar::salvarParaMultiplosUsuarios(){
+
+    QMap<QString, int> mapaUsuarios;
+    QList<int> idsSelecionados;
+
+    QSqlQuery users;
+    users.prepare("SELECT id, Usuario, Perm FROM Users");
+
+    if (users.exec()) {
+        while (users.next()) {
+            if (users.value(0).toInt() != IdDoCriador) {
+                int idBanco = users.value(0).toInt();
+                QString nomeUser = users.value(1).toString();
+                mapaUsuarios[nomeUser] = idBanco;
+            }
+        }
+    } else {
+        QMessageBox::information(this, "Atenção", "Não foi possível puxar as informações.\n" + users.lastError().text());
+        return;
+    }
+
+    if (mapaUsuarios.isEmpty()) {
+        QMessageBox::information(this, "Atenção", "Nenhum usuário disponível para seleção.");
+        return;
+    }
+
+    QMessageBox msgBox(this);
+    msgBox.setText("Selecione os usuários na lista abaixo:");
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+
+    QComboBox *comboBox = new QComboBox(&msgBox);
+    comboBox->addItems(mapaUsuarios.keys());
+
+    // 1. Cria o Label para exibir a seleção. O msgBox é o pai, garantindo o tempo de vida correto.
+    QLabel *labelSelecionados = new QLabel("Nenhum usuário selecionado.", &msgBox);
+    labelSelecionados->setWordWrap(true); // Permite que o texto quebre a linha se a lista for longa
+
+    // 2. A lambda agora captura também o ponteiro 'labelSelecionados'
+    connect(comboBox, &QComboBox::textActivated, this,
+            [&mapaUsuarios, &idsSelecionados, labelSelecionados](const QString &nome) {
+
+                int id = mapaUsuarios.value(nome, -1);
+                if (id == -1) return;
+
+                // Lógica de alternância (toggle)
+                if (idsSelecionados.contains(id)) {
+                    idsSelecionados.removeAll(id);
+                } else {
+                    idsSelecionados.append(id);
+                }
+
+                // 3. Atualiza o texto do Label com base nos IDs atualmente na lista
+                if (idsSelecionados.isEmpty()) {
+                    labelSelecionados->setText("Nenhum usuário selecionado.");
+                } else {
+                    QStringList nomesAtuais;
+                    // Percorre o mapa para encontrar os nomes correspondentes aos IDs salvos
+                    for (auto it = mapaUsuarios.constBegin(); it != mapaUsuarios.constEnd(); ++it) {
+                        if (idsSelecionados.contains(it.value())) {
+                            nomesAtuais.append(it.key());
+                        }
+                    }
+                    // Une os nomes com vírgula e espaço
+                    labelSelecionados->setText("Selecionados: " + nomesAtuais.join(", "));
+                }
+            });
+
+    QLayout *layout = msgBox.layout();
+    if (layout) {
+        layout->addWidget(comboBox);
+        layout->addWidget(labelSelecionados); // Adiciona o Label ao layout (substituindo a antiga 'tex')
+    }
+
+    if (msgBox.exec() == QMessageBox::Ok) {
+        qDebug() << "Processando IDs de usuários selecionados:" << idsSelecionados;
+
+        for (int idUsuario : idsSelecionados) {
+
+            idRecuperada = idUsuario;
+
+            salvar();
+        }
+    }
+}
+
 
 
 void criar::on_pbSalvarLocal_clicked()
