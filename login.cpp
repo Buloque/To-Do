@@ -10,6 +10,9 @@
 #include "pagina_inicial_adm.h"
 #include "registrar.h"
 
+#include <QStandardPaths>
+#include <QDir>
+
 
 static QSqlDatabase bancoDados;
 
@@ -43,9 +46,17 @@ Login::~Login()
 
 void Login::iniciandoBanco(){
 
-    QFileInfo infoArquivo("bancoDoTodo.db");
+    QString pasta =
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+
+    QDir().mkpath(pasta);
+
+    QString arquivoBanco = pasta + "/bancoDoTodo.db";
+
+    QFileInfo infoArquivo(arquivoBanco);
+
     bancoDados = QSqlDatabase::addDatabase("QSQLITE");
-    bancoDados.setDatabaseName("bancoDoTodo.db");
+    bancoDados.setDatabaseName(arquivoBanco);
 
     //Preparando o banco de dados
     if (!bancoDados.open()) {
@@ -57,12 +68,9 @@ void Login::iniciandoBanco(){
 
     }
 
-    qint64 tamanhoEmBytes = infoArquivo.size();
-    if (QFile::exists("bancoDoTodo.db") && tamanhoEmBytes == 0) {
+    if (!QFile::exists(arquivoBanco) || infoArquivo.size() == 0) {//se o banco existir, mas for 0 bytes, então criar
         criandoBanco();
     }
-
-
 
 }
 
@@ -135,10 +143,37 @@ void Login::criandoBanco(){
     QStringList tabelas;
 
     tabelas <<  R"(CREATE TABLE IF NOT EXISTS diffInfo
-                                            (nome TEXT (50), bloco TEXT (99999), data TEXT (10), horas TEXT (5), dataFinalizado TEXT (10), dataAlterado TEXT (10), urgencia INTEGER (1), andamento INTEGER (1), editavel INTEGER (1), userPropId INTEGER, idBloco INTEGER, quantidadeSalvas INTEGER, id INTEGER PRIMARY KEY AUTOINCREMENT);)"
+                                            (
+    nome             TEXT (50),
+    bloco            TEXT (99999),
+    data             TEXT (10),
+    horas            TEXT (5),
+    dataFinalizado   TEXT (10),
+    dataAlterado     TEXT (10),
+    urgencia         INTEGER (1),
+    andamento        INTEGER (1),
+    editavel         INTEGER (1),
+    userPropId       INTEGER,
+    userEditId       INTEGER,
+    idBloco          INTEGER,
+    quantidadeSalvas INTEGER,
+    id               INTEGER      PRIMARY KEY AUTOINCREMENT);)"
             <<
                 R"(CREATE TABLE IF NOT EXISTS infoUsers
-                                            (nome TEXT (50), bloco TEXT (99999), data TEXT (10), horas TEXT (5), dataFinalizado TEXT (10), urgencia INTEGER (1), andamento INTEGER (1), userPropId INTEGER, id INTEGER PRIMARY KEY AUTOINCREMENT);)"
+                                            (
+    nome              TEXT (50),
+    bloco             TEXT (99999),
+    data              TEXT (10),
+    horas             TEXT (5),
+    dataFinalizado    TEXT (10),
+    urgencia          INTEGER (1),
+    andamento         INTEGER (1),
+    userPropId        INTEGER,
+    userCreatorId     INTEGER,
+    editavel          INTEGER (1),
+    multiplosUsuarios INTEGER (1),
+    multiBlocoId      INTEGER,
+    id                INTEGER      PRIMARY KEY AUTOINCREMENT);)"
             <<
 
                 R"(CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, Usuario TEXT (20), Senha TEXT (20), Perm INTEGER (1) DEFAULT (0));)";

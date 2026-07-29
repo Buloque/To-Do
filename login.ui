@@ -76,7 +76,7 @@
        <item>
         <widget class="QLineEdit" name="txtLogin">
          <property name="text">
-          <string>Teste</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -99,7 +99,7 @@
        <item>
         <widget class="QLineEdit" name="txtSenha">
          <property name="text">
-          <string>Teste</string>
+          <string/>
          </property>
          <property name="maxLength">
           <number>50</number>

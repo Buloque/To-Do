@@ -1,0 +1,9 @@
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/To-Do.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/install.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/To-Do_autogen_timestamp_deps.dir
+D:/Projetos/QT/To-Do/build/Desktop_Qt_6_11_0_MinGW_64_bit-Release/CMakeFiles/To-Do_autogen.dir

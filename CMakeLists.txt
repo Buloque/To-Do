@@ -23,6 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(To-Do
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        app.rc
         Imagens.qrc
         pagina_inicial.h pagina_inicial.cpp pagina_inicial.ui
         editar.h editar.cpp editar.ui
