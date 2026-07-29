@@ -91,18 +91,16 @@ void abrirNota::carregaDados(){
             ui->cbAndamento->setCurrentIndex(andamento);
             ui->cbAndamento->blockSignals(false);//desbloqueando o sinal
 
-            //qDebug() << "Aviso: ID aberto banco: " << idBloco;
-
         }else{
 
             //Erro ao encontrar a ID
-            qDebug() << "Aviso: Nenhum registro encontrado com o ID: " << idBloco;
+            QMessageBox::warning(this,"Erro","Aviso: Nenhum registro encontrado com o ID: " + QString::number(idBloco));
         }
 
     }else{
 
         //erro ao executar a requesição
-        qDebug() << "Erro ao executar o SELECT:" << abreNotas.lastError().text();
+        QMessageBox::warning(this,"Erro","Erro ao executar o SELECT: " + abreNotas.lastError().text());
 
     }
 
@@ -223,12 +221,12 @@ void abrirNota::diffBloco(int andamento){
 
         }else{
 
-            qDebug() << "NExt falhou";
+            QMessageBox::warning(this,"Erro","Next Falhou");
 
         }
     }else{
 
-        qDebug() << "Exec falhou";
+        QMessageBox::warning(this,"Erro","Exec falhou");
 
     }
 

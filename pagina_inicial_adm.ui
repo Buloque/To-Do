@@ -75,14 +75,7 @@
      <item>
       <widget class="QPushButton" name="pbCriarM">
        <property name="text">
-        <string>Criar Multi.</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pbApagar">
-       <property name="text">
-        <string>Apagar Multi.</string>
+        <string>Criar Multi. Blocos</string>
        </property>
       </widget>
      </item>
@@ -90,13 +83,6 @@
       <widget class="QPushButton" name="pbMudarSenha">
        <property name="text">
         <string>Mudar Senha</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pbConfiguracao">
-       <property name="text">
-        <string>Conf ADM</string>
        </property>
       </widget>
      </item>

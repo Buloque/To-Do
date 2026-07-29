@@ -31,9 +31,7 @@ public:
     QPushButton *pbSair;
     QHBoxLayout *horizontalLayout;
     QPushButton *pbCriarM;
-    QPushButton *pbApagar;
     QPushButton *pbMudarSenha;
-    QPushButton *pbConfiguracao;
     QListWidget *lwUsers;
 
     void setupUi(QDialog *pagina_inicial_ADM)
@@ -78,20 +76,10 @@ public:
 
         horizontalLayout->addWidget(pbCriarM);
 
-        pbApagar = new QPushButton(pagina_inicial_ADM);
-        pbApagar->setObjectName("pbApagar");
-
-        horizontalLayout->addWidget(pbApagar);
-
         pbMudarSenha = new QPushButton(pagina_inicial_ADM);
         pbMudarSenha->setObjectName("pbMudarSenha");
 
         horizontalLayout->addWidget(pbMudarSenha);
-
-        pbConfiguracao = new QPushButton(pagina_inicial_ADM);
-        pbConfiguracao->setObjectName("pbConfiguracao");
-
-        horizontalLayout->addWidget(pbConfiguracao);
 
 
         gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
@@ -113,10 +101,8 @@ public:
         lblNome->setText(QCoreApplication::translate("pagina_inicial_ADM", "User", nullptr));
         pbPessoal->setText(QCoreApplication::translate("pagina_inicial_ADM", "Bloco Pessoal", nullptr));
         pbSair->setText(QCoreApplication::translate("pagina_inicial_ADM", "Sair", nullptr));
-        pbCriarM->setText(QCoreApplication::translate("pagina_inicial_ADM", "Criar Multi.", nullptr));
-        pbApagar->setText(QCoreApplication::translate("pagina_inicial_ADM", "Apagar Multi.", nullptr));
+        pbCriarM->setText(QCoreApplication::translate("pagina_inicial_ADM", "Criar Multi. Blocos", nullptr));
         pbMudarSenha->setText(QCoreApplication::translate("pagina_inicial_ADM", "Mudar Senha", nullptr));
-        pbConfiguracao->setText(QCoreApplication::translate("pagina_inicial_ADM", "Conf ADM", nullptr));
     } // retranslateUi
 
 };

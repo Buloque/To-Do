@@ -104,7 +104,7 @@ void Historico::carregadados(){
 
     }else{
 
-        qDebug() << "Erro exec";
+        QMessageBox::warning(this,"Erro", "Erro ao carregar informações");
 
     }
 
@@ -121,8 +121,6 @@ void Historico::on_lwHistorico_currentItemChanged(QListWidgetItem *current, QLis
     bSelecionado = current->data(Qt::UserRole).toInt();
     editTab = current->data(Qt::UserRole + 1).toInt();
 
-    //qDebug() << bSelecionado;
-    //qDebug() << editTab;
 }
 
 void Historico::on_lwHistorico_itemDoubleClicked(QListWidgetItem *item)

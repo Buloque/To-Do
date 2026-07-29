@@ -40,8 +40,6 @@ Pagina_Inicial::Pagina_Inicial(int ID,QString user,bool verificaadm,int idADM,QW
     idGuardada = ID;
     adm = idADM;
 
-    qDebug() << "verificaadm: " << verificaadm;
-
     if (verificaadm == true){
 
         ui->lblNome->setText("Usuário: " + user + "<br>ADM: " + nomeUser);
@@ -75,7 +73,6 @@ void Pagina_Inicial::setarbtnEditar(){
 void Pagina_Inicial::on_comboBox_currentIndexChanged(int index)
 {
     modo = index;
-    //qDebug() << "index: " << index;
     carregarDados();
 }
 void Pagina_Inicial::on_pbAZ_clicked()//botão filtro a-z
@@ -108,7 +105,6 @@ void Pagina_Inicial::on_pbData_clicked()
 {
 
     cData++;
-    //qDebug() << "cData: " << cData;
     carregarDados();
 }
 
@@ -310,14 +306,10 @@ void Pagina_Inicial::on_btnCriar_clicked()
 void Pagina_Inicial::on_btnEditar_clicked()
 { // selecionar a linha e puxar os dados
 
-    //criar abrirCr(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm);
-
 
     criar *abrirCr = new criar(idGuardada,true,idBlocoSelecionado,verificadoOadm,adm,false);
 
     if(!(idBlocoSelecionado == 0)){//se não tiver nada selecionado, então não autoriza
-
-        //abrirCr.guardandoID(idGuardada,true,idBlocoSelecionado);
 
         abrirCr->setModal(true);
 

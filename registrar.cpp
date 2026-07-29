@@ -10,11 +10,29 @@ bool confirmaUser = false;
 bool confirmaSenha = false;
 bool pRegistro;
 
-registrar::registrar(bool primeiroRegistro,QWidget *parent)
+bool aSenha;
+int iUser;
+QString nomeUserSenha;
+
+registrar::registrar(bool primeiroRegistro,bool atualizandoSenha,int idUser,QString nomeUsuario,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::registrar)
 {
     ui->setupUi(this);
+
+    aSenha = atualizandoSenha;
+    iUser = idUser;
+    nomeUserSenha = nomeUsuario;
+    if(aSenha == true){
+
+        ui->txtLogin->setText(nomeUserSenha);
+        ui->txtLogin->setEnabled(false);
+
+        ui->lbllogconf->setText("");
+        ui->label_4->setText("<html><head/><body><p align='center'><span style=' font-size:35pt;'>Mudar Senha</span></p></body></html>");
+        this->setWindowTitle("Mudar Senha");
+
+    }
 
     pRegistro = primeiroRegistro;
 
@@ -32,37 +50,43 @@ registrar::~registrar()
 
 void registrar::on_txtLogin_editingFinished()
 {
-    QString nomeD = ui->txtLogin->text();
-    QSqlQuery pDados;
 
-    if(pDados.exec("select * FROM Users WHERE Usuario='"+nomeD+"'")){
-        //qDebug() << "executado";
-        int contReg = 0;
+    if(!aSenha == true){
 
-        while(pDados.next()){
+        QString nomeD = ui->txtLogin->text();
+        QSqlQuery pDados;
 
-            contReg++;
+        if(pDados.exec("select * FROM Users WHERE Usuario='"+nomeD+"'")){
+            int contReg = 0;
 
-        }
-        //se o contReg achar um registro com o nome escrito então
-        if(contReg == 1){//avisa que já existe e não autoriza
+            while(pDados.next()){
 
-            ui->lbllogconf->setText("🚫 - usuario já existente");
-            confirmaUser = false;
+                contReg++;
 
-        }else if(nomeD == ""){//Não há nada escrito e não autoriza
+            }
+            //se o contReg achar um registro com o nome escrito então
+            if(contReg == 1){//avisa que já existe e não autoriza
 
-            ui->lbllogconf->setText("🚫 - Nenhum nome escrito");
-            confirmaUser = false;
+                ui->lbllogconf->setText("🚫 - usuario já existente");
+                confirmaUser = false;
 
-        }else{//avisa que não há usuarios com esse nome e autoriza
+            }else if(nomeD == ""){//Não há nada escrito e não autoriza
 
-            ui->lbllogconf->setText("👌 - Nome de Usuario disponivel!");
-            confirmaUser = true;
+                ui->lbllogconf->setText("🚫 - Nenhum nome escrito");
+                confirmaUser = false;
+
+            }else{//avisa que não há usuarios com esse nome e autoriza
+
+                ui->lbllogconf->setText("👌 - Nome de Usuario disponivel!");
+                confirmaUser = true;
+
+            }
 
         }
 
     }
+
+
 
 }
 
@@ -107,60 +131,80 @@ void registrar::on_dbCriar_clicked()
     QString senha = ui->txtSenha->text();
 
 
-    banco.exec();
+    //banco.exec(); Q ISSO TA FAZENDO AQUI????
 
-    if(confirmaUser == true && confirmaSenha == true){
-        if(pRegistro == true){
+    if(aSenha == true){
 
-            banco.prepare("insert into Users (Usuario,Senha,Perm) values ('"+nome+"','"+senha+"',1)");
+        banco.prepare("UPDATE Users SET Senha = :novaSenha WHERE id = :id");
 
-
-        }else{
-
-            banco.prepare("insert into Users (Usuario,Senha) values ('"+nome+"','"+senha+"')");
-
-        }
+        banco.bindValue(":novaSenha", senha);
+        banco.bindValue(":id", iUser);
 
         if(banco.exec()){
 
-            auto btn = QMessageBox::information(this,"atenção","Usuario salvo com sucesso<br>deseja voltar a tela de Login?",QMessageBox::Yes | QMessageBox::No,QMessageBox::Yes);
+            QMessageBox::information(this,"atenção","Senha alterada com sucesso");
 
-            if(btn == QMessageBox::Yes){
+        }else{//ero
 
-                this -> hide();
-                telaLogin.show();
-
-            }else{
-
-                return;
-
-            }
-
-
-
-        }else{
-
-            QMessageBox::information(this,"atenção","não foi possivel salvar as informações do usuario:\n"
-                                                          + banco.lastError().text());//se der erro, ele fala qual foi pro usuario
+            QMessageBox::information(this,"atenção","ero?");
 
         }
 
     }else{
 
-        if(confirmaUser == false && confirmaSenha == true){
+        if(confirmaUser == true && confirmaSenha == true){
+            if(pRegistro == true){
 
-            QMessageBox::warning(this,"Aviso",
-                                 "Erro ao Registrar o Nome do Usuario");
+                banco.prepare("insert into Users (Usuario,Senha,Perm) values ('"+nome+"','"+senha+"',1)");
 
-        }else if(confirmaUser == true && confirmaSenha == false){
 
-            QMessageBox::warning(this,"Aviso",
-                                 "Erro ao Registrar o senha do Usuario");
+            }else{
+
+                banco.prepare("insert into Users (Usuario,Senha) values ('"+nome+"','"+senha+"')");
+
+            }
+
+            if(banco.exec()){
+
+                auto btn = QMessageBox::information(this,"atenção","Usuario salvo com sucesso<br>deseja voltar a tela de Login?",QMessageBox::Yes | QMessageBox::No,QMessageBox::Yes);
+
+                if(btn == QMessageBox::Yes){
+
+                    this -> hide();
+
+                }else{
+
+                    return;
+
+                }
+
+
+
+            }else{
+
+                QMessageBox::information(this,"atenção","não foi possivel salvar as informações do usuario:\n"
+                                                              + banco.lastError().text());//se der erro, ele fala qual foi pro usuario
+
+            }
 
         }else{
 
-            QMessageBox::warning(this,"Aviso",
-                                 "Erro ao Registrar o Nome e senha do Usuario");
+            if(confirmaUser == false && confirmaSenha == true){
+
+                QMessageBox::warning(this,"Aviso",
+                                     "Erro ao Registrar o Nome do Usuario");
+
+            }else if(confirmaUser == true && confirmaSenha == false){
+
+                QMessageBox::warning(this,"Aviso",
+                                     "Erro ao Registrar o senha do Usuario");
+
+            }else{
+
+                QMessageBox::warning(this,"Aviso",
+                                     "Erro ao Registrar o Nome e senha do Usuario");
+
+            }
 
         }
 
@@ -173,7 +217,13 @@ void registrar::on_pushButton_2_clicked()
 {
 
     this -> hide();
-    telaLogin.show();
+
+}
+
+void registrar::atualizarSenhaUsuario(){
+
+
+
 
 }
 

@@ -19,12 +19,15 @@ int idRecuperada;
 bool editando;
 int blocoPush;
 
-int editarADMFiltro = 0;
+int editarADMFiltro = 1;
 
 bool ADMEditando = false;
 int IdDoCriador;
 
 bool criarParaMultiplosUsers = false;
+int idGrupoRecuperado;
+bool criadoID = false;
+bool passouDenovo = false;
 
 QDateTime horaDiaAtual = QDateTime::currentDateTime();
 
@@ -138,13 +141,13 @@ void criar::subtextos(){
             }else{
 
                 //Erro ao encontrar a ID
-                qDebug() << "Aviso: Nenhum registro encontrado com o ID."; // mudar para texto para usuario
+                QMessageBox::warning(this,"Erro","Nenhum registro encontrado com o ID."); // mudar para texto para usuario
             }
 
         }else{
 
             //erro ao executar a requesição
-            qDebug() << "Erro ao executar o SELECT:" << abreNotas.lastError().text(); // mudar para texto para usuario
+            QMessageBox::warning(this,"Erro","Erro ao executar o SELECT:" + abreNotas.lastError().text());
 
         }
 
@@ -384,14 +387,21 @@ void criar::salvar(){
     if(editando == false){
 
         salvaBloco.prepare("insert into infoUsers (nome,bloco,data,horas,urgencia,andamento,userPropId,userCreatorID,editavel) "
-                           "values ('"+nome+"',:bloco,'"+data+"','"+hora+"','"+urgencia+"',0,'"+QString::number(idRecuperada)+"',:userCreator,:editar)");
+                           "values (:nome,:bloco,:data,:hora,:urgencia,0,:idProprietario,:userCreator,:editar)");
 
-        salvaBloco.bindValue(":bloco", bloco); // Quando encontrar essa palavra, vai passar essa variavel
+        salvaBloco.bindValue(":nome", nome);
+        salvaBloco.bindValue(":bloco", bloco);
+        salvaBloco.bindValue(":data", data);
+        salvaBloco.bindValue(":hora", hora);
+        salvaBloco.bindValue(":urgencia", urgencia);
+        salvaBloco.bindValue(":idProprietario", QString::number(idRecuperada));
         //a urgencia recebe 0 para ficar como em andamento
 
         if(ADMEditando == true){
 
             salvaBloco.bindValue(":userCreator", IdDoCriador);
+
+
 
         }else{
 
@@ -399,7 +409,11 @@ void criar::salvar(){
 
         }
 
+
+
         salvaBloco.bindValue(":editar", editarADMFiltro);//0 - desativado | 1 - ativado
+
+
 
     }else{
 
@@ -469,16 +483,14 @@ void criar::diffBloco(){
 
             contBanco = valorDoMax + 1;
 
-            //qDebug() << "contBanco calculado:" << contBanco;
 
          }else{
-
-             qDebug() << "NExt falhou";// mudar para texto para usuario
+            QMessageBox::warning(this,"Erro","Next Falhou");
 
         }
      }else{
 
-        qDebug() << "Exec falhou";// mudar para texto para usuario
+        QMessageBox::warning(this,"Erro","exec Falhou");// mudar para texto para usuario
 
     }
 
@@ -597,7 +609,6 @@ void criar::salvarParaMultiplosUsuarios(){
     }
 
     if (msgBox.exec() == QMessageBox::Ok) {
-        qDebug() << "Processando IDs de usuários selecionados:" << idsSelecionados;
 
         for (int idUsuario : idsSelecionados) {
 

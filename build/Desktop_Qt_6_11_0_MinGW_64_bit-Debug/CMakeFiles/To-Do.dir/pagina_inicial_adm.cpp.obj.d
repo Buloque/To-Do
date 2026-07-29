@@ -752,5 +752,15 @@ CMakeFiles/To-Do.dir/pagina_inicial_adm.cpp.obj: \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLayout \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtCore/QMap \
  D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
- D:\Projetos\QT\To-Do\pagina_inicial.h D:\Projetos\QT\To-Do\criar.h
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/QLineEdit \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
+ D:/Programas/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
+ D:\Projetos\QT\To-Do\pagina_inicial.h D:\Projetos\QT\To-Do\criar.h \
+ D:\Projetos\QT\To-Do\registrar.h

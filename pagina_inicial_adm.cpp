@@ -3,11 +3,17 @@
 
 #include <QtSql>
 #include <QMessageBox>
+#include <QComboBox>
+#include <QLayout>
+#include <QMap>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QLineEdit>
+
 
 #include "pagina_inicial.h"
 #include "criar.h"
+#include "registrar.h"
 
 int idPerm;
 int id;
@@ -56,7 +62,7 @@ void pagina_inicial_ADM::carregaUsers(){
                     int idBanco = users.value(0).toInt();
                     QString nomeUser = users.value(1).toString();
 
-                    QString lista = "Nome do usuario: " + users.value(1).toString() + " " + users.value(2).toString();
+                    QString lista =  users.value(1).toString();
 
                     QListWidgetItem *bInterno = new QListWidgetItem(lista,ui->lwUsers);//pode chamar com variavel
                     bInterno->setSizeHint(QSize(0, 30));
@@ -110,16 +116,40 @@ void pagina_inicial_ADM::on_lwUsers_itemDoubleClicked(QListWidgetItem *item)
 
 }
 
+void pagina_inicial_ADM::verificaBlocosParaApagar(){
+
+
+}
+
+void pagina_inicial_ADM::apagarVariosBlocos(){
+
+
+
+}
+
 
 void pagina_inicial_ADM::on_pbMudarSenha_clicked()
 {
+    if(!(idUserSelecionado == 0)){
 
-    /////////////////////////////////////continuar
+        registrar *abrirReg = new registrar(false,true,idUserSelecionado,nomeArmazenadoUser); // mesma coisa que Pagina_Inicial abrirTI;
 
-    QSqlQuery mudaSenha;
 
-    mudaSenha.prepare("UPDATE Senha SET :senha WHERE id = :id");
+        abrirReg->setModal(true);//não deixa o usuario mudar nada na pagina anterior
 
+        this -> hide();//fecha temporariamente a tela
+
+        abrirReg->exec();
+
+        this -> show();
+
+        qDebug() << "Teste";
+
+    }else{
+
+        QMessageBox::warning(this,"Atenção"
+                             ,"Selecione um usuario");
+    }
 }
 
 

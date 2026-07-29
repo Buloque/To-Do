@@ -14,7 +14,9 @@ class registrar : public QDialog
     Q_OBJECT
 
 public:
-    explicit registrar(bool primeiroRegistro,QWidget *parent = nullptr);
+    explicit registrar(bool primeiroRegistro,bool atualizandoSenha,int idUser,QString nomeUsuario,QWidget *parent = nullptr);
+
+    void atualizarSenhaUsuario();
 
     ~registrar();
 

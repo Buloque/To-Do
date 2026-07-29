@@ -32,6 +32,10 @@ private slots:
 
     void on_pbCriarM_clicked();
 
+    void apagarVariosBlocos();
+
+    void verificaBlocosParaApagar();
+
 protected:
     void closeEvent(QCloseEvent *event);
 

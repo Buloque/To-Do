@@ -124,7 +124,7 @@ void Login::verificaADM(){
 
     }else{
 
-        qDebug() << "erro";// mostrar para o usuario
+        QMessageBox::warning(this,"Erro","Consulta ADM deu erro");
 
     }
 
@@ -146,15 +146,15 @@ void Login::criandoBanco(){
     QSqlQuery criando;
 
     if (!bancoDados.isOpen()) {
-        qDebug() << "Erro fatal: O banco de dados não está aberto.";//fazer mostrar para o usuario
-        qDebug() << "Detalhes do banco:" << bancoDados.lastError().text();//fazer mostrar para o usuario
+        QMessageBox::warning(this,"Erro","Erro fatal: O banco de dados não está aberto.<br>Detalhes do banco:" + (bancoDados.lastError().text()));//fazer mostrar para o usuario
+
     }
 
     for(const QString &tabela : std::as_const(tabelas)){//
 
         if(!criando.exec(tabela)){
 
-            ui->statusbar->showMessage("Erro ao executar a criação de tabela:" + criando.lastError().text());
+            QMessageBox::warning(this,"Erro","Erro ao executar a criação de tabela:" + criando.lastError().text());
 
         }else{
 
@@ -247,7 +247,7 @@ void Login::on_btnEntrar_clicked()
 void Login::on_pushButton_clicked()//registrar
 {
 
-    registrar *abrirReg = new registrar(primeiroLogin); // mesma coisa que Pagina_Inicial abrirTI;
+    registrar *abrirReg = new registrar(primeiroLogin,false,0,""); // mesma coisa que Pagina_Inicial abrirTI;
 
 
     abrirReg->setModal(true);//não deixa o usuario mudar nada na pagina anterior
@@ -256,7 +256,7 @@ void Login::on_pushButton_clicked()//registrar
 
     abrirReg->exec();
 
-
+    this -> show();
 
     verificaUsers();
 

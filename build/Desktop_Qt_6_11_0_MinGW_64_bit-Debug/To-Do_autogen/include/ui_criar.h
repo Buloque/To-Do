@@ -74,6 +74,7 @@ public:
 
         editavelADM = new QCheckBox(criar);
         editavelADM->setObjectName("editavelADM");
+        editavelADM->setChecked(true);
 
         horizontalLayout_4->addWidget(editavelADM);
 

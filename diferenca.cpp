@@ -7,6 +7,8 @@
 #include <QScrollBar>
 #include <QtSql>
 
+#include <QMessageBox>
+
 int idB; // id do bloco
 int idD; // id do Diff
 QString tituloOriginal;
@@ -73,7 +75,7 @@ void diferenca::chamandoBanco(){
 
     }else{
 
-        qDebug() << "Erro ao executar chamando bloco:" << abrenota.lastError().text();
+        QMessageBox::warning(this,"Erro","Erro ao executar chamando bloco:" + abrenota.lastError().text());
 
     }
 
@@ -95,12 +97,11 @@ void diferenca::chamandoDiff(){
             textoDiff = abreDiff.value(1).toString();
             idUserDiff = abreDiff.value(2).toInt();
 
-            qDebug() << textoDiff;
         }
 
     }else{
 
-        qDebug() << "Erro ao executar chamandoDiff:" << abreDiff.lastError().text();
+        QMessageBox::warning(this,"Erro","Erro ao executar Diferencial:" + abreDiff.lastError().text());
 
     }
 
@@ -122,7 +123,8 @@ void diferenca::chamandoUser(){
 
     }else{
 
-        qDebug() << "Erro ao executar SolicitaNome:" << solicitaNome.lastError().text();
+
+        QMessageBox::warning(this,"Erro","Erro ao executar SolicitaNome:" + solicitaNome.lastError().text());
 
     }
 
@@ -134,11 +136,10 @@ void diferenca::comparaTitulo(){
     if(tituloOriginal == tituloDiff){
 
         ui->cbTitulo->setChecked(true);
-        qDebug() << "titulo true";
+
     }else{
 
         ui->cbTitulo->setChecked(false);
-        qDebug() << "titulo false";
 
     }
 
